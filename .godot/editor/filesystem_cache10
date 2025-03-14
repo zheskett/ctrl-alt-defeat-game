@@ -1,4 +1,12 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1741217455
-icon.svg::CompressedTexture2D::8446212430044200796::1741217438::1741217458::1::::<><><>0<>0<>9f1d85446c7b3ed89a4d6b0a73a02cae<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
-README.md::TextFile::-1::1741217230::0::1::::<><><>0<>0<><>::
+::res://::1741925355
+icon.svg::CompressedTexture2D/CompressedTexture2D::8446212430044200796::1741925285::1741925285::1::::<><><>0<>0<>9f1d85446c7b3ed89a4d6b0a73a02cae<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
+README.md::TextFile::-1::1741925285::0::1::::<><><>0<>0<><>::
+::res://addons/::1741925285
+::res://addons/godot-git-plugin/::1741925285
+git_plugin.gdextension::GDExtension::8968844712805567065::1741925285::0::1::::<><><>0<>0<><>::
+plugin.cfg::TextFile::-1::1741925285::0::1::::<><><>0<>0<><>::
+THIRDPARTY.md::TextFile::-1::1741925285::0::1::::<><><>0<>0<><>::
+::res://addons/godot-git-plugin/linux/::1741925285
+::res://addons/godot-git-plugin/macos/::1741925285
+::res://addons/godot-git-plugin/win64/::1741925285
