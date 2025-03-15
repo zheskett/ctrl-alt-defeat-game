@@ -1,0 +1,77 @@
+[gd_scene load_steps=6 format=3 uid="uid://wctx11cxs4f6"]
+
+[ext_resource type="Script" uid="uid://btptnsf87ip8p" path="res://scripts/orientation.gd" id="1_881rf"]
+
+[sub_resource type="Animation" id="Animation_nb00n"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_agy5w"]
+resource_name = "fadeIn"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(1, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ma3pu"]
+resource_name = "fadeOut"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8irfi"]
+_data = {
+&"RESET": SubResource("Animation_nb00n"),
+&"fadeIn": SubResource("Animation_agy5w"),
+&"fadeOut": SubResource("Animation_ma3pu")
+}
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_881rf")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_right = 382.0
+offset_bottom = 203.0
+text = "You are being introduced to this game ... it is awesome ..."
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_8irfi")
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -36.0
+offset_top = -37.0
+offset_right = 568.0
+offset_bottom = 319.0
+color = Color(0, 0, 0, 1)
