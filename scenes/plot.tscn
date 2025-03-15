@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://2gp1uqqrgsjn"]
+
+[ext_resource type="Texture2D" uid="uid://cbauec4j2d4ol" path="res://assets/temp_art/kenney_abstract-platformer/PNG/Tiles/Brown tiles/tileBrown_09.png" id="1_8jf6g"]
+[ext_resource type="Script" uid="uid://fyhmk3oyic1o" path="res://scenes/plot.gd" id="1_cyvgl"]
+[ext_resource type="Texture2D" uid="uid://7sjv8fvoqyjn" path="res://assets/temp_art/kenney_abstract-platformer/PNG/Tiles/Brown tiles/tileBrown_18.png" id="3_410i3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_syd1t"]
+size = Vector2(64, 64)
+
+[node name="Plot" type="Area2D" node_paths=PackedStringArray("sprite")]
+monitoring = false
+monitorable = false
+script = ExtResource("1_cyvgl")
+sprite = NodePath("Sprite2D")
+empty_texture = ExtResource("1_8jf6g")
+filled_texture = ExtResource("3_410i3")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_8jf6g")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_syd1t")
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]
