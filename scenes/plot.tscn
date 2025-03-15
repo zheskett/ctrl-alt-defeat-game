@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://2gp1uqqrgsjn"]
+[gd_scene load_steps=9 format=3 uid="uid://2gp1uqqrgsjn"]
 
 [ext_resource type="Texture2D" uid="uid://cbauec4j2d4ol" path="res://assets/temp_art/kenney_abstract-platformer/PNG/Tiles/Brown tiles/tileBrown_09.png" id="1_8jf6g"]
 [ext_resource type="Script" uid="uid://fyhmk3oyic1o" path="res://scripts/plot.gd" id="1_cyvgl"]
@@ -7,10 +7,99 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_syd1t"]
 size = Vector2(64, 64)
 
-[node name="Plot" type="Area2D" node_paths=PackedStringArray("sprite")]
+[sub_resource type="Animation" id="Animation_410i3"]
+resource_name = "harvest"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ScoreLabel:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ScoreLabel:position:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(2, -0.25, 0, 0.25, 0, 47, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ScoreLabel:position:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(-47, -0.25, 0, 0.533333, 19, -101, -0.233333, -15, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5)
+}
+
+[sub_resource type="Animation" id="Animation_76l7f"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ScoreLabel:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ScoreLabel:position:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(2, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ScoreLabel:position:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-47, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ryjlh"]
+_data = {
+&"RESET": SubResource("Animation_76l7f"),
+&"harvest": SubResource("Animation_410i3")
+}
+
+[sub_resource type="LabelSettings" id="LabelSettings_72cjw"]
+font_size = 32
+font_color = Color(1.33803e-05, 0.915275, 3.85046e-07, 1)
+shadow_size = 6
+shadow_color = Color(0, 0, 0, 0.305882)
+
+[node name="Plot" type="Area2D" node_paths=PackedStringArray("ray_cast", "animation_player", "sprite")]
 monitoring = false
 monitorable = false
 script = ExtResource("1_cyvgl")
+ray_cast = NodePath("RayCast2D")
+animation_player = NodePath("AnimationPlayer")
 sprite = NodePath("Sprite2D")
 empty_texture = ExtResource("1_8jf6g")
 filled_texture = ExtResource("3_410i3")
@@ -18,7 +107,27 @@ filled_texture = ExtResource("3_410i3")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_8jf6g")
 
+[node name="RayCast2D" type="RayCast2D" parent="."]
+target_position = Vector2(0, 160)
+collide_with_areas = true
+collide_with_bodies = false
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_syd1t")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_ryjlh")
+}
+
+[node name="ScoreLabel" type="Label" parent="."]
+visible = false
+z_index = 10
+offset_left = 2.0
+offset_top = -47.0
+offset_right = 42.0
+offset_bottom = -2.0
+text = "+2"
+label_settings = SubResource("LabelSettings_72cjw")
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]

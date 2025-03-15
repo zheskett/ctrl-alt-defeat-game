@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://b57jsm3r2i82o" path="res://assets/temp_art/kenney_abstract-platformer/PNG/Tiles/Blue tiles/tileBlue_02.png" id="2_1wnk6"]
 [ext_resource type="Script" uid="uid://dlikl1quq4xru" path="res://scripts/mouse_crop_sprite.gd" id="2_2gb4t"]
 [ext_resource type="Script" uid="uid://iwk201shhper" path="res://scripts/farm_tile_map.gd" id="3_no2rj"]
-[ext_resource type="Texture2D" uid="uid://uaui05lusl45" path="res://assets/temp_art/kenney_abstract-platformer/PNG/Tiles/Blue tiles/tileBlue_05.png" id="3_sttdm"]
+[ext_resource type="Texture2D" uid="uid://cmmc0kwsxtvi6" path="res://assets/temp_art/kenney_abstract-platformer/PNG/Tiles/Green tiles/tileGreen_08.png" id="3_nuhvp"]
 [ext_resource type="Texture2D" uid="uid://d20tiei8nc73k" path="res://assets/temp_art/kenney_abstract-platformer/PNG/Tiles/Yellow tiles/tileYellow_09.png" id="5_nuhvp"]
 
 [sub_resource type="Curve" id="Curve_1n404"]
@@ -23,7 +23,7 @@ mouse_crop_sprite = NodePath("MouseCropSprite")
 [node name="MouseCropSprite" type="Sprite2D" parent="."]
 z_index = 20
 script = ExtResource("2_2gb4t")
-cabbage_texture = ExtResource("3_sttdm")
+yam_texture = ExtResource("3_nuhvp")
 
 [node name="TopBar" type="Control" parent="."]
 z_index = 10
@@ -57,7 +57,7 @@ grow_horizontal = 2
 scale = Vector2(2, 2)
 alignment = 1
 
-[node name="CabbageButton" type="TextureButton" parent="TopBar/VBoxContainer"]
+[node name="YamButton" type="TextureButton" parent="TopBar/VBoxContainer"]
 layout_mode = 2
 tooltip_text = "Cabbage"
 mouse_default_cursor_shape = 2
@@ -77,6 +77,12 @@ texture_hover = ExtResource("5_nuhvp")
 texture_disabled = ExtResource("5_nuhvp")
 texture_focused = ExtResource("5_nuhvp")
 
+[node name="NextButton" type="Button" parent="TopBar/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 4
+text = "Harvest"
+
 [node name="FarmTileMap" type="TileMapLayer" parent="." node_paths=PackedStringArray("farming_node")]
 scale = Vector2(2, 2)
 tile_map_data = PackedByteArray("AAD4//z/AAAAAAAAAAD4//3/AAAAAAAAAAD4//7/AAAAAAAAAAD4////AAAAAAAAAAD4/wAAAAAAAAAAAAD4/wEAAAAAAAAAAAD5//z/AAAAAAAAAAD5//3/AAAAAAAAAAD5//7/AAAAAAAAAAD5////AAAAAAAAAAD5/wAAAAAAAAAAAAD5/wEAAAAAAAAAAAD6//z/AAAAAAAAAAD6//3/AAAAAAAAAAD6//7/AAAAAAAAAAD6////AAAAAAAAAAD6/wAAAAAAAAAAAAD6/wEAAAAAAAAAAAD7//z/AAAAAAAAAAD7//3/AAAAAAAAAAD7//7/AAAAAAAAAAD7////AQAAAAAAAQD7/wAAAAAAAAAAAAD7/wEAAQAAAAAAAQD8//z/AAAAAAAAAAD8//3/AAAAAAAAAAD8//7/AAAAAAAAAAD8////AAAAAAAAAAD8/wAAAAAAAAAAAAD8/wEAAAAAAAAAAAD9//z/AAAAAAAAAAD9//3/AAAAAAAAAAD9//7/AAAAAAAAAAD9////AAAAAAAAAAD9/wAAAAAAAAAAAAD9/wEAAAAAAAAAAAD+//z/AAAAAAAAAAD+//3/AAAAAAAAAAD+//7/AAAAAAAAAAD+////AQAAAAAAAQD+/wAAAAAAAAAAAAD+/wEAAQAAAAAAAQD///z/AAAAAAAAAAD///3/AAAAAAAAAAD///7/AAAAAAAAAAD/////AAAAAAAAAAD//wEAAAAAAAAAAAAAAPz/AAAAAAAAAAAAAP3/AAAAAAAAAAAAAP7/AAAAAAAAAAAAAP//AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAABAPz/AAAAAAAAAAABAP3/AAAAAAAAAAABAP7/AAAAAAAAAAABAP//AQAAAAAAAQABAAAAAAAAAAAAAAABAAEAAQAAAAAAAQACAPz/AAAAAAAAAAACAP3/AAAAAAAAAAACAP7/AAAAAAAAAAACAP//AAAAAAAAAAACAAAAAAAAAAAAAAACAAEAAAAAAAAAAAADAPz/AAAAAAAAAAADAP3/AAAAAAAAAAADAP7/AAAAAAAAAAADAP//AAAAAAAAAAADAAAAAAAAAAAAAAADAAEAAAAAAAAAAAAEAPz/AAAAAAAAAAAEAP3/AAAAAAAAAAAEAP7/AAAAAAAAAAAEAP//AQAAAAAAAQAEAAAAAAAAAAAAAAAEAAEAAQAAAAAAAQAFAPz/AAAAAAAAAAAFAP3/AAAAAAAAAAAFAP7/AAAAAAAAAAAFAP//AAAAAAAAAAAFAAAAAAAAAAAAAAAFAAEAAAAAAAAAAAAGAPz/AAAAAAAAAAAGAP3/AAAAAAAAAAAGAP7/AAAAAAAAAAAGAP//AAAAAAAAAAAGAAAAAAAAAAAAAAAGAAEAAAAAAAAAAAAHAPz/AAAAAAAAAAAHAP3/AAAAAAAAAAAHAP7/AAAAAAAAAAAHAP//AAAAAAAAAAAHAAAAAAAAAAAAAAAHAAEAAAAAAAAAAAD4/wIAAAAAAAAAAAD4/wMAAAAAAAAAAAD4/wQAAAAAAAAAAAD5/wIAAAAAAAAAAAD5/wMAAAAAAAAAAAD5/wQAAAAAAAAAAAD6/wIAAAAAAAAAAAD6/wMAAAAAAAAAAAD6/wQAAAAAAAAAAAD7/wIAAAAAAAAAAAD7/wMAAQAAAAAAAQD7/wQAAAAAAAAAAAD8/wIAAAAAAAAAAAD8/wMAAAAAAAAAAAD8/wQAAAAAAAAAAAD9/wIAAAAAAAAAAAD9/wMAAAAAAAAAAAD9/wQAAAAAAAAAAAD+/wIAAAAAAAAAAAD+/wMAAQAAAAAAAQD+/wQAAAAAAAAAAAD//wIAAAAAAAAAAAD//wMAAAAAAAAAAAD//wQAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAAQAAAAAAAAAAAABAAIAAAAAAAAAAAABAAMAAQAAAAAAAQABAAQAAAAAAAAAAAACAAIAAAAAAAAAAAACAAMAAAAAAAAAAAACAAQAAAAAAAAAAAADAAIAAAAAAAAAAAADAAMAAAAAAAAAAAADAAQAAAAAAAAAAAAEAAIAAAAAAAAAAAAEAAMAAQAAAAAAAQAEAAQAAAAAAAAAAAAFAAIAAAAAAAAAAAAFAAMAAAAAAAAAAAAFAAQAAAAAAAAAAAAGAAIAAAAAAAAAAAAGAAMAAAAAAAAAAAAGAAQAAAAAAAAAAAAHAAIAAAAAAAAAAAAHAAMAAAAAAAAAAAAHAAQAAAAAAAAAAAD4//v/AAAAAAAAAAD5//v/AAAAAAAAAAD6//v/AAAAAAAAAAD7//v/AAAAAAAAAAD8//v/AAAAAAAAAAD9//v/AAAAAAAAAAD+//v/AAAAAAAAAAD///v/AAAAAAAAAAAAAPv/AAAAAAAAAAABAPv/AAAAAAAAAAACAPv/AAAAAAAAAAADAPv/AAAAAAAAAAAEAPv/AAAAAAAAAAAFAPv/AAAAAAAAAAAGAPv/AAAAAAAAAAAHAPv/AAAAAAAAAAD//wAAAAAAAAAAAAA=")
@@ -86,17 +92,18 @@ farming_node = NodePath("..")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
-[connection signal="pressed" from="TopBar/VBoxContainer/CabbageButton" to="." method="_on_cabbage_button_pressed"]
+[connection signal="pressed" from="TopBar/VBoxContainer/YamButton" to="." method="_on_yam_button_pressed"]
 [connection signal="pressed" from="TopBar/VBoxContainer/ClearButton" to="." method="_on_clear_button_pressed"]
+[connection signal="pressed" from="TopBar/VBoxContainer/NextButton" to="." method="_on_next_button_pressed"]
 [connection signal="input_event" from="FarmTileMap/Plot" to="FarmTileMap/Plot" method="_on_input_event"]
-[connection signal="input_event" from="FarmTileMap/@Area2D@212744" to="FarmTileMap/@Area2D@212744" method="_on_input_event"]
-[connection signal="input_event" from="FarmTileMap/@Area2D@212745" to="FarmTileMap/@Area2D@212745" method="_on_input_event"]
-[connection signal="input_event" from="FarmTileMap/@Area2D@212746" to="FarmTileMap/@Area2D@212746" method="_on_input_event"]
-[connection signal="input_event" from="FarmTileMap/@Area2D@212747" to="FarmTileMap/@Area2D@212747" method="_on_input_event"]
-[connection signal="input_event" from="FarmTileMap/@Area2D@212748" to="FarmTileMap/@Area2D@212748" method="_on_input_event"]
-[connection signal="input_event" from="FarmTileMap/@Area2D@212749" to="FarmTileMap/@Area2D@212749" method="_on_input_event"]
-[connection signal="input_event" from="FarmTileMap/@Area2D@212750" to="FarmTileMap/@Area2D@212750" method="_on_input_event"]
-[connection signal="input_event" from="FarmTileMap/@Area2D@212751" to="FarmTileMap/@Area2D@212751" method="_on_input_event"]
-[connection signal="input_event" from="FarmTileMap/@Area2D@212752" to="FarmTileMap/@Area2D@212752" method="_on_input_event"]
-[connection signal="input_event" from="FarmTileMap/@Area2D@212753" to="FarmTileMap/@Area2D@212753" method="_on_input_event"]
-[connection signal="input_event" from="FarmTileMap/@Area2D@212754" to="FarmTileMap/@Area2D@212754" method="_on_input_event"]
+[connection signal="input_event" from="FarmTileMap/@Area2D@260150" to="FarmTileMap/@Area2D@260150" method="_on_input_event"]
+[connection signal="input_event" from="FarmTileMap/@Area2D@260151" to="FarmTileMap/@Area2D@260151" method="_on_input_event"]
+[connection signal="input_event" from="FarmTileMap/@Area2D@260152" to="FarmTileMap/@Area2D@260152" method="_on_input_event"]
+[connection signal="input_event" from="FarmTileMap/@Area2D@260153" to="FarmTileMap/@Area2D@260153" method="_on_input_event"]
+[connection signal="input_event" from="FarmTileMap/@Area2D@260154" to="FarmTileMap/@Area2D@260154" method="_on_input_event"]
+[connection signal="input_event" from="FarmTileMap/@Area2D@260155" to="FarmTileMap/@Area2D@260155" method="_on_input_event"]
+[connection signal="input_event" from="FarmTileMap/@Area2D@260156" to="FarmTileMap/@Area2D@260156" method="_on_input_event"]
+[connection signal="input_event" from="FarmTileMap/@Area2D@260157" to="FarmTileMap/@Area2D@260157" method="_on_input_event"]
+[connection signal="input_event" from="FarmTileMap/@Area2D@260158" to="FarmTileMap/@Area2D@260158" method="_on_input_event"]
+[connection signal="input_event" from="FarmTileMap/@Area2D@260159" to="FarmTileMap/@Area2D@260159" method="_on_input_event"]
+[connection signal="input_event" from="FarmTileMap/@Area2D@260160" to="FarmTileMap/@Area2D@260160" method="_on_input_event"]
