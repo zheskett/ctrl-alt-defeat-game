@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://dhacemow2f4tp"]
+
+[ext_resource type="Script" uid="uid://c524511nmqqui" path="res://scenes/tree_decision.gd" id="1_nrcbm"]
+[ext_resource type="PackedScene" uid="uid://dluk8fwudk6bv" path="res://scenes/dialogBox.tscn" id="2_bwm20"]
+[ext_resource type="PackedScene" uid="uid://cbk50qcfrkmpj" path="res://scenes/treeChoiceMenu.tscn" id="3_bwm20"]
+
+[node name="TreeDecision" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_nrcbm")
+
+[node name="DialogBox" parent="." instance=ExtResource("2_bwm20")]
+
+[node name="TreeChoiceMenu" parent="." instance=ExtResource("3_bwm20")]

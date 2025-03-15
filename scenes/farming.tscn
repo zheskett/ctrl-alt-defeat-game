@@ -1,3 +1,4 @@
+
 [gd_scene load_steps=20 format=4 uid="uid://bml3xjpomcarx"]
 
 [ext_resource type="TileSet" uid="uid://cdv0oqiuilhcd" path="res://resources/temp_tile_set.tres" id="1_cbg4r"]
@@ -225,6 +226,7 @@ script = ExtResource("3_no2rj")
 farming_node = NodePath("..")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+
 
 [connection signal="pressed" from="TopBar/BeanButton" to="." method="_on_bean_button_pressed"]
 [connection signal="pressed" from="TopBar/CornButton" to="." method="_on_corn_button_pressed"]

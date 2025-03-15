@@ -2,17 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://vxoxk0dosx4d"
-
-path="res://.godot/imported/GreyscaleOpeningScreen.png-90c58a44fb76bb71e9e594e236f8b12e.ctex"
+uid="uid://dnhft5jgsbnca"
+path="res://.godot/imported/GreyscaleGovernmentOffice.png-28d2f1c47372d76c9beeaaffaef73c8a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/temp_art/GreyscaleOpeningScreen.png"
-dest_files=["res://.godot/imported/GreyscaleOpeningScreen.png-90c58a44fb76bb71e9e594e236f8b12e.ctex"]
+source_file="res://assets/temp_art/GreyscaleGovernmentOffice.png"
+dest_files=["res://.godot/imported/GreyscaleGovernmentOffice.png-28d2f1c47372d76c9beeaaffaef73c8a.ctex"]
 
 [params]
 

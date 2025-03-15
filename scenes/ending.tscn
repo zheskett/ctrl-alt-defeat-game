@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://dbwi4xmkgckb0"]
+
+[ext_resource type="Script" uid="uid://cpkbqg4k0xeer" path="res://scripts/ending.gd" id="1_2x1jc"]
+[ext_resource type="Texture2D" uid="uid://dnhft5jgsbnca" path="res://assets/temp_art/GreyscaleGovernmentOffice.png" id="1_fyrdv"]
+[ext_resource type="PackedScene" uid="uid://dluk8fwudk6bv" path="res://scenes/dialogBox.tscn" id="2_2x1jc"]
+
+[node name="Ending" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_2x1jc")
+
+[node name="GreyscaleGovernmentOffice" type="Sprite2D" parent="."]
+position = Vector2(952, 547)
+texture = ExtResource("1_fyrdv")
+
+[node name="DialogBox" parent="." instance=ExtResource("2_2x1jc")]

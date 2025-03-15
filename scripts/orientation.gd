@@ -17,5 +17,5 @@ func _input(event):
 		fadeOut_ready = false
 		animation_player.play("fadeOut")
 		await animation_player.animation_finished
-		#get_tree().change_scene() #TODO: add correct path
+		get_tree().change_scene_to_file("res://scenes/townMeeting.tscn")
 	
