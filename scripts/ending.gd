@@ -1,9 +1,10 @@
 extends Control
 
-@onready var dialog_box = preload("res://scenes/dialogBox.tscn").instantiate()
+@onready var dialog_box = $DialogBox
+
 
 func _ready():
-	get_tree().get_root().add_child(dialog_box)
+	#get_tree().get_root().add_child.call_deferred(dialog_box)
 	
 	#NOTE: 4 - Thompson
 	await dialog_box.show_dialog(0, "Good afternoon, Director Thompson. We've been testing crops resilient to drought, heat, and flooding, and have developed a strategy based on local knowledge that we believe should be part of the National Adaptation Policy.")

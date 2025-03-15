@@ -34,14 +34,14 @@ var characters = { #TODO: fix the image paths !!!
 var Message = ""
 
 func _ready():
-	#self.hide()
+	self.hide()
 
 #Used ChatGPT to create show_dialog()
-func show_dialog(char: int, message: String):
+func show_dialog(charid: int, message: String):
 	self.show()
 	Message = message
-	if char in characters and Name and Text and face:
-		var character = characters[char]
+	if charid in characters and Name and Text and face:
+		var character = characters[charid]
 		Name.text = character["name"] #load name
 		face.texture = load(character["image"]) #load facial image
 		finished = false

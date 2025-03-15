@@ -1,6 +1,6 @@
 extends Control
 
-@onready var dialog_box = preload("res://scenes/dialogBox.tscn").instantiate()
+@onready var dialog_box = $"Welcome Message"
 @onready var animation_player = $AnimationPlayer
 #NOTE TO SELF:
 	# 0 - John
@@ -8,7 +8,6 @@ extends Control
 	# 2 - Saimoni
 	# 3 - Ana
 func _ready():
-	get_tree().get_root().add_child(dialog_box)
 	#John
 	await dialog_box.show_dialog(0, "Welcome, everyone. We have gathered today to discuss the future of our village and how we can adapt to the climate challenges we're facing.")
 	await dialog_box.show_dialog(0, "The situation is worsening – from rising sea levels to more extreme weather. The National Adaptaion Plan doesn't address these situations.")
