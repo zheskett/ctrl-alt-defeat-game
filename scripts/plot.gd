@@ -4,22 +4,31 @@ class_name Plot
 @export var ray_cast: RayCast2D
 @export var animation_player: AnimationPlayer
 
-@export_subgroup("Textures")
+@export_category("Textures")
 @export var sprite: Sprite2D
 @export var empty_texture: Texture2D
-@export var filled_texture: Texture2D
+@export var texture_array: Array[Array]
 
-@export_subgroup("State")
+@export_category("State")
 @export var crop: Global.Crops = Global.Crops.EMPTY
+
+const WATER_DICT : Dictionary[Global.Crops, int] = {
+	Global.Crops.YAM: 8
+}
 
 var farming_node: Farming
 var harvested := true
+var stage := 0
+var water := 0
+var water_needed := 0
+var mouse_in := false
 
+# Handle watering
 func _mouse_enter() -> void:
-	pass
+	mouse_in = true
 
 func _mouse_exit() -> void:
-	pass
+	mouse_in = false
 
 func _on_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.is_action_pressed("click"):
@@ -32,9 +41,16 @@ func reset_plot() -> void:
 	harvested = true
 	self.crop = Global.Crops.EMPTY
 	sprite.texture = empty_texture
+	$WaterParticles.emitting = false
+
+func grow_plant() -> void:
+	if stage < 2:
+		stage += 1
+		sprite.texture = texture_array[self.crop - 1][stage]
 
 func plant_clicked() -> void:
 	if farming_node.is_harvesting and self.crop != Global.Crops.EMPTY:
+		$WaterParticles.emitting = false
 		var num_same := 0
 		var num_diff := 0
 		var score := 1
@@ -71,13 +87,26 @@ func plant_clicked() -> void:
 
 
 	elif farming_node.is_planting:
-		if self.crop != Global.Crops.EMPTY and farming_node.current_crop != Global.Crops.EMPTY:
+		if self.crop != Global.Crops.EMPTY or farming_node.current_crop == Global.Crops.EMPTY:
 			return
-		
 		
 		self.harvested = false
 		self.crop = farming_node.current_crop
-		if farming_node.current_crop == Global.Crops.YAM:
-			sprite.texture = filled_texture
+		stage = 0
+		sprite.texture = texture_array[self.crop - 1][stage]
+		self.water = 0
+		self.water_needed = WATER_DICT.get(self.crop, 1)
 		
 		animation_player.play("plant_crop")
+		farming_node.plant_planted()
+
+func _physics_process(delta: float) -> void:
+	if not self.mouse_in or not Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
+		return
+	if farming_node.is_watering and self.water < self.water_needed and self.crop != Global.Crops.EMPTY:
+		water += 1
+		if water >= water_needed:
+			$WaterParticles.emitting = true
+			pass
+	
+	
