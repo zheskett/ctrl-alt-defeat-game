@@ -1,0 +1,3 @@
+extends Node
+
+enum Crops {EMPTY = 0, CABBAGE, CARROT, SWEETPOTATO, SORGUM}
