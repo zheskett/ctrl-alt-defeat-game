@@ -74,7 +74,10 @@ func plant_clicked() -> void:
 		if self.crop != Global.Crops.EMPTY and farming_node.current_crop != Global.Crops.EMPTY:
 			return
 		
+		
 		self.harvested = false
 		self.crop = farming_node.current_crop
 		if farming_node.current_crop == Global.Crops.YAM:
 			sprite.texture = filled_texture
+		
+		animation_player.play("plant_crop")
