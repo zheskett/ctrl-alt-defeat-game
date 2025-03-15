@@ -1,9 +1,45 @@
-[gd_scene load_steps=5 format=3 uid="uid://bej1gyds30mbt"]
+[gd_scene load_steps=8 format=3 uid="uid://bej1gyds30mbt"]
 
-[ext_resource type="Script" uid="uid://ba0hfgaei8xaa" path="res://scenes/town_meeting.gd" id="1_4gu45"]
+[ext_resource type="Script" uid="uid://ba0hfgaei8xaa" path="res://scripts/town_meeting.gd" id="1_4gu45"]
 [ext_resource type="PackedScene" uid="uid://dluk8fwudk6bv" path="res://scenes/dialogBox.tscn" id="2_eyhm6"]
 [ext_resource type="Texture2D" uid="uid://dtm2jornx3vwj" path="res://assets/temp_art/GreyscaleTalanoa.png" id="2_njm8m"]
 [ext_resource type="Script" uid="uid://c1cym3vgkrhum" path="res://scripts/dialog_box.gd" id="4_njm8m"]
+
+[sub_resource type="Animation" id="Animation_njm8m"]
+resource_name = "fadeOut"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.360784, 0.360784, 0.360784, 0), Color(0.360784, 0.360784, 0.360784, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_mg5qe"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.360784, 0.360784, 0.360784, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_14yj5"]
+_data = {
+&"RESET": SubResource("Animation_mg5qe"),
+&"fadeOut": SubResource("Animation_njm8m")
+}
 
 [node name="TownMeeting" type="Control"]
 layout_mode = 3
@@ -18,3 +54,14 @@ texture = ExtResource("2_njm8m")
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("4_njm8m")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_14yj5")
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1948.0
+offset_bottom = 1126.0
+color = Color(0.360784, 0.360784, 0.360784, 0)

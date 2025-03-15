@@ -1,7 +1,7 @@
 extends Control
 
 @onready var dialog_box = preload("res://scenes/dialogBox.tscn").instantiate()
-
+@onready var animation_player = $AnimationPlayer
 #NOTE TO SELF:
 	# 0 - John
 	# 1 - Litia
@@ -20,11 +20,18 @@ func _ready():
 	
 	#Saimoni
 	await dialog_box.show_dialog(2, "Yes, but we also need to think about the land. We’ve been using soil management techniques, like fallowing practices, to give the soil a break.")
-	await dialog_box.show_dialog(2, "This helps the land recover, and it prevents erosion. It's something we can do to protect our crops and ensure a good harvest.")
+	#await dialog_box.show_dialog(2, "This helps the land recover, and it prevents erosion. It's something we can do to protect our crops and ensure a good harvest.")
 	
 	#Ana
 	await dialog_box.show_dialog(3, "I agree, but I think we need to diversify our farming. A mixed farming approach – backyard gardening, livestock farming– can help spread the risks.")
-	await dialog_box.show_dialog(3, "If one crop fails, we’ll still have others to fall back on.")
 	
+	#John
+	await dialog_box.show_dialog(0, "These are great ideas, everyone. What if we combine all of these suggestions into a single plan?")
+	await dialog_box.show_dialog(0, "We'll plant dorught-resistant crops, implement mixed cropping to help the soil, and add ashes to the soil as pest protection.")
+	await dialog_box.show_dialog(0, "Let’s start working. Together, we’ll make sure Votua stays strong and resilient in the face of these challenges.")
+	
+	animation_player.play("fadeOut")
+	await animation_player.animation_finished
 
+	
 	

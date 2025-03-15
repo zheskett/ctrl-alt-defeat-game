@@ -38,20 +38,20 @@ func _ready():
 func show_dialog(char: int, message: String):
 	self.show()
 	Message = message
-	if char in characters:
+	if char in characters and Name and Text and face:
 		var character = characters[char]
 		Name.text = character["name"] #load name
 		face.texture = load(character["image"]) #load facial image
-	finished = false
-	Text.text = ""
-	for i in range(message.length()):
-		if not finished:
-			Text.text += message[i]
-			await get_tree().create_timer(dialogSpeed).timeout
-	finished = true
-	
-	await self.dialog_finished
-	self.hide()
+		finished = false
+		Text.text = ""
+		for i in range(message.length()):
+			if not finished:
+				Text.text += message[i]
+				await get_tree().create_timer(dialogSpeed).timeout
+		finished = true
+		
+		await self.dialog_finished
+		self.hide()
 	
 #Used ChatGPT to create _input() to skip to end of text display
 func _input(event): #make player able to click to skip
