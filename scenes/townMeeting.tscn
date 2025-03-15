@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://bej1gyds30mbt"]
+[gd_scene load_steps=5 format=3 uid="uid://bej1gyds30mbt"]
 
 [ext_resource type="Script" uid="uid://ba0hfgaei8xaa" path="res://scenes/town_meeting.gd" id="1_4gu45"]
 [ext_resource type="PackedScene" uid="uid://dluk8fwudk6bv" path="res://scenes/dialogBox.tscn" id="2_eyhm6"]
-[ext_resource type="Texture2D" uid="uid://bn6blr8a1vafj" path="res://assets/temp_art/GreyscaleTalanoa.png" id="2_njm8m"]
+[ext_resource type="Texture2D" uid="uid://dtm2jornx3vwj" path="res://assets/temp_art/GreyscaleTalanoa.png" id="2_njm8m"]
+[ext_resource type="Script" uid="uid://c1cym3vgkrhum" path="res://scripts/dialog_box.gd" id="4_njm8m"]
 
 [node name="TownMeeting" type="Control"]
 layout_mode = 3
@@ -13,4 +14,7 @@ script = ExtResource("1_4gu45")
 position = Vector2(960, 545)
 texture = ExtResource("2_njm8m")
 
-[node name="Welcome Message" parent="." instance=ExtResource("2_eyhm6")]
+[node name="Welcome Message" type="Control" parent="." instance=ExtResource("2_eyhm6")]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("4_njm8m")
