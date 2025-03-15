@@ -103,6 +103,13 @@ func plant_grown() -> void:
 	# All plants grown
 	self.is_harvesting = true
 
+func plant_harvested() -> void:
+	for plot in farm_tile_map.plot_coords.values():
+		if (plot as Plot).crop != Global.Crops.TREE and (plot as Plot).harvested == false:
+			return
+	
+	# All plants harvested
+	
 
 func _on_water_button_pressed() -> void:
 	if not self.is_growing or water <= 0:
