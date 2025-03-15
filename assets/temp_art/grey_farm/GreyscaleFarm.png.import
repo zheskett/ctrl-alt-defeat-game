@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dvmg20uegddrh"
-path="res://.godot/imported/farm_tiles.png-3f1d84a8f8c96a02f90920f1499908a2.ctex"
+uid="uid://dr4mm3mg2krm2"
+path="res://.godot/imported/GreyscaleFarm.png-df0e4191c12d2ff383cd436ec41f3f40.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/temp_art/farm_tiles/farm_tiles.png"
-dest_files=["res://.godot/imported/farm_tiles.png-3f1d84a8f8c96a02f90920f1499908a2.ctex"]
+source_file="res://assets/temp_art/grey_farm/GreyscaleFarm.png"
+dest_files=["res://.godot/imported/GreyscaleFarm.png-df0e4191c12d2ff383cd436ec41f3f40.ctex"]
 
 [params]
 

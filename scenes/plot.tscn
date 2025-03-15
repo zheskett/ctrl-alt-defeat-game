@@ -1,49 +1,34 @@
-[gd_scene load_steps=9 format=3 uid="uid://2gp1uqqrgsjn"]
+[gd_scene load_steps=27 format=3 uid="uid://2gp1uqqrgsjn"]
 
-[ext_resource type="Texture2D" uid="uid://cbauec4j2d4ol" path="res://assets/temp_art/kenney_abstract-platformer/PNG/Tiles/Brown tiles/tileBrown_09.png" id="1_8jf6g"]
 [ext_resource type="Script" uid="uid://fyhmk3oyic1o" path="res://scripts/plot.gd" id="1_cyvgl"]
-[ext_resource type="Texture2D" uid="uid://7sjv8fvoqyjn" path="res://assets/temp_art/kenney_abstract-platformer/PNG/Tiles/Brown tiles/tileBrown_18.png" id="3_410i3"]
+[ext_resource type="Texture2D" uid="uid://uv02asmn5pdi" path="res://assets/temp_art/grey_farm/greyseedsweetpotates.png" id="3_72cjw"]
+[ext_resource type="Texture2D" uid="uid://ekes5r0r0qyx" path="res://assets/temp_art/grey_farm/greyseedbeans.png" id="3_c7i00"]
+[ext_resource type="Texture2D" uid="uid://bngv1yej74xws" path="res://assets/temp_art/grey_farm/greyintermediatebeans.png" id="4_0e85a"]
+[ext_resource type="FontFile" uid="uid://bkp4u3hvwimtp" path="res://assets/font/VCR_OSD_MONO_1.001.ttf" id="4_76l7f"]
+[ext_resource type="Texture2D" uid="uid://80yqpi25trel" path="res://assets/temp_art/grey_farm/GreyscaleTile.png" id="4_ryjlh"]
+[ext_resource type="Texture2D" uid="uid://dourtwojudtht" path="res://assets/temp_art/grey_farm/greyintermediatesweetpotates.png" id="4_xg80o"]
+[ext_resource type="Texture2D" uid="uid://bp7t6r0ddjbm1" path="res://assets/temp_art/grey_farm/greygrownbeans.png" id="5_0e85a"]
+[ext_resource type="Texture2D" uid="uid://bh5w0rvooi8i4" path="res://assets/temp_art/grey_farm/greygrowncorn.png" id="5_3iehw"]
+[ext_resource type="Texture2D" uid="uid://briwu1qrkys13" path="res://assets/temp_art/grey_farm/greygrownsweetpotates.png" id="5_h8l8k"]
+[ext_resource type="Texture2D" uid="uid://cd7l8c1ruc816" path="res://assets/temp_art/grey_farm/greytree.png" id="6_h8l8k"]
+[ext_resource type="Texture2D" uid="uid://dcrmxknq4do0" path="res://assets/temp_art/grey_farm/greyseedcorn.png" id="6_rd1ev"]
+[ext_resource type="AudioStream" uid="uid://j2labn6qwrj7" path="res://assets/sound/hit-plant-02-266291.mp3" id="6_xg80o"]
+[ext_resource type="Texture2D" uid="uid://bgs1re7afvn4j" path="res://assets/temp_art/grey_farm/greyintermediatescorn.png" id="7_2cd3u"]
+[ext_resource type="Texture2D" uid="uid://druka4p7jgvkn" path="res://assets/temp_art/grey_farm/greyseedcassava.png" id="8_7sqlv"]
+[ext_resource type="Texture2D" uid="uid://koxfhbkapbv8" path="res://assets/temp_art/grey_farm/greyintermediatecassava.png" id="9_joji3"]
+[ext_resource type="Texture2D" uid="uid://ciope44v1k7iv" path="res://assets/temp_art/grey_farm/greygrowncassava.png" id="10_j82x5"]
+
+[sub_resource type="Gradient" id="Gradient_72cjw"]
+offsets = PackedFloat32Array(0, 0.00414938)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_xg80o"]
+gradient = SubResource("Gradient_72cjw")
+width = 16
+height = 16
+fill_from = Vector2(0, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_syd1t"]
-size = Vector2(64, 64)
-
-[sub_resource type="Animation" id="Animation_410i3"]
-resource_name = "harvest"
-length = 0.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("ScoreLabel:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
-tracks/1/type = "bezier"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("ScoreLabel:position:x")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(2, -0.25, 0, 0.25, 0, 47, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 0.5)
-}
-tracks/2/type = "bezier"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("ScoreLabel:position:y")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(-47, -0.25, 0, 0.533333, 19, -101, -0.233333, -15, 0.25, 0),
-"times": PackedFloat32Array(0, 0.5)
-}
+size = Vector2(150, 150)
 
 [sub_resource type="Animation" id="Animation_76l7f"]
 length = 0.001
@@ -82,37 +67,131 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0)
 }
 
+[sub_resource type="Animation" id="Animation_410i3"]
+resource_name = "harvest"
+length = 0.65
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ScoreLabel:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ScoreLabel:position:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(2, -0.25, 0, 0.25, 0, 47, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ScoreLabel:position:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(-47, -0.25, 0, 0.533333, 19, -101, -0.233333, -15, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5)
+}
+tracks/3/type = "audio"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AudioStreamPlayer2D")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"clips": [{
+"end_offset": 0.2539,
+"start_offset": 0.0548,
+"stream": ExtResource("6_xg80o")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/3/use_blend = true
+
+[sub_resource type="Animation" id="Animation_ryjlh"]
+resource_name = "plant_crop"
+length = 0.7
+tracks/0/type = "audio"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AudioStreamPlayer2D")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": [{
+"end_offset": 0.249,
+"start_offset": 0.0548,
+"stream": ExtResource("6_xg80o")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/0/use_blend = true
+
+[sub_resource type="Animation" id="Animation_72cjw"]
+resource_name = "watered"
+loop_mode = 1
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ryjlh"]
 _data = {
 &"RESET": SubResource("Animation_76l7f"),
-&"harvest": SubResource("Animation_410i3")
+&"harvest": SubResource("Animation_410i3"),
+&"plant_crop": SubResource("Animation_ryjlh"),
+&"watered": SubResource("Animation_72cjw")
 }
 
 [sub_resource type="LabelSettings" id="LabelSettings_72cjw"]
+font = ExtResource("4_76l7f")
 font_size = 32
 font_color = Color(1.33803e-05, 0.915275, 3.85046e-07, 1)
 shadow_size = 6
 shadow_color = Color(0, 0, 0, 0.305882)
 
-[node name="Plot" type="Area2D" node_paths=PackedStringArray("ray_cast", "animation_player", "sprite")]
+[node name="Plot" type="Area2D" node_paths=PackedStringArray("ray_cast", "animation_player", "timer", "sprite")]
 monitoring = false
 monitorable = false
 script = ExtResource("1_cyvgl")
 ray_cast = NodePath("RayCast2D")
 animation_player = NodePath("AnimationPlayer")
+timer = NodePath("Timer")
 sprite = NodePath("Sprite2D")
-empty_texture = ExtResource("1_8jf6g")
-filled_texture = ExtResource("3_410i3")
+empty_texture = ExtResource("4_ryjlh")
+texture_array = Array[Array]([[ExtResource("3_c7i00"), ExtResource("4_0e85a"), ExtResource("5_0e85a")], [ExtResource("6_rd1ev"), ExtResource("7_2cd3u"), ExtResource("5_3iehw")], [ExtResource("8_7sqlv"), ExtResource("9_joji3"), ExtResource("10_j82x5")], [ExtResource("3_72cjw"), ExtResource("4_xg80o"), ExtResource("5_h8l8k")], [ExtResource("6_h8l8k")]])
+
+[node name="WaterParticles" type="CPUParticles2D" parent="."]
+emitting = false
+texture = SubResource("GradientTexture2D_xg80o")
+lifetime = 0.3
+preprocess = 1.0
+emission_shape = 2
+emission_sphere_radius = 43.92
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 182.93
+initial_velocity_max = 219.51
+color = Color(0, 0, 1, 1)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_8jf6g")
+texture = ExtResource("4_ryjlh")
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
-target_position = Vector2(0, 160)
+target_position = Vector2(0, 256)
 collide_with_areas = true
 collide_with_bodies = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 0)
 shape = SubResource("RectangleShape2D_syd1t")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -129,5 +208,10 @@ offset_right = 42.0
 offset_bottom = -2.0
 text = "+2"
 label_settings = SubResource("LabelSettings_72cjw")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]

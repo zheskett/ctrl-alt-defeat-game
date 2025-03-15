@@ -1,20 +1,14 @@
-[gd_resource type="TileSet" load_steps=5 format=3 uid="uid://cdv0oqiuilhcd"]
+[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://cdv0oqiuilhcd"]
 
 [ext_resource type="Texture2D" uid="uid://bofsxwshj1okb" path="res://assets/temp_art/kenney_abstract-platformer/PNG/Tiles/Green tiles/tileGreen_03.png" id="1_5kyq0"]
-[ext_resource type="PackedScene" uid="uid://2gp1uqqrgsjn" path="res://scenes/plot.tscn" id="2_fftdk"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fftdk"]
-resource_name = "Empty"
-texture = ExtResource("1_5kyq0")
-texture_region_size = Vector2i(64, 64)
-0:0/0 = 0
+[ext_resource type="PackedScene" uid="uid://2gp1uqqrgsjn" path="res://scenes/plot.tscn" id="2_fftdk"]
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_rpity"]
 resource_name = "Plots"
 scenes/1/scene = ExtResource("2_fftdk")
 
 [resource]
-tile_size = Vector2i(64, 64)
-sources/0 = SubResource("TileSetAtlasSource_fftdk")
+tile_size = Vector2i(128, 128)
 sources/1 = SubResource("TileSetScenesCollectionSource_rpity")
 tile_proxies/coords_level = [[0, Vector2i(0, 0)], [33, Vector2i(0, 0)], [1, Vector2i(0, 0)], [33, Vector2i(1, 0)], [2, Vector2i(0, 0)], [33, Vector2i(2, 0)]]

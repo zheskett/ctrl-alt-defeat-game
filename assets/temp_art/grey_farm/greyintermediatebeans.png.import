@@ -2,17 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://vxoxk0dosx4d"
-
-path="res://.godot/imported/GreyscaleOpeningScreen.png-90c58a44fb76bb71e9e594e236f8b12e.ctex"
+uid="uid://bngv1yej74xws"
+path="res://.godot/imported/greyintermediatebeans.png-bfb2753dd76d781ff12ecd8427ec59d3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/temp_art/GreyscaleOpeningScreen.png"
-dest_files=["res://.godot/imported/GreyscaleOpeningScreen.png-90c58a44fb76bb71e9e594e236f8b12e.ctex"]
+source_file="res://assets/temp_art/grey_farm/greyintermediatebeans.png"
+dest_files=["res://.godot/imported/greyintermediatebeans.png-bfb2753dd76d781ff12ecd8427ec59d3.ctex"]
 
 [params]
 

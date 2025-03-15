@@ -2,17 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://vxoxk0dosx4d"
-
-path="res://.godot/imported/GreyscaleOpeningScreen.png-90c58a44fb76bb71e9e594e236f8b12e.ctex"
+uid="uid://u8klv7h8ivgf"
+path="res://.godot/imported/Wood Plant Holders.png-cdcb51409435da1fc6cae2c376404602.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/temp_art/GreyscaleOpeningScreen.png"
-dest_files=["res://.godot/imported/GreyscaleOpeningScreen.png-90c58a44fb76bb71e9e594e236f8b12e.ctex"]
+source_file="res://assets/Wood Plant Holders.png"
+dest_files=["res://.godot/imported/Wood Plant Holders.png-cdcb51409435da1fc6cae2c376404602.ctex"]
 
 [params]
 

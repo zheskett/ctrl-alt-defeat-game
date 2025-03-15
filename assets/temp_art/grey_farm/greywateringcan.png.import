@@ -2,17 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://vxoxk0dosx4d"
-
-path="res://.godot/imported/GreyscaleOpeningScreen.png-90c58a44fb76bb71e9e594e236f8b12e.ctex"
+uid="uid://crn1bg3k8y2yt"
+path="res://.godot/imported/greywateringcan.png-6fc4edcbdf17e30253a6df093e288e1e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/temp_art/GreyscaleOpeningScreen.png"
-dest_files=["res://.godot/imported/GreyscaleOpeningScreen.png-90c58a44fb76bb71e9e594e236f8b12e.ctex"]
+source_file="res://assets/temp_art/grey_farm/greywateringcan.png"
+dest_files=["res://.godot/imported/greywateringcan.png-6fc4edcbdf17e30253a6df093e288e1e.ctex"]
 
 [params]
 
