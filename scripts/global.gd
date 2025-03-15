@@ -1,3 +1,3 @@
 extends Node
 
-enum Crops {EMPTY = 0, BEAN, CORN, CASAVA, YAM}
+enum Crops {EMPTY = 0, BEAN, CORN, CASAVA, YAM, TREE}

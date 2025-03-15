@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://2gp1uqqrgsjn"]
+[gd_scene load_steps=17 format=3 uid="uid://2gp1uqqrgsjn"]
 
 [ext_resource type="Script" uid="uid://fyhmk3oyic1o" path="res://scripts/plot.gd" id="1_cyvgl"]
 [ext_resource type="Texture2D" uid="uid://uv02asmn5pdi" path="res://assets/temp_art/grey_farm/greyseedsweetpotates.png" id="3_72cjw"]
@@ -6,9 +6,10 @@
 [ext_resource type="Texture2D" uid="uid://80yqpi25trel" path="res://assets/temp_art/grey_farm/GreyscaleTile.png" id="4_ryjlh"]
 [ext_resource type="Texture2D" uid="uid://dourtwojudtht" path="res://assets/temp_art/grey_farm/greyintermediatesweetpotates.png" id="4_xg80o"]
 [ext_resource type="Texture2D" uid="uid://briwu1qrkys13" path="res://assets/temp_art/grey_farm/greygrownsweetpotates.png" id="5_h8l8k"]
+[ext_resource type="AudioStream" uid="uid://j2labn6qwrj7" path="res://assets/sound/hit-plant-02-266291.mp3" id="6_xg80o"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_syd1t"]
-size = Vector2(121, 124)
+size = Vector2(150, 150)
 
 [sub_resource type="Animation" id="Animation_76l7f"]
 length = 0.001
@@ -46,22 +47,10 @@ tracks/2/keys = {
 "points": PackedFloat32Array(-47, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0)
 }
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("AudioStreamPlayer2D:playing")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
 
 [sub_resource type="Animation" id="Animation_410i3"]
 resource_name = "harvest"
-length = 0.5
+length = 0.65
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -96,9 +85,25 @@ tracks/2/keys = {
 "points": PackedFloat32Array(-47, -0.25, 0, 0.533333, 19, -101, -0.233333, -15, 0.25, 0),
 "times": PackedFloat32Array(0, 0.5)
 }
+tracks/3/type = "audio"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AudioStreamPlayer2D")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"clips": [{
+"end_offset": 0.2539,
+"start_offset": 0.0548,
+"stream": ExtResource("6_xg80o")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/3/use_blend = true
 
 [sub_resource type="Animation" id="Animation_ryjlh"]
 resource_name = "plant_crop"
+length = 0.7
 tracks/0/type = "audio"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -106,22 +111,14 @@ tracks/0/path = NodePath("AudioStreamPlayer2D")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"clips": [],
-"times": PackedFloat32Array()
+"clips": [{
+"end_offset": 0.249,
+"start_offset": 0.0548,
+"stream": ExtResource("6_xg80o")
+}],
+"times": PackedFloat32Array(0)
 }
 tracks/0/use_blend = true
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("AudioStreamPlayer2D:playing")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
 
 [sub_resource type="Animation" id="Animation_72cjw"]
 resource_name = "watered"
@@ -151,12 +148,13 @@ width = 16
 height = 16
 fill_from = Vector2(0, 1)
 
-[node name="Plot" type="Area2D" node_paths=PackedStringArray("ray_cast", "animation_player", "sprite")]
+[node name="Plot" type="Area2D" node_paths=PackedStringArray("ray_cast", "animation_player", "timer", "sprite")]
 monitoring = false
 monitorable = false
 script = ExtResource("1_cyvgl")
 ray_cast = NodePath("RayCast2D")
 animation_player = NodePath("AnimationPlayer")
+timer = NodePath("Timer")
 sprite = NodePath("Sprite2D")
 empty_texture = ExtResource("4_ryjlh")
 texture_array = Array[Array]([[], [], [], [ExtResource("3_72cjw"), ExtResource("4_xg80o"), ExtResource("5_h8l8k")]])
@@ -202,5 +200,8 @@ gravity = Vector2(0, 0)
 initial_velocity_min = 182.93
 initial_velocity_max = 219.51
 color = Color(0, 0, 1, 1)
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]
