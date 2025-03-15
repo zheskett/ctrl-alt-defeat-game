@@ -61,21 +61,30 @@ position = Vector2(963, 549)
 script = ExtResource("1_881rf")
 
 [node name="GreyscaleOpeningScreen" type="Sprite2D" parent="."]
-position = Vector2(1, -2)
+position = Vector2(-6, -6)
 texture = ExtResource("2_agy5w")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
-offset_left = -434.0
-offset_top = -239.0
-offset_right = 646.0
-offset_bottom = -7.0
+offset_left = -816.0
+offset_top = -304.0
+offset_right = 898.0
+offset_bottom = 128.0
 theme_override_fonts/normal_font = ExtResource("3_nb00n")
-theme_override_font_sizes/mono_font_size = 48
-theme_override_font_sizes/normal_font_size = 56
-theme_override_font_sizes/bold_font_size = 48
-bbcode_enabled = true
-text = "You are being introduced to this game ... it is awesome ..."
-metadata/_edit_use_anchors_ = true
+theme_override_font_sizes/normal_font_size = 64
+text = "You are a Fiji local in the Village of Votua
+
+
+
+Recent climate changes have put local livelihoods at risk, and the community is meeting to discuss what is to be done ..."
+
+[node name="click to continue" type="RichTextLabel" parent="."]
+offset_left = 33.0
+offset_top = 411.0
+offset_right = 1007.0
+offset_bottom = 481.0
+theme_override_fonts/normal_font = ExtResource("3_nb00n")
+theme_override_font_sizes/normal_font_size = 48
+text = "Click anywhere to continue ... "
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -83,6 +92,7 @@ libraries = {
 }
 
 [node name="ColorRect" type="ColorRect" parent="."]
+visible = false
 offset_left = -1023.0
 offset_top = -596.0
 offset_right = 1100.0
