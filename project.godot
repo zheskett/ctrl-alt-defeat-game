@@ -18,6 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
+Global="*res://scripts/global.gd"
 
 [display]
 
@@ -45,6 +46,7 @@ folder_colors={
 [gui]
 
 theme/custom_font="uid://biudkn40paa5i"
+
 
 [input]
 
