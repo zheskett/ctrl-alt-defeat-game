@@ -43,6 +43,11 @@ folder_colors={
 "res://scripts/": "purple"
 }
 
+[gui]
+
+theme/custom_font="uid://biudkn40paa5i"
+
+
 [input]
 
 click={

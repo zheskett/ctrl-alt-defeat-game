@@ -1,6 +1,7 @@
 extends Node2D
 class_name Farming
 
+
 @export var farm_tile_map: FarmTileMapLayer
 @export var mouse_crop_sprite: MouseCropSprite
 @export var current_crop: Global.Crops = Global.Crops.EMPTY

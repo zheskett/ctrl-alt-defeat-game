@@ -1,6 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://wctx11cxs4f6"]
+[gd_scene load_steps=8 format=3 uid="uid://wctx11cxs4f6"]
 
 [ext_resource type="Script" uid="uid://btptnsf87ip8p" path="res://scripts/orientation.gd" id="1_881rf"]
+[ext_resource type="Texture2D" path="res://assets/temp_art/GreyscaleOpeningScreen.png" id="2_agy5w"]
+[ext_resource type="FontFile" path="res://assets/font/VCR_OSD_MONO_1.001.ttf" id="3_nb00n"]
 
 [sub_resource type="Animation" id="Animation_nb00n"]
 length = 0.001
@@ -59,11 +61,20 @@ _data = {
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_881rf")
 
+[node name="GreyscaleOpeningScreen" type="Sprite2D" parent="."]
+position = Vector2(1, -2)
+texture = ExtResource("2_agy5w")
+
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
-offset_left = -931.0
-offset_top = -464.0
-offset_right = 967.0
-offset_bottom = 537.0
+offset_left = -434.0
+offset_top = -239.0
+offset_right = 646.0
+offset_bottom = -7.0
+theme_override_fonts/normal_font = ExtResource("3_nb00n")
+theme_override_font_sizes/mono_font_size = 48
+theme_override_font_sizes/normal_font_size = 56
+theme_override_font_sizes/bold_font_size = 48
+bbcode_enabled = true
 text = "You are being introduced to this game ... it is awesome ..."
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

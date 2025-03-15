@@ -1,10 +1,14 @@
 extends Control 
 
-var animation_scene = preload("res://scenes/orientation.tscn").instantiate()
+#Used ChatGPT to learn how to access the animation in orientation in this scene
+
+var animation_scene
 
 func _ready():
-	get_tree().get_root().add_child(animation_scene)
+	var scene_resource = load("res://scenes/orientation.tscn")
+	animation_scene = scene_resource.instantiate()
 
 func _on_play_button_pressed() -> void:
+	get_tree().get_root().add_child(animation_scene)
 	animation_scene.play_animation()
-	#pass # Replace with function body.
+	get_tree().change_scene_to_file("res://scenes/townMeeting.tscn")
