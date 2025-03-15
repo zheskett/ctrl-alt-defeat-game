@@ -1,0 +1,15 @@
+[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://cdv0oqiuilhcd"]
+
+[ext_resource type="Texture2D" uid="uid://dvmg20uegddrh" path="res://assets/temp_art/farm_tiles/farm_tiles.png" id="1_5kyq0"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fftdk"]
+resource_name = "Farm Empty"
+texture = ExtResource("1_5kyq0")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+
+[resource]
+tile_size = Vector2i(64, 64)
+sources/1 = SubResource("TileSetAtlasSource_fftdk")

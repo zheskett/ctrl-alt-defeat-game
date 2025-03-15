@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="Ctrl Alt Defeat Game"
+run/main_scene="uid://g1nglj2tpqnh"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -22,7 +23,6 @@ DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
-window/size/borderless=true
 
 [editor]
 
@@ -37,6 +37,7 @@ enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg")
 
 folder_colors={
 "res://assets/": "red",
+"res://resources/": "orange",
 "res://scenes/": "blue",
 "res://scripts/": "purple"
 }
