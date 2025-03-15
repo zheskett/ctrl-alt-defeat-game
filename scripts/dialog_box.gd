@@ -18,7 +18,8 @@ enum CHAR {
 	JOHN, #John
 	MEM1, #Community member 1
 	MEM2, #Community member 2
-	MEM3  #Community member 3
+	MEM3,  #Community member 3
+	Thompson #director
 }
 
 #Used ChatGPT to create dictionary for each character
@@ -26,7 +27,8 @@ var characters = { #TODO: fix the image paths !!!
 	CHAR.JOHN: { "name": "John", "image": "res://assets/temp_art/sketchana.png" },
 	CHAR.MEM1: { "name": "Litia", "image": "res://assets/temp_art/sketchana.png" }, 
 	CHAR.MEM2: { "name": "Saimoni", "image": "res://assets/temp_art/sketchana.png" },
-	CHAR.MEM3: { "name": "Ana", "image": "res://assets/temp_art/sketchana.png" }
+	CHAR.MEM3: { "name": "Ana", "image": "res://assets/temp_art/sketchana.png" },
+	CHAR.Thompson: { "name" : "Thompson", "image": "res://assets/temp_art/sketchana.png"}
 }
 
 var Message = ""
