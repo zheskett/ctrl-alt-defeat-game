@@ -17,6 +17,9 @@ const GROW_TIME = 2.0
 const GROW_VARIATION = 0.7
 
 const WATER_DICT : Dictionary[Global.Crops, int] = {
+	Global.Crops.BEAN: 13,
+	Global.Crops.CORN: 13,
+	Global.Crops.CASAVA: 5,
 	Global.Crops.YAM: 8
 }
 
@@ -102,6 +105,7 @@ func _harvest_plant() -> void:
 	water = 0
 	water_needed = 0
 	animation_player.play("harvest")
+	farming_node.plant_harvested()
 
 func plant_clicked() -> void:
 	if farming_node.is_harvesting and self.crop != Global.Crops.EMPTY:
@@ -120,7 +124,7 @@ func plant_clicked() -> void:
 		self.water_needed = WATER_DICT.get(self.crop, 1)
 		
 		animation_player.play("plant_crop")
-		farming_node.plant_planted()
+		farming_node.plant_planted(self.crop)
 
 func _physics_process(_delta: float) -> void:
 	if not self.mouse_in or not Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):

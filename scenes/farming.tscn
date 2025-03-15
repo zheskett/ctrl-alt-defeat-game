@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://bml3xjpomcarx"]
+[gd_scene load_steps=20 format=4 uid="uid://bml3xjpomcarx"]
 
 [ext_resource type="TileSet" uid="uid://cdv0oqiuilhcd" path="res://resources/temp_tile_set.tres" id="1_cbg4r"]
 [ext_resource type="Script" path="res://scripts/farming.gd" id="1_uibo2"]
@@ -6,10 +6,13 @@
 [ext_resource type="Script" uid="uid://dlikl1quq4xru" path="res://scripts/mouse_crop_sprite.gd" id="2_2gb4t"]
 [ext_resource type="Script" path="res://scripts/farm_tile_map.gd" id="3_no2rj"]
 [ext_resource type="Texture2D" uid="uid://u8klv7h8ivgf" path="res://assets/Wood Plant Holders.png" id="5_g8kfs"]
-[ext_resource type="Texture2D" uid="uid://briwu1qrkys13" path="res://assets/temp_art/grey_farm/greygrownsweetpotates.png" id="5_qrgrl"]
 [ext_resource type="Texture2D" uid="uid://bfeom1tfsalxg" path="res://assets/temp_art/grey_farm/greyyamtoolbar.png" id="6_qrgrl"]
+[ext_resource type="Texture2D" uid="uid://c8s74n4ob5xsr" path="res://assets/temp_art/grey_farm/greybeanstoolbar.png" id="7_0dotm"]
+[ext_resource type="Texture2D" uid="uid://cy8bc7ruo60s1" path="res://assets/temp_art/grey_farm/greycassavatoolbar.png" id="7_6p8kx"]
 [ext_resource type="FontFile" uid="uid://bkp4u3hvwimtp" path="res://assets/font/VCR_OSD_MONO_1.001.ttf" id="7_g8kfs"]
-[ext_resource type="Texture2D" uid="uid://bdgisc8u4sks8" path="res://assets/temp_art/kenney_abstract-platformer/PNG/Tiles/Green tiles/tileGreen_01.png" id="8_qrgrl"]
+[ext_resource type="Texture2D" uid="uid://crn1bg3k8y2yt" path="res://assets/temp_art/grey_farm/greywateringcan.png" id="8_0dotm"]
+[ext_resource type="Texture2D" uid="uid://cpqjbfw817khs" path="res://assets/temp_art/grey_farm/greycorntoolbar.png" id="8_x6prt"]
+[ext_resource type="Texture2D" uid="uid://dh4kaccldsc2b" path="res://assets/temp_art/grey_farm/greywateringpour.png" id="9_6p8kx"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6p8kx"]
 atlas = ExtResource("5_g8kfs")
@@ -52,12 +55,17 @@ water_label = NodePath("TopBar/WaterLabel")
 z_index = -1
 texture = ExtResource("2_1n404")
 
-[node name="MouseCropSprite" type="Sprite2D" parent="."]
+[node name="MouseCropSprite" type="Sprite2D" parent="." node_paths=PackedStringArray("farming_node")]
 z_index = 20
 scale = Vector2(0.3, 0.3)
 script = ExtResource("2_2gb4t")
+farming_node = NodePath("..")
+bean_texture = ExtResource("7_0dotm")
+corn_texture = ExtResource("8_x6prt")
+casava_texture = ExtResource("7_6p8kx")
 yam_texture = ExtResource("6_qrgrl")
-water_texture = ExtResource("5_qrgrl")
+water_texture = ExtResource("8_0dotm")
+watering_texture = ExtResource("9_6p8kx")
 
 [node name="TopBar" type="Control" parent="."]
 z_index = 10
@@ -89,20 +97,69 @@ grow_vertical = 2
 scale = Vector2(1.2, 1)
 texture = SubResource("AtlasTexture_6p8kx")
 
+[node name="BeanButton" type="TextureButton" parent="TopBar"]
+layout_mode = 0
+offset_left = 157.0
+offset_top = 17.0
+offset_right = 457.0
+offset_bottom = 333.0
+scale = Vector2(0.43, 0.43)
+tooltip_text = "Beans"
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("7_0dotm")
+texture_pressed = ExtResource("7_0dotm")
+texture_hover = ExtResource("7_0dotm")
+texture_disabled = ExtResource("7_0dotm")
+texture_focused = ExtResource("7_0dotm")
+stretch_mode = 3
+
+[node name="CornButton" type="TextureButton" parent="TopBar"]
+layout_mode = 0
+offset_left = 291.0
+offset_top = 17.0
+offset_right = 591.0
+offset_bottom = 331.0
+scale = Vector2(0.42, 0.42)
+tooltip_text = "Corn"
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("8_x6prt")
+texture_pressed = ExtResource("8_x6prt")
+texture_hover = ExtResource("8_x6prt")
+texture_disabled = ExtResource("8_x6prt")
+texture_focused = ExtResource("8_x6prt")
+stretch_mode = 3
+
+[node name="CasavaButton" type="TextureButton" parent="TopBar"]
+layout_mode = 0
+offset_left = 425.0
+offset_top = 18.0
+offset_right = 725.0
+offset_bottom = 332.0
+scale = Vector2(0.42, 0.42)
+tooltip_text = "Cassava"
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("7_6p8kx")
+texture_pressed = ExtResource("7_6p8kx")
+texture_hover = ExtResource("7_6p8kx")
+texture_disabled = ExtResource("7_6p8kx")
+texture_focused = ExtResource("7_6p8kx")
+stretch_mode = 3
+
 [node name="YamButton" type="TextureButton" parent="TopBar"]
 layout_mode = 2
 offset_left = 563.0
-offset_top = 27.0
-offset_right = 863.0
-offset_bottom = 327.0
+offset_top = 19.0
+offset_right = 865.0
+offset_bottom = 359.0
 scale = Vector2(0.4, 0.4)
-tooltip_text = "Cabbage"
+tooltip_text = "Yam"
 mouse_default_cursor_shape = 2
 texture_normal = ExtResource("6_qrgrl")
 texture_pressed = ExtResource("6_qrgrl")
 texture_hover = ExtResource("6_qrgrl")
 texture_disabled = ExtResource("6_qrgrl")
 texture_focused = ExtResource("6_qrgrl")
+stretch_mode = 3
 
 [node name="ClearButton" type="Button" parent="TopBar"]
 layout_mode = 2
@@ -140,13 +197,16 @@ label_settings = SubResource("LabelSettings_qrgrl")
 layout_mode = 0
 offset_left = 696.0
 offset_top = 18.0
-offset_right = 818.0
-offset_bottom = 152.0
-texture_normal = ExtResource("8_qrgrl")
-texture_pressed = ExtResource("8_qrgrl")
-texture_hover = ExtResource("8_qrgrl")
-texture_disabled = ExtResource("8_qrgrl")
-texture_focused = ExtResource("8_qrgrl")
+offset_right = 998.0
+offset_bottom = 353.0
+scale = Vector2(0.4, 0.4)
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("9_6p8kx")
+texture_pressed = ExtResource("9_6p8kx")
+texture_hover = ExtResource("9_6p8kx")
+texture_disabled = ExtResource("9_6p8kx")
+texture_focused = ExtResource("9_6p8kx")
+stretch_mode = 3
 
 [node name="WaterLabel" type="Label" parent="TopBar"]
 layout_mode = 0
@@ -166,23 +226,26 @@ farming_node = NodePath("..")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
+[connection signal="pressed" from="TopBar/BeanButton" to="." method="_on_bean_button_pressed"]
+[connection signal="pressed" from="TopBar/CornButton" to="." method="_on_corn_button_pressed"]
+[connection signal="pressed" from="TopBar/CasavaButton" to="." method="_on_casava_button_pressed"]
 [connection signal="pressed" from="TopBar/YamButton" to="." method="_on_yam_button_pressed"]
 [connection signal="pressed" from="TopBar/ClearButton" to="." method="_on_clear_button_pressed"]
 [connection signal="pressed" from="TopBar/NextButton" to="." method="_on_next_button_pressed"]
 [connection signal="pressed" from="TopBar/WaterButton" to="." method="_on_water_button_pressed"]
 [connection signal="input_event" from="FarmTileMap/Plot" to="FarmTileMap/Plot" method="_on_input_event"]
-[connection signal="input_event" from="FarmTileMap/@Area2D@155163" to="FarmTileMap/@Area2D@155163" method="_on_input_event"]
-[connection signal="input_event" from="FarmTileMap/@Area2D@155164" to="FarmTileMap/@Area2D@155164" method="_on_input_event"]
-[connection signal="input_event" from="FarmTileMap/@Area2D@155165" to="FarmTileMap/@Area2D@155165" method="_on_input_event"]
-[connection signal="input_event" from="FarmTileMap/@Area2D@155166" to="FarmTileMap/@Area2D@155166" method="_on_input_event"]
-[connection signal="input_event" from="FarmTileMap/@Area2D@155167" to="FarmTileMap/@Area2D@155167" method="_on_input_event"]
-[connection signal="input_event" from="FarmTileMap/@Area2D@155168" to="FarmTileMap/@Area2D@155168" method="_on_input_event"]
-[connection signal="input_event" from="FarmTileMap/@Area2D@155169" to="FarmTileMap/@Area2D@155169" method="_on_input_event"]
-[connection signal="input_event" from="FarmTileMap/@Area2D@155170" to="FarmTileMap/@Area2D@155170" method="_on_input_event"]
-[connection signal="input_event" from="FarmTileMap/@Area2D@155171" to="FarmTileMap/@Area2D@155171" method="_on_input_event"]
-[connection signal="input_event" from="FarmTileMap/@Area2D@155172" to="FarmTileMap/@Area2D@155172" method="_on_input_event"]
-[connection signal="input_event" from="FarmTileMap/@Area2D@155173" to="FarmTileMap/@Area2D@155173" method="_on_input_event"]
-[connection signal="input_event" from="FarmTileMap/@Area2D@155174" to="FarmTileMap/@Area2D@155174" method="_on_input_event"]
-[connection signal="input_event" from="FarmTileMap/@Area2D@155175" to="FarmTileMap/@Area2D@155175" method="_on_input_event"]
-[connection signal="input_event" from="FarmTileMap/@Area2D@155176" to="FarmTileMap/@Area2D@155176" method="_on_input_event"]
-[connection signal="input_event" from="FarmTileMap/@Area2D@155177" to="FarmTileMap/@Area2D@155177" method="_on_input_event"]
+[connection signal="input_event" from="FarmTileMap/@Area2D@192714" to="FarmTileMap/@Area2D@192714" method="_on_input_event"]
+[connection signal="input_event" from="FarmTileMap/@Area2D@192715" to="FarmTileMap/@Area2D@192715" method="_on_input_event"]
+[connection signal="input_event" from="FarmTileMap/@Area2D@192716" to="FarmTileMap/@Area2D@192716" method="_on_input_event"]
+[connection signal="input_event" from="FarmTileMap/@Area2D@192717" to="FarmTileMap/@Area2D@192717" method="_on_input_event"]
+[connection signal="input_event" from="FarmTileMap/@Area2D@192718" to="FarmTileMap/@Area2D@192718" method="_on_input_event"]
+[connection signal="input_event" from="FarmTileMap/@Area2D@192719" to="FarmTileMap/@Area2D@192719" method="_on_input_event"]
+[connection signal="input_event" from="FarmTileMap/@Area2D@192720" to="FarmTileMap/@Area2D@192720" method="_on_input_event"]
+[connection signal="input_event" from="FarmTileMap/@Area2D@192721" to="FarmTileMap/@Area2D@192721" method="_on_input_event"]
+[connection signal="input_event" from="FarmTileMap/@Area2D@192722" to="FarmTileMap/@Area2D@192722" method="_on_input_event"]
+[connection signal="input_event" from="FarmTileMap/@Area2D@192723" to="FarmTileMap/@Area2D@192723" method="_on_input_event"]
+[connection signal="input_event" from="FarmTileMap/@Area2D@192724" to="FarmTileMap/@Area2D@192724" method="_on_input_event"]
+[connection signal="input_event" from="FarmTileMap/@Area2D@192725" to="FarmTileMap/@Area2D@192725" method="_on_input_event"]
+[connection signal="input_event" from="FarmTileMap/@Area2D@192726" to="FarmTileMap/@Area2D@192726" method="_on_input_event"]
+[connection signal="input_event" from="FarmTileMap/@Area2D@192727" to="FarmTileMap/@Area2D@192727" method="_on_input_event"]
+[connection signal="input_event" from="FarmTileMap/@Area2D@192728" to="FarmTileMap/@Area2D@192728" method="_on_input_event"]
