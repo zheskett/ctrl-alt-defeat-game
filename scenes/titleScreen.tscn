@@ -14,10 +14,12 @@ script = ExtResource("1_wxefk")
 
 [node name="PlayButton" type="Button" parent="."]
 layout_mode = 0
-offset_left = 305.0
-offset_top = 316.0
-offset_right = 393.0
-offset_bottom = 370.0
+offset_left = -113.0
+offset_top = 141.0
+offset_right = 138.0
+offset_bottom = 275.0
 text = "Play"
+
+[node name="Camera2D" type="Camera2D" parent="."]
 
 [connection signal="pressed" from="PlayButton" to="." method="_on_play_button_pressed"]
