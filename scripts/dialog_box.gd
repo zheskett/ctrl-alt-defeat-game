@@ -6,7 +6,7 @@ extends Control
 @onready var Text = $"ColorRect/Dialog Box/Text"
 @onready var face = $"ColorRect/Dialog Box/Face"
 
-var dialogSpeed = 0.0625
+var dialogSpeed = 0.03125
 var dialog
 var phraseNum = 0
 var finished = false
@@ -34,7 +34,7 @@ var characters = { #TODO: fix the image paths !!!
 var Message = ""
 
 func _ready():
-	self.hide()
+	#self.hide()
 
 #Used ChatGPT to create show_dialog()
 func show_dialog(char: int, message: String):

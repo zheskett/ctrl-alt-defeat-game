@@ -12,7 +12,7 @@ func _ready():
 	#John
 	await dialog_box.show_dialog(0, "Welcome, everyone. We have gathered today to discuss the future of our village and how we can adapt to the climate challenges we're facing.")
 	await dialog_box.show_dialog(0, "The situation is worsening – from rising sea levels to more extreme weather. The National Adaptaion Plan doesn't address these situations.")
-	await dialog_box.show_dialog(0, "We need to come together and find a solutions")
+	await dialog_box.show_dialog(0, "We need to come together and find a solution.")
 	
 	#Litia
 	await dialog_box.show_dialog(1, "We’ve always relied on our traditional knowledge to guide us. Our elders taught us to understand the weather patterns, the signs from nature.")
@@ -23,7 +23,7 @@ func _ready():
 	#await dialog_box.show_dialog(2, "This helps the land recover, and it prevents erosion. It's something we can do to protect our crops and ensure a good harvest.")
 	
 	#Ana
-	await dialog_box.show_dialog(3, "I agree, but I think we need to diversify our farming. A mixed farming approach – backyard gardening, livestock farming– can help spread the risks.")
+	await dialog_box.show_dialog(3, "I think we need to diversify our farming. A mixed farming approach – backyard gardening, livestock farming– can help spread the risks.")
 	
 	#John
 	await dialog_box.show_dialog(0, "These are great ideas, everyone. What if we combine all of these suggestions into a single plan?")

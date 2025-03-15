@@ -4,7 +4,7 @@
 
 [node name="Root" type="Node2D"]
 
-[node name="titleScreen" parent="." instance=ExtResource("1_ig7tw")]
+[node name="introduction" parent="." instance=ExtResource("1_ig7tw")]
 offset_left = 11.0
 offset_top = 12.0
 offset_right = 11.0
