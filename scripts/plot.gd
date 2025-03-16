@@ -137,7 +137,7 @@ func grow_plant() -> void:
 		await timer.timeout
 		stage += 1
 		sprite.texture = texture_array[self.crop - 1][stage]
-		animation_player.play("plant_crop")
+		animation_player.play("grow")
 		if stage == 2:
 			farming_node.plant_grown()
 

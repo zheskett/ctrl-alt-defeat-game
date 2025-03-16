@@ -17,6 +17,8 @@ func _process(_delta: float) -> void:
 		$CPUParticles2D.emitting = false
 	if not farming_node.is_watering and $AnimationPlayer.is_playing() and $AnimationPlayer.current_animation == "water":
 		$AnimationPlayer.stop()
+	if not farming_node.is_ashing and $AnimationPlayer.is_playing() and $AnimationPlayer.current_animation == "ash":
+		$AnimationPlayer.stop()
 	self.position = get_global_mouse_position()
 	if farming_node.is_watering:
 		if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
@@ -28,8 +30,10 @@ func _process(_delta: float) -> void:
 	if farming_node.is_ashing:
 		if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
 			$CPUParticles2D.emitting = true
+			$AnimationPlayer.play("ash")
 		else:
 			$CPUParticles2D.emitting = false
+			$AnimationPlayer.pause()
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.is_action_pressed("click") and farming_node.is_harvesting:

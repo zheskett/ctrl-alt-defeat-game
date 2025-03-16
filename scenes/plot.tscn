@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://2gp1uqqrgsjn"]
+[gd_scene load_steps=29 format=3 uid="uid://2gp1uqqrgsjn"]
 
 [ext_resource type="Script" uid="uid://fyhmk3oyic1o" path="res://scripts/plot.gd" id="1_cyvgl"]
 [ext_resource type="Texture2D" uid="uid://btqimulsa0bys" path="res://assets/art/tileforplant.png" id="2_rd1ev"]
@@ -19,6 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://v48ds2pjqh0q" path="res://assets/art/yam3.png" id="14_4umkq"]
 [ext_resource type="Texture2D" uid="uid://cjfyosjundehu" path="res://assets/art/tree.png" id="15_vds8m"]
 [ext_resource type="Texture2D" uid="uid://b16qt6puhg0gp" path="res://assets/art/white_circle.png" id="16_3iehw"]
+[ext_resource type="AudioStream" uid="uid://brghutpvldcgy" path="res://assets/sound/harvest_crop.mp3" id="18_2cd3u"]
 
 [sub_resource type="Gradient" id="Gradient_3iehw"]
 interpolation_mode = 2
@@ -67,7 +68,7 @@ tracks/2/keys = {
 
 [sub_resource type="Animation" id="Animation_410i3"]
 resource_name = "harvest"
-length = 0.65
+length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -110,9 +111,9 @@ tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "clips": [{
-"end_offset": 0.2539,
-"start_offset": 0.0548,
-"stream": ExtResource("6_xg80o")
+"end_offset": 0.473368,
+"start_offset": 0.668183,
+"stream": ExtResource("18_2cd3u")
 }],
 "times": PackedFloat32Array(0)
 }
@@ -138,15 +139,30 @@ tracks/0/keys = {
 tracks/0/use_blend = true
 
 [sub_resource type="Animation" id="Animation_72cjw"]
-resource_name = "watered"
-loop_mode = 1
+resource_name = "grow"
+length = 0.628
+tracks/0/type = "audio"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AudioStreamPlayer2D")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": [{
+"end_offset": 0.263172,
+"start_offset": 0.0598,
+"stream": ExtResource("6_xg80o")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/0/use_blend = true
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ryjlh"]
 _data = {
 &"RESET": SubResource("Animation_76l7f"),
+&"grow": SubResource("Animation_72cjw"),
 &"harvest": SubResource("Animation_410i3"),
-&"plant_crop": SubResource("Animation_ryjlh"),
-&"watered": SubResource("Animation_72cjw")
+&"plant_crop": SubResource("Animation_ryjlh")
 }
 
 [sub_resource type="LabelSettings" id="LabelSettings_72cjw"]
@@ -213,10 +229,10 @@ libraries = {
 [node name="ScoreLabel" type="Label" parent="."]
 visible = false
 z_index = 10
-offset_left = 2.0
-offset_top = -47.0
-offset_right = 42.0
-offset_bottom = -2.0
+offset_left = 47.0
+offset_top = -101.0
+offset_right = 87.0
+offset_bottom = -56.0
 text = "+2"
 label_settings = SubResource("LabelSettings_72cjw")
 
