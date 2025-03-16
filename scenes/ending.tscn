@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://dbwi4xmkgckb0"]
 
 [ext_resource type="Script" uid="uid://cpkbqg4k0xeer" path="res://scripts/ending.gd" id="1_2x1jc"]
-[ext_resource type="Texture2D" uid="uid://dnhft5jgsbnca" path="res://assets/temp_art/GreyscaleGovernmentOffice.png" id="1_fyrdv"]
 [ext_resource type="PackedScene" uid="uid://dluk8fwudk6bv" path="res://scenes/dialogBox.tscn" id="2_2x1jc"]
+[ext_resource type="Texture2D" uid="uid://sg62kiw73m1e" path="res://assets/art/governmentbg.png" id="2_nfmnx"]
 [ext_resource type="AudioStream" uid="uid://wri3k1xx8ary" path="res://assets/sound/GameJam_Background_FINAL .mp3" id="4_nfmnx"]
 
 [node name="Ending" type="Control"]
@@ -11,8 +11,8 @@ anchors_preset = 0
 script = ExtResource("1_2x1jc")
 
 [node name="GreyscaleGovernmentOffice" type="Sprite2D" parent="."]
-position = Vector2(952, 547)
-texture = ExtResource("1_fyrdv")
+position = Vector2(959, 541)
+texture = ExtResource("2_nfmnx")
 
 [node name="DialogBox" parent="." instance=ExtResource("2_2x1jc")]
 
