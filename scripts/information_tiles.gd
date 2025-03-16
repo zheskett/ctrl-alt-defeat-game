@@ -1,9 +1,12 @@
 extends Node2D
 
 func _ready():
-	self.show()
+	self.hide()
 	
+func show_info():
+	self.show()
+
+
 func _input(event):
-	if event is InputEventMouseButton and event.pressed:
+	if event is InputEventMouseButton and event.pressed and self.is_visible_in_tree():
 		self.hide()
-		get_tree().change_scene_to_file("res://scenes/farming.tscn")

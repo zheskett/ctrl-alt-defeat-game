@@ -41,9 +41,12 @@ var ash_percent : int :
 	get:
 		return int((ash as float) / (MAX_ASH as float) * 100.0)
 
+var infoPopup
+
 func _ready() -> void:
 	#Global.year = 1
 	#Global.score = 0
+	$InformationTiles.hide()
 	await $DialogBox.show_dialog(3, "Hi! I see you're getting started planting crops. I recommend that you plant at least two, and try to intermix where you plant them to help the soil.")
 	await $DialogBox.show_dialog(3, "I would also take advantage of the water and ash provided to hydrate and fertilize your crops. Oh, and only two crops can be planted in a field! Good luck!")
 
@@ -252,3 +255,7 @@ func _on_ash_button_pressed() -> void:
 	self.is_watering = false
 	mouse_crop_sprite.texture = mouse_crop_sprite.ash_texture
 	mouse_crop_sprite.show()
+
+#for crop info button
+func _on_button_pressed() -> void:
+	$InformationTiles.show_info()
