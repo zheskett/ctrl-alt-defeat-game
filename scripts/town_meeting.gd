@@ -2,12 +2,16 @@ extends Control
 
 @onready var dialog_box = $"Welcome Message"
 @onready var animation_player = $AnimationPlayer
-#NOTE TO SELF:
-	# 0 - John
-	# 1 - Litia
-	# 2 - Saimoni
-	# 3 - Ana
+@onready var timer = $Timer
+@onready var audio = $AudioStreamPlayer2D
+
+#Used Google Gemini to set up script for the timer and audio
 func _ready():
+	#first play sound
+	#timer.connect("timeout", _stop_audio)
+	audio.play()
+	animation_player.play("soundFade")
+	
 	#John
 	await dialog_box.show_dialog(0, "Welcome, everyone. We have gathered today to discuss the future of our village and how we can adapt to the climate challenges we're facing.")
 	await dialog_box.show_dialog(0, "The situation is worsening – from rising sea levels to more extreme weather. The National Adaptaion Plan doesn't address these situations.")
@@ -32,7 +36,7 @@ func _ready():
 	animation_player.play("fadeOut")
 	await animation_player.animation_finished
 	
-	self.queue_free()
+	self.hide()
 	get_tree().change_scene_to_file("res://scenes/farming.tscn")
 
 
