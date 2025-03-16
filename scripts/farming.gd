@@ -165,7 +165,7 @@ func plant_harvested() -> void:
 	if Global.year >= 4:
 		$Timer.start()
 		await $Timer.timeout
-		get_tree().change_scene_to_file("res://scenes/ending.tscn")
+		get_tree().change_scene_to_file("res://scenes/transitionToEnd.tscn")
 
 
 	if Global.year == 2:
