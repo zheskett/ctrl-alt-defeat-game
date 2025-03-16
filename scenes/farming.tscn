@@ -804,7 +804,6 @@ script = ExtResource("3_no2rj")
 farming_node = NodePath("..")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(0.4, 0.4)
 
 [node name="TreeDecision" parent="." instance=ExtResource("14_x6prt")]
 visible = false
