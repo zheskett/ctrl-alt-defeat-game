@@ -114,55 +114,6 @@ font_size = 64
 shadow_size = 4
 shadow_color = Color(0, 0, 0, 1)
 
-[sub_resource type="Animation" id="Animation_nmop0"]
-resource_name = "flood"
-length = 4.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Flood:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 4),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
-tracks/1/type = "bezier"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Flood:scale:x")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0),
-"points": PackedFloat32Array(0.0951683, -0.25, 0, 0.8, 3.90483, 30.0656, -0.533333, -21.0656, 0.166667, 4.9344, 43.766, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 1, 4)
-}
-tracks/2/type = "bezier"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Flood:scale:y")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0),
-"points": PackedFloat32Array(16.906, -0.25, 0, 0.25, 0, 16.906, -0.25, 0, 0.25, 0, 16.906, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 1, 4)
-}
-tracks/3/type = "bezier"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Flood:modulate:a")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0),
-"points": PackedFloat32Array(0.545098, -0.25, 0, 0.25, 0, 0.545098, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 1.00009, 4)
-}
-
 [sub_resource type="Animation" id="Animation_1fyyh"]
 length = 0.001
 tracks/0/type = "value"
@@ -333,6 +284,55 @@ tracks/4/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0.0509804), Color(1, 1, 1, 0.466667), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_nmop0"]
+resource_name = "flood"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Flood:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Flood:scale:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0.0951683, -0.25, 0, 0.8, 3.90483, 30.0656, -0.533333, -21.0656, 0.166667, 4.9344, 43.766, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1, 4)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Flood:scale:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(16.906, -0.25, 0, 0.25, 0, 16.906, -0.25, 0, 0.25, 0, 16.906, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1, 4)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Flood:modulate:a")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0.545098, -0.25, 0, 0.25, 0, 0.545098, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1.00009, 4)
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_5fhwr"]
@@ -619,6 +619,9 @@ libraries = {
 &"": SubResource("AnimationLibrary_5fhwr")
 }
 
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
 [connection signal="pressed" from="TopBar/BeanButton" to="." method="_on_bean_button_pressed"]
 [connection signal="pressed" from="TopBar/CornButton" to="." method="_on_corn_button_pressed"]
 [connection signal="pressed" from="TopBar/CasavaButton" to="." method="_on_casava_button_pressed"]
@@ -627,19 +630,3 @@ libraries = {
 [connection signal="pressed" from="TopBar/NextButton" to="." method="_on_next_button_pressed"]
 [connection signal="pressed" from="TopBar/WaterButton" to="." method="_on_water_button_pressed"]
 [connection signal="pressed" from="TopBar/AshButton" to="." method="_on_ash_button_pressed"]
-[connection signal="input_event" from="FarmTileMap/Plot" to="FarmTileMap/Plot" method="_on_input_event"]
-[connection signal="input_event" from="FarmTileMap/@Area2D@147327" to="FarmTileMap/@Area2D@147327" method="_on_input_event"]
-[connection signal="input_event" from="FarmTileMap/@Area2D@147328" to="FarmTileMap/@Area2D@147328" method="_on_input_event"]
-[connection signal="input_event" from="FarmTileMap/@Area2D@147329" to="FarmTileMap/@Area2D@147329" method="_on_input_event"]
-[connection signal="input_event" from="FarmTileMap/@Area2D@147330" to="FarmTileMap/@Area2D@147330" method="_on_input_event"]
-[connection signal="input_event" from="FarmTileMap/@Area2D@147331" to="FarmTileMap/@Area2D@147331" method="_on_input_event"]
-[connection signal="input_event" from="FarmTileMap/@Area2D@147332" to="FarmTileMap/@Area2D@147332" method="_on_input_event"]
-[connection signal="input_event" from="FarmTileMap/@Area2D@147333" to="FarmTileMap/@Area2D@147333" method="_on_input_event"]
-[connection signal="input_event" from="FarmTileMap/@Area2D@147334" to="FarmTileMap/@Area2D@147334" method="_on_input_event"]
-[connection signal="input_event" from="FarmTileMap/@Area2D@147335" to="FarmTileMap/@Area2D@147335" method="_on_input_event"]
-[connection signal="input_event" from="FarmTileMap/@Area2D@147336" to="FarmTileMap/@Area2D@147336" method="_on_input_event"]
-[connection signal="input_event" from="FarmTileMap/@Area2D@147337" to="FarmTileMap/@Area2D@147337" method="_on_input_event"]
-[connection signal="input_event" from="FarmTileMap/@Area2D@147338" to="FarmTileMap/@Area2D@147338" method="_on_input_event"]
-[connection signal="input_event" from="FarmTileMap/@Area2D@147339" to="FarmTileMap/@Area2D@147339" method="_on_input_event"]
-[connection signal="input_event" from="FarmTileMap/@Area2D@147340" to="FarmTileMap/@Area2D@147340" method="_on_input_event"]
-[connection signal="input_event" from="FarmTileMap/@Area2D@147341" to="FarmTileMap/@Area2D@147341" method="_on_input_event"]

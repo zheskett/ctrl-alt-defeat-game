@@ -50,9 +50,10 @@ offset_top = 27.0
 offset_right = 413.0
 offset_bottom = 246.0
 theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_constants/line_separation = 5
 theme_override_fonts/normal_font = ExtResource("2_rwprb")
 theme_override_font_sizes/normal_font_size = 24
-text = "I am saying hello!"
+text = "I am saying hello! line line line line line line line line line line line line eline line ejnfsjkdbgkbkdsdjgafjkfafhkfahdajkdasfjkafjkdsfjdajhfdhfadjasjfajgj"
 metadata/_edit_use_anchors_ = true
 
 [node name="Face" type="Sprite2D" parent="TextBox/Dialog Box"]
