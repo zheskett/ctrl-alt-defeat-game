@@ -137,13 +137,16 @@ func plant_grown() -> void:
 	
 	# Weather Event
 	if Global.weather == Global.Weathers.TEMPERATE:
+		await $DialogBox.show_dialog($DialogBox.genRandomPerson(), "Looks like some pretty lucky weather this year! Nothing too difficult.")
 		pass
 	
 	elif Global.weather == Global.Weathers.DROUGHT:
+		await $DialogBox.show_dialog($DialogBox.genRandomPerson(), "Looks like a drought is coming! Hopefully you watered your crops.")
 		$AnimationPlayer.play("drought")
 		await $AnimationPlayer.animation_finished
 	
 	elif Global.weather == Global.Weathers.FLOOD:
+		await $DialogBox.show_dialog($DialogBox.genRandomPerson(), "Looks like a flood is coming! Hopefully you have some protection from the river.")
 		$AnimationPlayer.play("flood")
 		await $AnimationPlayer.animation_finished
 		# Dialogue?
@@ -160,6 +163,8 @@ func plant_harvested() -> void:
 	self.is_harvesting = false
 	Global.year += 1
 	if Global.year >= 4:
+		$Timer.start()
+		await $Timer.timeout
 		get_tree().change_scene_to_file("res://scenes/ending.tscn")
 
 
@@ -178,7 +183,6 @@ func plant_harvested() -> void:
 	
 	if Global.year == 3:
 		if (Global.score > 220):
-
 			await $DialogBox.show_dialog(2, "Hey neighbor! Seems like you're learning more and more each year. Good job!")
 		else:
 			await $DialogBox.show_dialog(2, "Hey neighbor! Pro tip: planting intermixed crops, watering and fertilizing before harvest really improves yield!")

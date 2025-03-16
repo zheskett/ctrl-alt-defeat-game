@@ -6,6 +6,10 @@ extends Control
 @onready var Text = $"TextBox/Dialog Box/Text"
 @onready var face = $"TextBox/Dialog Box/Face"
 
+#Used Google gemini for random number generator code
+var rng = RandomNumberGenerator.new()
+
+
 var dialogSpeed = 0.03125
 var dialog
 var phraseNum = 0
@@ -35,6 +39,11 @@ var Message = ""
 
 func _ready():
 	self.hide()
+
+#Used Google gemini for random number generator code
+func genRandomPerson():
+	var random_int = rng.randi_range(0, 3)
+	return random_int
 
 #Used ChatGPT to create show_dialog()
 func show_dialog(charid: int, message: String):
