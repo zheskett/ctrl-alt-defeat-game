@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://btptnsf87ip8p" path="res://scripts/orientation.gd" id="1_881rf"]
 [ext_resource type="Texture2D" uid="uid://vxoxk0dosx4d" path="res://assets/temp_art/GreyscaleOpeningScreen.png" id="2_agy5w"]
-[ext_resource type="FontFile" uid="uid://cov3s4mmno0e1" path="res://assets/font/VCR_OSD_MONO_1.001.ttf" id="3_nb00n"]
+[ext_resource type="FontFile" uid="uid://bkp4u3hvwimtp" path="res://assets/font/VCR_OSD_MONO_1.001.ttf" id="3_nb00n"]
 
 [sub_resource type="Animation" id="Animation_nb00n"]
 length = 0.001

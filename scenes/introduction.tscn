@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://blqrih2ursv27"]
+[gd_scene load_steps=5 format=3 uid="uid://blqrih2ursv27"]
 
 [ext_resource type="Script" uid="uid://c3spwuymoo4n3" path="res://scripts/introduction.gd" id="1_e3kje"]
 [ext_resource type="Texture2D" uid="uid://vxoxk0dosx4d" path="res://assets/temp_art/GreyscaleOpeningScreen.png" id="2_nvvsg"]
-[ext_resource type="FontFile" uid="uid://cov3s4mmno0e1" path="res://assets/font/VCR_OSD_MONO_1.001.ttf" id="3_xofpe"]
+[ext_resource type="FontFile" uid="uid://bkp4u3hvwimtp" path="res://assets/font/VCR_OSD_MONO_1.001.ttf" id="3_xofpe"]
+[ext_resource type="Texture2D" uid="uid://cfi7y3munen0k" path="res://assets/art/Title Screen.png" id="4_nvvsg"]
 
 [node name="titleScreen" type="Control"]
 layout_mode = 3
@@ -30,15 +31,19 @@ theme_override_fonts/font = ExtResource("3_xofpe")
 theme_override_font_sizes/font_size = 52
 text = "Play"
 
+[node name="TitleScreen" type="Sprite2D" parent="."]
+position = Vector2(1007, 377)
+scale = Vector2(3.06137, 2.88217)
+texture = ExtResource("4_nvvsg")
+
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 layout_mode = 0
-offset_left = 462.0
-offset_top = 242.0
-offset_right = 1575.0
-offset_bottom = 662.0
+offset_left = 397.0
+offset_top = 296.0
+offset_right = 1622.0
+offset_bottom = 503.0
 theme_override_fonts/normal_font = ExtResource("3_xofpe")
 theme_override_font_sizes/normal_font_size = 200
-text = "Fiji
-	Farms"
+text = "Fiji Farms"
 
 [connection signal="pressed" from="PlayButton" to="." method="_on_play_button_pressed"]
