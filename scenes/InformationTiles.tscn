@@ -1,3 +1,174 @@
-[gd_scene format=3 uid="uid://dceqhfjpkmcyp"]
+[gd_scene load_steps=7 format=3 uid="uid://dceqhfjpkmcyp"]
+
+[ext_resource type="Script" uid="uid://b1k0rcg7sni60" path="res://scripts/information_tiles.gd" id="1_gm4xu"]
+[ext_resource type="Texture2D" uid="uid://bfeom1tfsalxg" path="res://assets/temp_art/grey_farm/greyyamtoolbar.png" id="1_sgbut"]
+[ext_resource type="FontFile" uid="uid://bkp4u3hvwimtp" path="res://assets/font/VCR_OSD_MONO_1.001.ttf" id="2_gm4xu"]
+[ext_resource type="Texture2D" uid="uid://cy8bc7ruo60s1" path="res://assets/temp_art/grey_farm/greycassavatoolbar.png" id="3_iod2u"]
+[ext_resource type="Texture2D" uid="uid://c8s74n4ob5xsr" path="res://assets/temp_art/grey_farm/greybeanstoolbar.png" id="4_7wrjm"]
+[ext_resource type="Texture2D" uid="uid://cpqjbfw817khs" path="res://assets/temp_art/grey_farm/greycorntoolbar.png" id="5_vlxje"]
 
 [node name="InformationTiles" type="Node2D"]
+script = ExtResource("1_gm4xu")
+
+[node name="ColorRect4" type="ColorRect" parent="."]
+offset_left = 970.0
+offset_top = 549.0
+offset_right = 1792.0
+offset_bottom = 1004.0
+color = Color(0.388235, 0.305882, 0.247059, 1)
+
+[node name="Greycorntoolbar" type="Sprite2D" parent="ColorRect4"]
+position = Vector2(141, 254)
+scale = Vector2(0.861667, 0.855)
+texture = ExtResource("1_sgbut")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ColorRect4"]
+layout_mode = 0
+offset_left = 298.0
+offset_top = 119.0
+offset_right = 788.0
+offset_bottom = 427.0
+theme_override_fonts/normal_font = ExtResource("2_gm4xu")
+theme_override_font_sizes/normal_font_size = 36
+text = "- Require constant moisture
+
+- Sensitive to flooding
+
+
+STRENGTH: 3.5/5"
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="ColorRect4"]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 37.0
+offset_right = 299.0
+offset_bottom = 119.0
+theme_override_fonts/normal_font = ExtResource("2_gm4xu")
+theme_override_font_sizes/normal_font_size = 76
+text = "YAMS"
+horizontal_alignment = 1
+
+[node name="ColorRect3" type="ColorRect" parent="."]
+offset_left = 82.0
+offset_top = 540.0
+offset_right = 904.0
+offset_bottom = 995.0
+color = Color(0.388235, 0.305882, 0.247059, 1)
+
+[node name="Greycorntoolbar" type="Sprite2D" parent="ColorRect3"]
+position = Vector2(141, 254)
+scale = Vector2(0.861667, 0.855)
+texture = ExtResource("3_iod2u")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ColorRect3"]
+layout_mode = 0
+offset_left = 298.0
+offset_top = 119.0
+offset_right = 788.0
+offset_bottom = 427.0
+theme_override_fonts/normal_font = ExtResource("2_gm4xu")
+theme_override_font_sizes/normal_font_size = 36
+text = "- highly heat-tolerant
+
+- can tolerate brief flooding
+
+
+STRENGTH: 5/5"
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="ColorRect3"]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 37.0
+offset_right = 359.0
+offset_bottom = 119.0
+theme_override_fonts/normal_font = ExtResource("2_gm4xu")
+theme_override_font_sizes/normal_font_size = 76
+text = "CASSAVA"
+horizontal_alignment = 1
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+offset_left = 962.0
+offset_top = 35.0
+offset_right = 1784.0
+offset_bottom = 490.0
+color = Color(0.388235, 0.305882, 0.247059, 1)
+
+[node name="Greycorntoolbar" type="Sprite2D" parent="ColorRect2"]
+position = Vector2(141, 254)
+scale = Vector2(0.861667, 0.855)
+texture = ExtResource("4_7wrjm")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ColorRect2"]
+layout_mode = 0
+offset_left = 298.0
+offset_top = 119.0
+offset_right = 788.0
+offset_bottom = 427.0
+theme_override_fonts/normal_font = ExtResource("2_gm4xu")
+theme_override_font_sizes/normal_font_size = 36
+text = "- Prolonged drought and exessive heat reduces yield
+
+- Sensitive to flooding
+
+
+STRENGTH: 3/5"
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="ColorRect2"]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 37.0
+offset_right = 299.0
+offset_bottom = 119.0
+theme_override_fonts/normal_font = ExtResource("2_gm4xu")
+theme_override_font_sizes/normal_font_size = 76
+text = "BEANS"
+horizontal_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = 82.0
+offset_top = 36.0
+offset_right = 904.0
+offset_bottom = 491.0
+color = Color(0.388235, 0.305882, 0.247059, 1)
+
+[node name="Greycorntoolbar" type="Sprite2D" parent="ColorRect"]
+position = Vector2(141, 254)
+scale = Vector2(0.861667, 0.855)
+texture = ExtResource("5_vlxje")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ColorRect"]
+layout_mode = 0
+offset_left = 298.0
+offset_top = 119.0
+offset_right = 788.0
+offset_bottom = 427.0
+theme_override_fonts/normal_font = ExtResource("2_gm4xu")
+theme_override_font_sizes/normal_font_size = 36
+text = "- Prolonged drought reduces yield
+
+- Sensitive to flooding
+
+
+STRENGTH: 3/5"
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="ColorRect"]
+layout_mode = 0
+offset_left = 6.0
+offset_top = 37.0
+offset_right = 299.0
+offset_bottom = 119.0
+theme_override_fonts/normal_font = ExtResource("2_gm4xu")
+theme_override_font_sizes/normal_font_size = 76
+text = "CORN"
+horizontal_alignment = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = 1134.0
+offset_top = 1006.0
+offset_right = 1854.0
+offset_bottom = 1071.0
+theme_override_fonts/normal_font = ExtResource("2_gm4xu")
+theme_override_font_sizes/normal_font_size = 36
+text = "Click anywhere to continue ..."
+horizontal_alignment = 1
+vertical_alignment = 1
