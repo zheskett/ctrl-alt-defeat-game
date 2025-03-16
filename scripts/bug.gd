@@ -10,4 +10,3 @@ func bug() -> void:
 	self.show()
 	self.position.x = -900
 	self.position.y = randi_range(-200,1800)
-	print(position.y)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=4 uid="uid://bml3xjpomcarx"]
+[gd_scene load_steps=63 format=4 uid="uid://bml3xjpomcarx"]
 
 [ext_resource type="TileSet" uid="uid://cdv0oqiuilhcd" path="res://resources/temp_tile_set.tres" id="1_cbg4r"]
 [ext_resource type="Script" path="res://scripts/farming.gd" id="1_uibo2"]
@@ -25,10 +25,16 @@
 [ext_resource type="Texture2D" uid="uid://dqbacmku4yca2" path="res://assets/art/ash.png" id="12_4rli0"]
 [ext_resource type="AudioStream" uid="uid://ca6i00x8a7ug6" path="res://assets/sound/ash_sprinkling.mp3" id="13_dvoac"]
 [ext_resource type="PackedScene" uid="uid://dhacemow2f4tp" path="res://scenes/treeDecision.tscn" id="14_x6prt"]
+[ext_resource type="Texture2D" uid="uid://nshqhauq86i6" path="res://assets/art/beansoutline.png" id="17_ik3y7"]
 [ext_resource type="PackedScene" uid="uid://dluk8fwudk6bv" path="res://scenes/dialogBox.tscn" id="17_mjk4b"]
+[ext_resource type="Texture2D" uid="uid://bp6mgjrypd54p" path="res://assets/art/cornoutline.png" id="19_mf5oi"]
+[ext_resource type="Texture2D" uid="uid://choyn8vepiwws" path="res://assets/art/cassavaoutline.png" id="21_cfuik"]
+[ext_resource type="Texture2D" uid="uid://525fls03qt7b" path="res://assets/art/yamoutline.png" id="23_qpkn0"]
 [ext_resource type="AudioStream" uid="uid://ogpfd8x5kl2g" path="res://assets/sound/drought_wind.mp3" id="25_s4rf0"]
 [ext_resource type="AudioStream" uid="uid://dk237rfwxrc36" path="res://assets/sound/flood_rain.mp3" id="26_dvoac"]
+[ext_resource type="Texture2D" uid="uid://dwib8sg2ksbts" path="res://assets/art/wateringcanoutline.png" id="26_gj7k4"]
 [ext_resource type="PackedScene" uid="uid://dceqhfjpkmcyp" path="res://scenes/InformationTiles.tscn" id="28_op3ve"]
+[ext_resource type="Texture2D" uid="uid://ccc2knfsmhot6" path="res://assets/art/ashoutline.png" id="28_u0jj4"]
 
 [sub_resource type="Gradient" id="Gradient_po4j7"]
 interpolation_mode = 2
@@ -634,7 +640,7 @@ focus_mode = 0
 mouse_default_cursor_shape = 2
 texture_normal = ExtResource("4_ntnvr")
 texture_pressed = ExtResource("4_ntnvr")
-texture_hover = ExtResource("4_ntnvr")
+texture_hover = ExtResource("17_ik3y7")
 texture_disabled = ExtResource("7_0dotm")
 texture_focused = ExtResource("4_ntnvr")
 stretch_mode = 3
@@ -651,7 +657,7 @@ focus_mode = 0
 mouse_default_cursor_shape = 2
 texture_normal = ExtResource("5_7nuxp")
 texture_pressed = ExtResource("5_7nuxp")
-texture_hover = ExtResource("5_7nuxp")
+texture_hover = ExtResource("19_mf5oi")
 texture_disabled = ExtResource("8_x6prt")
 texture_focused = ExtResource("5_7nuxp")
 stretch_mode = 3
@@ -668,7 +674,7 @@ focus_mode = 0
 mouse_default_cursor_shape = 2
 texture_normal = ExtResource("6_hnvcl")
 texture_pressed = ExtResource("6_hnvcl")
-texture_hover = ExtResource("6_hnvcl")
+texture_hover = ExtResource("21_cfuik")
 texture_disabled = ExtResource("7_6p8kx")
 texture_focused = ExtResource("6_hnvcl")
 stretch_mode = 3
@@ -685,7 +691,7 @@ focus_mode = 0
 mouse_default_cursor_shape = 2
 texture_normal = ExtResource("7_s4rf0")
 texture_pressed = ExtResource("7_s4rf0")
-texture_hover = ExtResource("7_s4rf0")
+texture_hover = ExtResource("23_qpkn0")
 texture_disabled = ExtResource("6_qrgrl")
 texture_focused = ExtResource("7_s4rf0")
 stretch_mode = 3
@@ -734,7 +740,7 @@ focus_mode = 0
 mouse_default_cursor_shape = 2
 texture_normal = ExtResource("9_op3ve")
 texture_pressed = ExtResource("9_op3ve")
-texture_hover = ExtResource("9_op3ve")
+texture_hover = ExtResource("26_gj7k4")
 texture_disabled = ExtResource("9_6p8kx")
 texture_focused = ExtResource("9_op3ve")
 stretch_mode = 3
@@ -750,7 +756,7 @@ focus_mode = 0
 mouse_default_cursor_shape = 2
 texture_normal = ExtResource("12_4rli0")
 texture_pressed = ExtResource("12_4rli0")
-texture_hover = ExtResource("12_4rli0")
+texture_hover = ExtResource("28_u0jj4")
 texture_disabled = ExtResource("12_4rli0")
 texture_focused = ExtResource("12_4rli0")
 
@@ -859,19 +865,18 @@ color = Color(0.0588235, 0.396078, 0.596078, 0)
 [connection signal="pressed" from="TopBar/AshButton" to="." method="_on_ash_button_pressed"]
 [connection signal="pressed" from="TopBar/Button" to="." method="_on_cropinfobutton_pressed"]
 [connection signal="input_event" from="FarmTileMap/Plot" to="FarmTileMap/Plot" method="_on_input_event"]
-[connection signal="input_event" from="FarmTileMap/@Area2D@40904" to="FarmTileMap/@Area2D@40904" method="_on_input_event"]
-[connection signal="input_event" from="FarmTileMap/@Area2D@40905" to="FarmTileMap/@Area2D@40905" method="_on_input_event"]
-[connection signal="input_event" from="FarmTileMap/@Area2D@40906" to="FarmTileMap/@Area2D@40906" method="_on_input_event"]
-[connection signal="input_event" from="FarmTileMap/@Area2D@40907" to="FarmTileMap/@Area2D@40907" method="_on_input_event"]
-[connection signal="input_event" from="FarmTileMap/@Area2D@40908" to="FarmTileMap/@Area2D@40908" method="_on_input_event"]
-[connection signal="input_event" from="FarmTileMap/@Area2D@40909" to="FarmTileMap/@Area2D@40909" method="_on_input_event"]
-[connection signal="input_event" from="FarmTileMap/@Area2D@40910" to="FarmTileMap/@Area2D@40910" method="_on_input_event"]
-[connection signal="input_event" from="FarmTileMap/@Area2D@40911" to="FarmTileMap/@Area2D@40911" method="_on_input_event"]
-[connection signal="input_event" from="FarmTileMap/@Area2D@40912" to="FarmTileMap/@Area2D@40912" method="_on_input_event"]
-[connection signal="input_event" from="FarmTileMap/@Area2D@40913" to="FarmTileMap/@Area2D@40913" method="_on_input_event"]
-[connection signal="input_event" from="FarmTileMap/@Area2D@40914" to="FarmTileMap/@Area2D@40914" method="_on_input_event"]
-[connection signal="input_event" from="FarmTileMap/@Area2D@40915" to="FarmTileMap/@Area2D@40915" method="_on_input_event"]
-[connection signal="input_event" from="FarmTileMap/@Area2D@40916" to="FarmTileMap/@Area2D@40916" method="_on_input_event"]
-[connection signal="input_event" from="FarmTileMap/@Area2D@40917" to="FarmTileMap/@Area2D@40917" method="_on_input_event"]
-[connection signal="input_event" from="FarmTileMap/@Area2D@40918" to="FarmTileMap/@Area2D@40918" method="_on_input_event"]
-
+[connection signal="input_event" from="FarmTileMap/@Area2D@49865" to="FarmTileMap/@Area2D@49865" method="_on_input_event"]
+[connection signal="input_event" from="FarmTileMap/@Area2D@49866" to="FarmTileMap/@Area2D@49866" method="_on_input_event"]
+[connection signal="input_event" from="FarmTileMap/@Area2D@49867" to="FarmTileMap/@Area2D@49867" method="_on_input_event"]
+[connection signal="input_event" from="FarmTileMap/@Area2D@49868" to="FarmTileMap/@Area2D@49868" method="_on_input_event"]
+[connection signal="input_event" from="FarmTileMap/@Area2D@49869" to="FarmTileMap/@Area2D@49869" method="_on_input_event"]
+[connection signal="input_event" from="FarmTileMap/@Area2D@49870" to="FarmTileMap/@Area2D@49870" method="_on_input_event"]
+[connection signal="input_event" from="FarmTileMap/@Area2D@49871" to="FarmTileMap/@Area2D@49871" method="_on_input_event"]
+[connection signal="input_event" from="FarmTileMap/@Area2D@49872" to="FarmTileMap/@Area2D@49872" method="_on_input_event"]
+[connection signal="input_event" from="FarmTileMap/@Area2D@49873" to="FarmTileMap/@Area2D@49873" method="_on_input_event"]
+[connection signal="input_event" from="FarmTileMap/@Area2D@49874" to="FarmTileMap/@Area2D@49874" method="_on_input_event"]
+[connection signal="input_event" from="FarmTileMap/@Area2D@49875" to="FarmTileMap/@Area2D@49875" method="_on_input_event"]
+[connection signal="input_event" from="FarmTileMap/@Area2D@49876" to="FarmTileMap/@Area2D@49876" method="_on_input_event"]
+[connection signal="input_event" from="FarmTileMap/@Area2D@49877" to="FarmTileMap/@Area2D@49877" method="_on_input_event"]
+[connection signal="input_event" from="FarmTileMap/@Area2D@49878" to="FarmTileMap/@Area2D@49878" method="_on_input_event"]
+[connection signal="input_event" from="FarmTileMap/@Area2D@49879" to="FarmTileMap/@Area2D@49879" method="_on_input_event"]
