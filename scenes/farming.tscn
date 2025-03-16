@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=4 uid="uid://bml3xjpomcarx"]
+[gd_scene load_steps=49 format=4 uid="uid://bml3xjpomcarx"]
 
 [ext_resource type="TileSet" uid="uid://cdv0oqiuilhcd" path="res://resources/temp_tile_set.tres" id="1_cbg4r"]
 [ext_resource type="Script" path="res://scripts/farming.gd" id="1_uibo2"]
@@ -22,11 +22,9 @@
 [ext_resource type="AudioStream" uid="uid://bgf6oh0cvrb2e" path="res://assets/sound/watering-with-a-watering-can-39121.mp3" id="11_po4j7"]
 [ext_resource type="Texture2D" uid="uid://b16qt6puhg0gp" path="res://assets/art/white_circle.png" id="11_tluq4"]
 [ext_resource type="Texture2D" uid="uid://dqbacmku4yca2" path="res://assets/art/ash.png" id="12_4rli0"]
-[ext_resource type="AudioStream" uid="uid://ca6i00x8a7ug6" path="res://assets/sound/ash_sprinkling.mp3" id="13_dvoac"]
 [ext_resource type="PackedScene" uid="uid://dhacemow2f4tp" path="res://scenes/treeDecision.tscn" id="14_x6prt"]
 [ext_resource type="PackedScene" uid="uid://dluk8fwudk6bv" path="res://scenes/dialogBox.tscn" id="17_mjk4b"]
-[ext_resource type="AudioStream" uid="uid://ogpfd8x5kl2g" path="res://assets/sound/drought_wind.mp3" id="25_s4rf0"]
-[ext_resource type="AudioStream" uid="uid://dk237rfwxrc36" path="res://assets/sound/flood_rain.mp3" id="26_dvoac"]
+[ext_resource type="PackedScene" uid="uid://dceqhfjpkmcyp" path="res://scenes/InformationTiles.tscn" id="19_xeuic"]
 
 [sub_resource type="Gradient" id="Gradient_po4j7"]
 interpolation_mode = 2
@@ -100,61 +98,9 @@ tracks/0/keys = {
 }
 tracks/0/use_blend = false
 
-[sub_resource type="Animation" id="Animation_7nuxp"]
-resource_name = "harvest"
-length = 0.1018
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.1017),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [0.0, -2.94088, 0.0]
-}
-
-[sub_resource type="Animation" id="Animation_hnvcl"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-
-[sub_resource type="Animation" id="Animation_op3ve"]
-resource_name = "ash"
-length = 3.6
-loop_mode = 1
-tracks/0/type = "audio"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("AudioStreamPlayer2D")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"clips": [{
-"end_offset": 0.941119,
-"start_offset": 0.0,
-"stream": ExtResource("13_dvoac")
-}],
-"times": PackedFloat32Array(0)
-}
-tracks/0/use_blend = true
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_nmop0"]
 _data = {
 &"RESET": SubResource("Animation_hnvcl"),
-&"ash": SubResource("Animation_op3ve"),
 &"harvest": SubResource("Animation_7nuxp"),
 &"water": SubResource("Animation_xeuic")
 }
@@ -315,18 +261,6 @@ tracks/8/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 0.466667)]
 }
-tracks/9/type = "value"
-tracks/9/imported = false
-tracks/9/enabled = true
-tracks/9/path = NodePath("AudioStreamPlayer2D:volume_db")
-tracks/9/interp = 1
-tracks/9/loop_wrap = true
-tracks/9/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
 
 [sub_resource type="Animation" id="Animation_mjk4b"]
 resource_name = "drought"
@@ -391,33 +325,6 @@ tracks/4/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 0.0509804), Color(1, 1, 1, 0.466667), Color(1, 1, 1, 0)]
 }
-tracks/5/type = "audio"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("AudioStreamPlayer2D")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"clips": [{
-"end_offset": 32.5569,
-"start_offset": 0.0432215,
-"stream": ExtResource("25_s4rf0")
-}],
-"times": PackedFloat32Array(0)
-}
-tracks/5/use_blend = true
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("AudioStreamPlayer2D:volume_db")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0, 1.26667, 2.16667, 3.86667, 4),
-"transitions": PackedFloat32Array(1, 1.86606, 1.86606, 7.46426, 1),
-"update": 0,
-"values": [0.0, 0.0, 0.0, -44.808, 0.0]
-}
 
 [sub_resource type="Animation" id="Animation_nmop0"]
 resource_name = "flood"
@@ -466,33 +373,6 @@ tracks/3/keys = {
 "handle_modes": PackedInt32Array(0, 0, 0),
 "points": PackedFloat32Array(0.545098, -0.25, 0, 0.25, 0, 0.545098, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0, 1.00009, 4)
-}
-tracks/4/type = "audio"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("AudioStreamPlayer2D")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"clips": [{
-"end_offset": 25.9103,
-"start_offset": 0.128111,
-"stream": ExtResource("26_dvoac")
-}],
-"times": PackedFloat32Array(0)
-}
-tracks/4/use_blend = true
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("AudioStreamPlayer2D:volume_db")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0.0666667, 1.33333, 2.23333, 3.93333, 4.06667),
-"transitions": PackedFloat32Array(1, 1.86606, 1.86606, 7.46426, 1),
-"update": 0,
-"values": [0.0, 0.0, 0.0, -44.808, 0.0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_5fhwr"]
@@ -604,7 +484,6 @@ offset_right = 457.0
 offset_bottom = 333.0
 scale = Vector2(0.43, 0.43)
 tooltip_text = "Beans"
-focus_mode = 0
 mouse_default_cursor_shape = 2
 texture_normal = ExtResource("4_ntnvr")
 texture_pressed = ExtResource("4_ntnvr")
@@ -621,7 +500,6 @@ offset_right = 591.0
 offset_bottom = 331.0
 scale = Vector2(0.42, 0.42)
 tooltip_text = "Corn"
-focus_mode = 0
 mouse_default_cursor_shape = 2
 texture_normal = ExtResource("5_7nuxp")
 texture_pressed = ExtResource("5_7nuxp")
@@ -638,7 +516,6 @@ offset_right = 725.0
 offset_bottom = 332.0
 scale = Vector2(0.42, 0.42)
 tooltip_text = "Cassava"
-focus_mode = 0
 mouse_default_cursor_shape = 2
 texture_normal = ExtResource("6_hnvcl")
 texture_pressed = ExtResource("6_hnvcl")
@@ -655,7 +532,6 @@ offset_right = 865.0
 offset_bottom = 359.0
 scale = Vector2(0.4, 0.4)
 tooltip_text = "Yam"
-focus_mode = 0
 mouse_default_cursor_shape = 2
 texture_normal = ExtResource("7_s4rf0")
 texture_pressed = ExtResource("7_s4rf0")
@@ -704,7 +580,6 @@ offset_top = 18.0
 offset_right = 998.0
 offset_bottom = 353.0
 scale = Vector2(0.4, 0.4)
-focus_mode = 0
 mouse_default_cursor_shape = 2
 texture_normal = ExtResource("9_op3ve")
 texture_pressed = ExtResource("9_op3ve")
@@ -720,7 +595,6 @@ offset_top = 21.0
 offset_right = 1138.0
 offset_bottom = 356.0
 scale = Vector2(0.4, 0.4)
-focus_mode = 0
 mouse_default_cursor_shape = 2
 texture_normal = ExtResource("12_4rli0")
 texture_pressed = ExtResource("12_4rli0")
@@ -802,7 +676,10 @@ libraries = {
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+[node name="InformationTiles" parent="." instance=ExtResource("19_xeuic")]
+visible = false
+z_index = 10
+position = Vector2(-953, -531)
 
 [connection signal="pressed" from="TopBar/BeanButton" to="." method="_on_bean_button_pressed"]
 [connection signal="pressed" from="TopBar/CornButton" to="." method="_on_corn_button_pressed"]
@@ -812,20 +689,20 @@ one_shot = true
 [connection signal="pressed" from="TopBar/NextButton" to="." method="_on_next_button_pressed"]
 [connection signal="pressed" from="TopBar/WaterButton" to="." method="_on_water_button_pressed"]
 [connection signal="pressed" from="TopBar/AshButton" to="." method="_on_ash_button_pressed"]
+[connection signal="pressed" from="TopBar/Button" to="." method="_on_button_pressed"]
 [connection signal="input_event" from="FarmTileMap/Plot" to="FarmTileMap/Plot" method="_on_input_event"]
-[connection signal="input_event" from="FarmTileMap/@Area2D@66313" to="FarmTileMap/@Area2D@66313" method="_on_input_event"]
-[connection signal="input_event" from="FarmTileMap/@Area2D@66314" to="FarmTileMap/@Area2D@66314" method="_on_input_event"]
-[connection signal="input_event" from="FarmTileMap/@Area2D@66315" to="FarmTileMap/@Area2D@66315" method="_on_input_event"]
-[connection signal="input_event" from="FarmTileMap/@Area2D@66316" to="FarmTileMap/@Area2D@66316" method="_on_input_event"]
-[connection signal="input_event" from="FarmTileMap/@Area2D@66317" to="FarmTileMap/@Area2D@66317" method="_on_input_event"]
-[connection signal="input_event" from="FarmTileMap/@Area2D@66318" to="FarmTileMap/@Area2D@66318" method="_on_input_event"]
-[connection signal="input_event" from="FarmTileMap/@Area2D@66319" to="FarmTileMap/@Area2D@66319" method="_on_input_event"]
-[connection signal="input_event" from="FarmTileMap/@Area2D@66320" to="FarmTileMap/@Area2D@66320" method="_on_input_event"]
-[connection signal="input_event" from="FarmTileMap/@Area2D@66321" to="FarmTileMap/@Area2D@66321" method="_on_input_event"]
-[connection signal="input_event" from="FarmTileMap/@Area2D@66322" to="FarmTileMap/@Area2D@66322" method="_on_input_event"]
-[connection signal="input_event" from="FarmTileMap/@Area2D@66323" to="FarmTileMap/@Area2D@66323" method="_on_input_event"]
-[connection signal="input_event" from="FarmTileMap/@Area2D@66324" to="FarmTileMap/@Area2D@66324" method="_on_input_event"]
-[connection signal="input_event" from="FarmTileMap/@Area2D@66325" to="FarmTileMap/@Area2D@66325" method="_on_input_event"]
-[connection signal="input_event" from="FarmTileMap/@Area2D@66326" to="FarmTileMap/@Area2D@66326" method="_on_input_event"]
-[connection signal="input_event" from="FarmTileMap/@Area2D@66327" to="FarmTileMap/@Area2D@66327" method="_on_input_event"]
-
+[connection signal="input_event" from="FarmTileMap/@Area2D@87067" to="FarmTileMap/@Area2D@87067" method="_on_input_event"]
+[connection signal="input_event" from="FarmTileMap/@Area2D@87068" to="FarmTileMap/@Area2D@87068" method="_on_input_event"]
+[connection signal="input_event" from="FarmTileMap/@Area2D@87069" to="FarmTileMap/@Area2D@87069" method="_on_input_event"]
+[connection signal="input_event" from="FarmTileMap/@Area2D@87070" to="FarmTileMap/@Area2D@87070" method="_on_input_event"]
+[connection signal="input_event" from="FarmTileMap/@Area2D@87071" to="FarmTileMap/@Area2D@87071" method="_on_input_event"]
+[connection signal="input_event" from="FarmTileMap/@Area2D@87072" to="FarmTileMap/@Area2D@87072" method="_on_input_event"]
+[connection signal="input_event" from="FarmTileMap/@Area2D@87073" to="FarmTileMap/@Area2D@87073" method="_on_input_event"]
+[connection signal="input_event" from="FarmTileMap/@Area2D@87074" to="FarmTileMap/@Area2D@87074" method="_on_input_event"]
+[connection signal="input_event" from="FarmTileMap/@Area2D@87075" to="FarmTileMap/@Area2D@87075" method="_on_input_event"]
+[connection signal="input_event" from="FarmTileMap/@Area2D@87076" to="FarmTileMap/@Area2D@87076" method="_on_input_event"]
+[connection signal="input_event" from="FarmTileMap/@Area2D@87077" to="FarmTileMap/@Area2D@87077" method="_on_input_event"]
+[connection signal="input_event" from="FarmTileMap/@Area2D@87078" to="FarmTileMap/@Area2D@87078" method="_on_input_event"]
+[connection signal="input_event" from="FarmTileMap/@Area2D@87079" to="FarmTileMap/@Area2D@87079" method="_on_input_event"]
+[connection signal="input_event" from="FarmTileMap/@Area2D@87080" to="FarmTileMap/@Area2D@87080" method="_on_input_event"]
+[connection signal="input_event" from="FarmTileMap/@Area2D@87081" to="FarmTileMap/@Area2D@87081" method="_on_input_event"]
