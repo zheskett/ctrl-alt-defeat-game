@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://2gp1uqqrgsjn"]
+[gd_scene load_steps=32 format=3 uid="uid://2gp1uqqrgsjn"]
 
 [ext_resource type="Script" uid="uid://fyhmk3oyic1o" path="res://scripts/plot.gd" id="1_cyvgl"]
 [ext_resource type="Texture2D" uid="uid://btqimulsa0bys" path="res://assets/art/tileforplant.png" id="2_rd1ev"]
@@ -20,6 +20,19 @@
 [ext_resource type="Texture2D" uid="uid://cjfyosjundehu" path="res://assets/art/tree.png" id="15_vds8m"]
 [ext_resource type="Texture2D" uid="uid://b16qt6puhg0gp" path="res://assets/art/white_circle.png" id="16_3iehw"]
 [ext_resource type="AudioStream" uid="uid://brghutpvldcgy" path="res://assets/sound/harvest_crop.mp3" id="18_2cd3u"]
+
+[sub_resource type="Curve" id="Curve_2cd3u"]
+_data = [Vector2(0, 0.573643), 0.0, 0.0, 0, 0, Vector2(0.996516, 0.94186), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_2cd3u"]
+offsets = PackedFloat32Array(0.00858369, 0.991416)
+colors = PackedColorArray(0.819608, 0.835294, 0.831373, 1, 1, 1, 1, 0.270588)
+
+[sub_resource type="Curve" id="Curve_7sqlv"]
+_limits = [-1.0, 1.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.487805, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 3
 
 [sub_resource type="Gradient" id="Gradient_3iehw"]
 interpolation_mode = 2
@@ -188,13 +201,21 @@ position = Vector2(0, 50.51)
 emitting = false
 amount = 100
 texture = ExtResource("16_3iehw")
-lifetime = 1.2
+lifetime = 1.37
 explosiveness = 0.2
 spread = 180.0
 gravity = Vector2(0, 40)
 initial_velocity_min = 15.0
 initial_velocity_max = 35.0
-color = Color(0, 0, 1, 1)
+scale_amount_min = 0.3
+split_scale = true
+scale_curve_x = SubResource("Curve_2cd3u")
+scale_curve_y = null
+color = Color(0.145098, 0.396078, 0.839216, 0.729412)
+color_ramp = SubResource("Gradient_2cd3u")
+hue_variation_min = -0.01
+hue_variation_max = 0.01
+hue_variation_curve = SubResource("Curve_7sqlv")
 
 [node name="AshParticles" type="CPUParticles2D" parent="."]
 emitting = false
@@ -229,10 +250,10 @@ libraries = {
 [node name="ScoreLabel" type="Label" parent="."]
 visible = false
 z_index = 10
-offset_left = 47.0
-offset_top = -101.0
-offset_right = 87.0
-offset_bottom = -56.0
+offset_left = 2.0
+offset_top = -47.0
+offset_right = 42.0
+offset_bottom = -2.0
 text = "+2"
 label_settings = SubResource("LabelSettings_72cjw")
 
