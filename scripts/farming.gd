@@ -44,6 +44,9 @@ var ash_percent : int :
 func _ready() -> void:
 	#Global.year = 1
 	#Global.score = 0
+	await $DialogBox.show_dialog(3, "Hi! I see you're getting started planting crops. I recommend that you plant at least two, and try to intermix where you plant them to help the soil.")
+	await $DialogBox.show_dialog(3, "I would also take advantage of the water and ash provided to hydrate and fertilize your crops. Oh, and only two crops can be planted in a field! Good luck!")
+
 	reset_farming()
 
 
@@ -128,8 +131,14 @@ func plant_harvested() -> void:
 	if Global.year >= 4:
 		return
 		#TODO end-scene
+		get_tree().change_scene_to_file("res://scenes/ending.tscn")
+
 
 	if Global.year == 2:
+		if (Global.score <= 20):
+			await $DialogBox.show_dialog(0, "Hi there! I see your first season was a little rough. Try planting alternating rows of crops and be sure to water them!")
+		else:
+			await $DialogBox.show_dialog(0, "Hi there! I see the progress you're making. Very impressive!")
 		$TreeDecision.start()
 		
 		await Global.tree_choice
@@ -139,6 +148,11 @@ func plant_harvested() -> void:
 		return
 	
 	if Global.year == 3:
+		if (Global.score > 50):
+			await $DialogBox.show_dialog(2, "Hey neighbor! Seems like you're learning more and more each year. Good job!")
+		else:
+			await $DialogBox.show_dialog(2, "Hey neighbor! Pro tip: planting intermixed crops, watering and fertilizing before harvest really improves yield!")
+
 		pass
 
 	reset_farming()
