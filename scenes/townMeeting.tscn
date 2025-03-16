@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://ba0hfgaei8xaa" path="res://scripts/town_meeting.gd" id="1_4gu45"]
 [ext_resource type="PackedScene" uid="uid://dluk8fwudk6bv" path="res://scenes/dialogBox.tscn" id="2_eyhm6"]
-[ext_resource type="Texture2D" uid="uid://dtm2jornx3vwj" path="res://assets/temp_art/GreyscaleTalanoa.png" id="2_njm8m"]
+[ext_resource type="Texture2D" uid="uid://ds5ongmpbcmcg" path="res://assets/art/meetingbg.png" id="2_njm8m"]
 [ext_resource type="AudioStream" uid="uid://ohswk51326jv" path="res://assets/sound/crowd-of-people-talking-29054.mp3" id="4_njm8m"]
 
 [sub_resource type="Animation" id="Animation_mg5qe"]
@@ -88,10 +88,10 @@ libraries = {
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 0
-offset_left = -8.0
-offset_top = -9.0
-offset_right = 1940.0
-offset_bottom = 1117.0
+offset_left = 3.0
+offset_top = 6.0
+offset_right = 1951.0
+offset_bottom = 1132.0
 color = Color(0.360784, 0.360784, 0.360784, 0)
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]

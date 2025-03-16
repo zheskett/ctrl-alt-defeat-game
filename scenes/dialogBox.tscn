@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://dluk8fwudk6bv"]
 
 [ext_resource type="Script" uid="uid://c1cym3vgkrhum" path="res://scripts/dialog_box.gd" id="1_ideoa"]
-[ext_resource type="Texture2D" uid="uid://ci4a5wqby1k8" path="res://assets/art/text_box_dark.png" id="2_odxxp"]
+[ext_resource type="Texture2D" uid="uid://dh3dh7whwgu3x" path="res://assets/art/text_box_darklight.png" id="2_odxxp"]
 [ext_resource type="FontFile" uid="uid://bkp4u3hvwimtp" path="res://assets/font/VCR_OSD_MONO_1.001.ttf" id="2_rwprb"]
 [ext_resource type="Texture2D" uid="uid://dg2g8tyffeyqm" path="res://assets/sketchana.png" id="4_guheb"]
 
