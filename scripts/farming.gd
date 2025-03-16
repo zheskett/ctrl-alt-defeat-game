@@ -6,6 +6,7 @@ class_name Farming
 @export var mouse_crop_sprite: MouseCropSprite
 @export var score_label: Label
 @export var water_label: Label
+@export var ash_label: Label
 @export var year_label: Label
 @export var current_crop: Global.Crops = Global.Crops.EMPTY
 
@@ -13,9 +14,11 @@ var is_planting := true
 var is_growing := false
 var is_harvesting := false
 var is_watering := false
+var is_ashing := false
 var planted_crops: Dictionary[Global.Crops, int] = {}
 
 const MAX_WATER := 300
+const MAX_ASH := 100
 var water := 0 :
 	set(value):
 		water = value
@@ -27,6 +30,16 @@ var water_percent : int :
 	get:
 		return int((water as float) / (MAX_WATER as float) * 100.0)
 
+var ash := 0 :
+	set(value):
+		ash = value
+		ash_label.text = str(ash_percent) + "%"
+		if water <= 0:
+			is_ashing = false
+			mouse_crop_sprite.hide()
+var ash_percent : int :
+	get:
+		return int((ash as float) / (MAX_ASH as float) * 100.0)
 
 func _ready() -> void:
 	#Global.year = 1
@@ -64,13 +77,16 @@ func reset_farming() -> void:
 
 	if Global.year == 1:
 		water = MAX_WATER
+		ash = 0
 	else:
+		ash = MAX_ASH
 		@warning_ignore("integer_division")
 		water = MAX_WATER / 2
-	print(water)
+
 	is_harvesting = false
 	is_watering = false
 	is_growing = false
+	is_ashing = false
 	is_planting = true
 
 
@@ -78,12 +94,14 @@ func _on_clear_button_pressed() -> void:
 	current_crop = Global.Crops.EMPTY
 	mouse_crop_sprite.hide()
 	self.is_watering = false
+	self.is_ashing = false
 
 
 func _on_next_button_pressed() -> void:
 	if self.is_growing:
 		self.is_growing = false
 		self.is_watering = false
+		self.is_ashing = false
 		mouse_crop_sprite.hide()
 		for plot in farm_tile_map.plot_coords.values():
 			(plot as Plot).grow_plant()
@@ -110,8 +128,7 @@ func plant_harvested() -> void:
 	if Global.year >= 4:
 		return
 		#TODO end-scene
-	
-	print("hi")
+
 	if Global.year == 2:
 		$TreeDecision.start()
 		
@@ -130,6 +147,7 @@ func _on_water_button_pressed() -> void:
 	if not self.is_growing or water <= 0:
 		return
 	self.is_watering = true
+	self.is_ashing = false
 	mouse_crop_sprite.texture = mouse_crop_sprite.water_texture
 	mouse_crop_sprite.show()
 
@@ -146,6 +164,7 @@ func disable_extra_crops() -> void:
 func _on_yam_button_pressed() -> void:
 	if is_planting:
 		self.is_watering = false
+		self.is_ashing = false
 		current_crop = Global.Crops.YAM
 		mouse_crop_sprite.visible = true
 		mouse_crop_sprite.texture = mouse_crop_sprite.yam_texture
@@ -153,6 +172,7 @@ func _on_yam_button_pressed() -> void:
 func _on_casava_button_pressed() -> void:
 	if is_planting:
 		self.is_watering = false
+		self.is_ashing = false
 		current_crop = Global.Crops.CASAVA
 		mouse_crop_sprite.visible = true
 		mouse_crop_sprite.texture = mouse_crop_sprite.casava_texture
@@ -161,6 +181,7 @@ func _on_casava_button_pressed() -> void:
 func _on_corn_button_pressed() -> void:
 	if is_planting:
 		self.is_watering = false
+		self.is_ashing = false
 		current_crop = Global.Crops.CORN
 		mouse_crop_sprite.visible = true
 		mouse_crop_sprite.texture = mouse_crop_sprite.corn_texture
@@ -169,6 +190,16 @@ func _on_corn_button_pressed() -> void:
 func _on_bean_button_pressed() -> void:
 	if is_planting:
 		self.is_watering = false
+		self.is_ashing = false
 		current_crop = Global.Crops.BEAN
 		mouse_crop_sprite.visible = true
 		mouse_crop_sprite.texture = mouse_crop_sprite.bean_texture
+
+
+func _on_ash_button_pressed() -> void:
+	if not self.is_growing or ash <= 0:
+		return
+	self.is_ashing = true
+	self.is_watering = false
+	mouse_crop_sprite.texture = mouse_crop_sprite.ash_texture
+	mouse_crop_sprite.show()

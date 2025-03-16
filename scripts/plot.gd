@@ -23,12 +23,16 @@ const WATER_DICT : Dictionary[Global.Crops, int] = {
 	Global.Crops.YAM: 8
 }
 
+const ASH_COST = 10
+
 var can_be_tree := false
 var farming_node: Farming
 var harvested := true
 var stage := 0
 var water := 0
+var ash := 0
 var water_needed := 0
+var ash_needed := 0
 var mouse_in := false
 
 # Handle watering
@@ -111,6 +115,8 @@ func _harvest_plant() -> void:
 	$ScoreLabel.text = "+" + str(score)
 	water = 0
 	water_needed = 0
+	ash = 0
+	ash_needed = 0
 	animation_player.play("harvest")
 	farming_node.plant_harvested()
 
@@ -129,6 +135,8 @@ func plant_clicked() -> void:
 		sprite.texture = texture_array[self.crop - 1][stage]
 		self.water = 0
 		self.water_needed = WATER_DICT.get(self.crop, 1)
+		self.ash = 0
+		self.ash_needed = ASH_COST
 		
 		animation_player.play("plant_crop")
 		farming_node.plant_planted(self.crop)
@@ -141,3 +149,9 @@ func _physics_process(_delta: float) -> void:
 		farming_node.water -= 1
 		if water >= water_needed:
 			$WaterParticles.emitting = true
+
+	if farming_node.is_ashing and self.ash < self.ash_needed and self.crop != Global.Crops.EMPTY and self.crop != Global.Crops.TREE:
+		ash += 1
+		farming_node.ash -= 1
+		if ash >= ash_needed:
+			pass

@@ -8,6 +8,7 @@ class_name MouseCropSprite
 @export var yam_texture: Texture2D
 @export var water_texture: Texture2D
 @export var watering_texture: Texture2D
+@export var ash_texture: Texture2D
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
@@ -17,3 +18,8 @@ func _process(_delta: float) -> void:
 			self.texture = watering_texture
 		else:
 			self.texture = water_texture
+	if farming_node.is_ashing:
+		if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
+			$CPUParticles2D.emitting = true
+		else:
+			$CPUParticles2D.emitting = false
