@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=4 uid="uid://bml3xjpomcarx"]
+[gd_scene load_steps=28 format=4 uid="uid://bml3xjpomcarx"]
 
 [ext_resource type="TileSet" uid="uid://cdv0oqiuilhcd" path="res://resources/temp_tile_set.tres" id="1_cbg4r"]
 [ext_resource type="Script" path="res://scripts/farming.gd" id="1_uibo2"]
@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://b16qt6puhg0gp" path="res://assets/art/white_circle.png" id="11_tluq4"]
 [ext_resource type="Texture2D" uid="uid://dqbacmku4yca2" path="res://assets/art/ash.png" id="12_4rli0"]
 [ext_resource type="PackedScene" uid="uid://dhacemow2f4tp" path="res://scenes/treeDecision.tscn" id="14_x6prt"]
+[ext_resource type="PackedScene" uid="uid://dluk8fwudk6bv" path="res://scenes/dialogBox.tscn" id="17_mjk4b"]
 
 [sub_resource type="Gradient" id="Gradient_mjk4b"]
 colors = PackedColorArray(0.419608, 0.435294, 0.419608, 1, 1, 1, 1, 1)
@@ -306,6 +307,12 @@ offset_left = -960.0
 offset_top = -540.0
 offset_right = -960.0
 offset_bottom = -540.0
+
+[node name="DialogBox" parent="." instance=ExtResource("17_mjk4b")]
+offset_left = -940.0
+offset_top = -516.0
+offset_right = -940.0
+offset_bottom = -516.0
 
 [connection signal="pressed" from="TopBar/BeanButton" to="." method="_on_bean_button_pressed"]
 [connection signal="pressed" from="TopBar/CornButton" to="." method="_on_corn_button_pressed"]
