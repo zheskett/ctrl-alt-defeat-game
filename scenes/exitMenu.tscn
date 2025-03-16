@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://0twuf1si0uqb"]
+
+[ext_resource type="Script" uid="uid://cctsaqtwsquw6" path="res://scripts/exit_menu.gd" id="1_qf2yg"]
+[ext_resource type="FontFile" uid="uid://b84fpvkh5a3fn" path="res://assets/font/Pixellari.ttf" id="2_1816y"]
+
+[node name="ExitMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_qf2yg")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 2124.0
+offset_bottom = 1261.0
+color = Color(0.0588235, 0.396078, 0.596078, 1)
+
+[node name="Exit" type="Button" parent="ColorRect"]
+layout_mode = 0
+offset_left = 732.0
+offset_top = 433.0
+offset_right = 994.0
+offset_bottom = 617.0
+theme_override_fonts/font = ExtResource("2_1816y")
+theme_override_font_sizes/font_size = 128
+text = "Exit"
+
+[connection signal="pressed" from="ColorRect/Exit" to="." method="_on_exit_pressed"]

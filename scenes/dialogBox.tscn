@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://dluk8fwudk6bv"]
+[gd_scene load_steps=6 format=3 uid="uid://dluk8fwudk6bv"]
 
 [ext_resource type="Script" uid="uid://c1cym3vgkrhum" path="res://scripts/dialog_box.gd" id="1_ideoa"]
-[ext_resource type="Texture2D" uid="uid://dh3dh7whwgu3x" path="res://assets/art/text_box_darklight.png" id="2_odxxp"]
+[ext_resource type="Texture2D" uid="uid://b2kmfvamlqcvi" path="res://assets/art/text_box_UPDATED (1).png" id="2_odxxp"]
 [ext_resource type="FontFile" uid="uid://bkp4u3hvwimtp" path="res://assets/font/VCR_OSD_MONO_1.001.ttf" id="2_rwprb"]
 [ext_resource type="Texture2D" uid="uid://dg2g8tyffeyqm" path="res://assets/sketchana.png" id="4_guheb"]
+[ext_resource type="FontFile" uid="uid://b84fpvkh5a3fn" path="res://assets/font/Pixellari.ttf" id="4_odxxp"]
 
 [node name="DialogBox" type="Control"]
 layout_mode = 3
@@ -56,12 +57,12 @@ offset_right = 413.0
 offset_bottom = 246.0
 theme_override_colors/default_color = Color(1, 1, 1, 1)
 theme_override_constants/line_separation = 5
-theme_override_fonts/normal_font = ExtResource("2_rwprb")
-theme_override_font_sizes/normal_font_size = 24
+theme_override_fonts/normal_font = ExtResource("4_odxxp")
+theme_override_font_sizes/normal_font_size = 28
 text = "I am saying hello! line line line line line line line line line line line line eline line ejnfsjkdbgkbkdsdjgafjkfafhkfahdajkdasfjkafjkdsfjdajhfdhfadjasjfajgj"
 metadata/_edit_use_anchors_ = true
 
 [node name="Face" type="Sprite2D" parent="TextBox/Dialog Box"]
-position = Vector2(563.836, 123.086)
-scale = Vector2(0.468119, 0.577765)
+position = Vector2(564.091, 123.086)
+scale = Vector2(0.488678, 0.577765)
 texture = ExtResource("4_guheb")

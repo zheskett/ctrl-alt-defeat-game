@@ -7,10 +7,9 @@ func _ready():
 	$AudioStreamPlayer2D.play()
 	#get_tree().get_root().add_child.call_deferred(dialog_box)
 	
-	#NOTE: 4 - Thompson
-	await dialog_box.show_dialog(0, "Hello, Director Thompson. This past few seasons our farming community has been working on a strategy to combat climate change.")
+	await dialog_box.show_dialog(0, "Hello, Director Thompson. These past few seasons our farming community has been working on a strategy to combat climate change.")
 	await dialog_box.show_dialog(4, "I'm listening, John. Please, tell me more about how your community has benefitted from this.")
-	await dialog_box.show_dialog(0, "We’ve identified crops like corn, beans, yams, and cassava that are suited for the changing weather. We also used ash to fertilize effectively, and planted trees to protect against river flooding.")
+	await dialog_box.show_dialog(0, "We’ve identified crops like corn, beans, yams, and cassava that are suited for the changing weather. We also used ash to fertilize, and planted trees to protect against river flooding.")
 	await dialog_box.show_dialog(4, "...")
 	
 	if (Global.score >= 340):

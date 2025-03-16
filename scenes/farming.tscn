@@ -842,11 +842,11 @@ libraries = {
 }
 
 [node name="ColorRect" type="ColorRect" parent="."]
-z_index = 100
-offset_left = -1264.0
-offset_top = -639.0
-offset_right = 1099.0
-offset_bottom = 682.0
+z_index = 4096
+offset_left = -1175.0
+offset_top = -685.0
+offset_right = 1188.0
+offset_bottom = 636.0
 color = Color(0.0588235, 0.396078, 0.596078, 0)
 
 [connection signal="pressed" from="TopBar/BeanButton" to="." method="_on_bean_button_pressed"]
@@ -859,18 +859,19 @@ color = Color(0.0588235, 0.396078, 0.596078, 0)
 [connection signal="pressed" from="TopBar/AshButton" to="." method="_on_ash_button_pressed"]
 [connection signal="pressed" from="TopBar/Button" to="." method="_on_cropinfobutton_pressed"]
 [connection signal="input_event" from="FarmTileMap/Plot" to="FarmTileMap/Plot" method="_on_input_event"]
-[connection signal="input_event" from="FarmTileMap/@Area2D@44179" to="FarmTileMap/@Area2D@44179" method="_on_input_event"]
-[connection signal="input_event" from="FarmTileMap/@Area2D@44180" to="FarmTileMap/@Area2D@44180" method="_on_input_event"]
-[connection signal="input_event" from="FarmTileMap/@Area2D@44181" to="FarmTileMap/@Area2D@44181" method="_on_input_event"]
-[connection signal="input_event" from="FarmTileMap/@Area2D@44182" to="FarmTileMap/@Area2D@44182" method="_on_input_event"]
-[connection signal="input_event" from="FarmTileMap/@Area2D@44183" to="FarmTileMap/@Area2D@44183" method="_on_input_event"]
-[connection signal="input_event" from="FarmTileMap/@Area2D@44184" to="FarmTileMap/@Area2D@44184" method="_on_input_event"]
-[connection signal="input_event" from="FarmTileMap/@Area2D@44185" to="FarmTileMap/@Area2D@44185" method="_on_input_event"]
-[connection signal="input_event" from="FarmTileMap/@Area2D@44186" to="FarmTileMap/@Area2D@44186" method="_on_input_event"]
-[connection signal="input_event" from="FarmTileMap/@Area2D@44187" to="FarmTileMap/@Area2D@44187" method="_on_input_event"]
-[connection signal="input_event" from="FarmTileMap/@Area2D@44188" to="FarmTileMap/@Area2D@44188" method="_on_input_event"]
-[connection signal="input_event" from="FarmTileMap/@Area2D@44189" to="FarmTileMap/@Area2D@44189" method="_on_input_event"]
-[connection signal="input_event" from="FarmTileMap/@Area2D@44190" to="FarmTileMap/@Area2D@44190" method="_on_input_event"]
-[connection signal="input_event" from="FarmTileMap/@Area2D@44191" to="FarmTileMap/@Area2D@44191" method="_on_input_event"]
-[connection signal="input_event" from="FarmTileMap/@Area2D@44192" to="FarmTileMap/@Area2D@44192" method="_on_input_event"]
-[connection signal="input_event" from="FarmTileMap/@Area2D@44193" to="FarmTileMap/@Area2D@44193" method="_on_input_event"]
+[connection signal="input_event" from="FarmTileMap/@Area2D@40904" to="FarmTileMap/@Area2D@40904" method="_on_input_event"]
+[connection signal="input_event" from="FarmTileMap/@Area2D@40905" to="FarmTileMap/@Area2D@40905" method="_on_input_event"]
+[connection signal="input_event" from="FarmTileMap/@Area2D@40906" to="FarmTileMap/@Area2D@40906" method="_on_input_event"]
+[connection signal="input_event" from="FarmTileMap/@Area2D@40907" to="FarmTileMap/@Area2D@40907" method="_on_input_event"]
+[connection signal="input_event" from="FarmTileMap/@Area2D@40908" to="FarmTileMap/@Area2D@40908" method="_on_input_event"]
+[connection signal="input_event" from="FarmTileMap/@Area2D@40909" to="FarmTileMap/@Area2D@40909" method="_on_input_event"]
+[connection signal="input_event" from="FarmTileMap/@Area2D@40910" to="FarmTileMap/@Area2D@40910" method="_on_input_event"]
+[connection signal="input_event" from="FarmTileMap/@Area2D@40911" to="FarmTileMap/@Area2D@40911" method="_on_input_event"]
+[connection signal="input_event" from="FarmTileMap/@Area2D@40912" to="FarmTileMap/@Area2D@40912" method="_on_input_event"]
+[connection signal="input_event" from="FarmTileMap/@Area2D@40913" to="FarmTileMap/@Area2D@40913" method="_on_input_event"]
+[connection signal="input_event" from="FarmTileMap/@Area2D@40914" to="FarmTileMap/@Area2D@40914" method="_on_input_event"]
+[connection signal="input_event" from="FarmTileMap/@Area2D@40915" to="FarmTileMap/@Area2D@40915" method="_on_input_event"]
+[connection signal="input_event" from="FarmTileMap/@Area2D@40916" to="FarmTileMap/@Area2D@40916" method="_on_input_event"]
+[connection signal="input_event" from="FarmTileMap/@Area2D@40917" to="FarmTileMap/@Area2D@40917" method="_on_input_event"]
+[connection signal="input_event" from="FarmTileMap/@Area2D@40918" to="FarmTileMap/@Area2D@40918" method="_on_input_event"]
+

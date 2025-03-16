@@ -28,11 +28,11 @@ enum CHAR {
 
 #Used ChatGPT to create dictionary for each character
 var characters = {
-	CHAR.JOHN: { "name": "John", "image": "res://assets/art/sketchjohn.png" },
-	CHAR.MEM1: { "name": "Litia", "image": "res://assets/art/sketchlitia.png" }, 
+	CHAR.JOHN: { "name": "John", "image": "res://assets/art/john.png" },
+	CHAR.MEM1: { "name": "Litia", "image": "res://assets/art/litia.png" }, 
 	CHAR.MEM2: { "name": "Saimoni", "image": "res://assets/art/saimoni.png" },
-	CHAR.MEM3: { "name": "Ana", "image": "res://assets/art/sketchana.png" },
-	CHAR.Thompson: { "name" : "Thompson", "image": "res://assets/art/sketchthompson.png"}
+	CHAR.MEM3: { "name": "Ana", "image": "res://assets/art/ana.png" },
+	CHAR.Thompson: { "name" : "Thompson", "image": "res://assets/art/thompson.png"}
 }
 
 var Message = ""

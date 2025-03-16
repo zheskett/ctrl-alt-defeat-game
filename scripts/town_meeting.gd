@@ -31,7 +31,7 @@ func _ready():
 	
 	#John
 	await dialog_box.show_dialog(0, "These are great ideas, everyone. What if we combine all of these suggestions into a single plan?")
-	await dialog_box.show_dialog(0, "We'll plant dorught-resistant crops, implement mixed cropping to help the soil, and add ashes to the soil as pest protection.")
+	await dialog_box.show_dialog(0, "We'll plant drought-resistant crops, implement mixed cropping to help the soil, and add ashes to the soil as pest protection.")
 	await dialog_box.show_dialog(0, "Let’s start working. Together, we’ll make sure Votua stays strong and resilient in the face of these challenges.")
 	
 	animation_player.play("fadeOut")

@@ -48,7 +48,7 @@ func _ready() -> void:
 	#Global.score = 0
 	$InformationTiles.hide()
 	$ColorRect.hide()
-	await $DialogBox.show_dialog(3, "Hi! I see you're getting started planting crops. I recommend that you plant at least two, and try to intermix where you plant them to help the soil.")
+	await $DialogBox.show_dialog(3, "Hi! I see you're getting started planting crops. I recommend that you plant alternating columns of crops.")
 	await $DialogBox.show_dialog(3, "I would also take advantage of the water and ash provided to hydrate and fertilize your crops. Oh, and only two crops can be planted in a field! Good luck!")
 
 	reset_farming()
