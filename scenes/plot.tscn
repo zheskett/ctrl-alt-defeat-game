@@ -1,22 +1,23 @@
-[gd_scene load_steps=27 format=3 uid="uid://2gp1uqqrgsjn"]
+[gd_scene load_steps=28 format=3 uid="uid://2gp1uqqrgsjn"]
 
 [ext_resource type="Script" uid="uid://fyhmk3oyic1o" path="res://scripts/plot.gd" id="1_cyvgl"]
-[ext_resource type="Texture2D" uid="uid://uv02asmn5pdi" path="res://assets/temp_art/grey_farm/greyseedsweetpotates.png" id="3_72cjw"]
-[ext_resource type="Texture2D" uid="uid://ekes5r0r0qyx" path="res://assets/temp_art/grey_farm/greyseedbeans.png" id="3_c7i00"]
-[ext_resource type="Texture2D" uid="uid://bngv1yej74xws" path="res://assets/temp_art/grey_farm/greyintermediatebeans.png" id="4_0e85a"]
+[ext_resource type="Texture2D" uid="uid://btqimulsa0bys" path="res://assets/art/tileforplant.png" id="2_rd1ev"]
+[ext_resource type="Texture2D" uid="uid://k0eqvhwcu2q1" path="res://assets/art/beans1.png" id="3_3iehw"]
 [ext_resource type="FontFile" uid="uid://bkp4u3hvwimtp" path="res://assets/font/VCR_OSD_MONO_1.001.ttf" id="4_76l7f"]
+[ext_resource type="Texture2D" uid="uid://nfrnoe3nvwct" path="res://assets/art/beans2.png" id="4_rd1ev"]
 [ext_resource type="Texture2D" uid="uid://80yqpi25trel" path="res://assets/temp_art/grey_farm/GreyscaleTile.png" id="4_ryjlh"]
-[ext_resource type="Texture2D" uid="uid://dourtwojudtht" path="res://assets/temp_art/grey_farm/greyintermediatesweetpotates.png" id="4_xg80o"]
-[ext_resource type="Texture2D" uid="uid://bp7t6r0ddjbm1" path="res://assets/temp_art/grey_farm/greygrownbeans.png" id="5_0e85a"]
-[ext_resource type="Texture2D" uid="uid://bh5w0rvooi8i4" path="res://assets/temp_art/grey_farm/greygrowncorn.png" id="5_3iehw"]
-[ext_resource type="Texture2D" uid="uid://briwu1qrkys13" path="res://assets/temp_art/grey_farm/greygrownsweetpotates.png" id="5_h8l8k"]
-[ext_resource type="Texture2D" uid="uid://cd7l8c1ruc816" path="res://assets/temp_art/grey_farm/greytree.png" id="6_h8l8k"]
-[ext_resource type="Texture2D" uid="uid://dcrmxknq4do0" path="res://assets/temp_art/grey_farm/greyseedcorn.png" id="6_rd1ev"]
+[ext_resource type="Texture2D" uid="uid://rlgkiwcwik6w" path="res://assets/art/beans3.png" id="5_2cd3u"]
+[ext_resource type="Texture2D" uid="uid://pnmikw50lcxk" path="res://assets/art/corn1.png" id="6_7sqlv"]
 [ext_resource type="AudioStream" uid="uid://j2labn6qwrj7" path="res://assets/sound/hit-plant-02-266291.mp3" id="6_xg80o"]
-[ext_resource type="Texture2D" uid="uid://bgs1re7afvn4j" path="res://assets/temp_art/grey_farm/greyintermediatescorn.png" id="7_2cd3u"]
-[ext_resource type="Texture2D" uid="uid://druka4p7jgvkn" path="res://assets/temp_art/grey_farm/greyseedcassava.png" id="8_7sqlv"]
-[ext_resource type="Texture2D" uid="uid://koxfhbkapbv8" path="res://assets/temp_art/grey_farm/greyintermediatecassava.png" id="9_joji3"]
-[ext_resource type="Texture2D" uid="uid://ciope44v1k7iv" path="res://assets/temp_art/grey_farm/greygrowncassava.png" id="10_j82x5"]
+[ext_resource type="Texture2D" uid="uid://bbfdw8vkgwa2u" path="res://assets/art/corn2.png" id="7_joji3"]
+[ext_resource type="Texture2D" uid="uid://3jhn207bcowr" path="res://assets/art/corn3.png" id="8_j82x5"]
+[ext_resource type="Texture2D" uid="uid://dnvcuye7hhh0l" path="res://assets/art/cassava1.png" id="9_jfd5d"]
+[ext_resource type="Texture2D" uid="uid://mdqop037rjtl" path="res://assets/art/cassava2.png" id="10_7clfi"]
+[ext_resource type="Texture2D" uid="uid://dpwxep43xsqg5" path="res://assets/art/cassava3.png" id="11_5bm8e"]
+[ext_resource type="Texture2D" uid="uid://c1nwgy5kvhomu" path="res://assets/art/yam1.png" id="12_ml60d"]
+[ext_resource type="Texture2D" uid="uid://dvqt54paqtjop" path="res://assets/art/yam2.png" id="13_ii5v7"]
+[ext_resource type="Texture2D" uid="uid://v48ds2pjqh0q" path="res://assets/art/yam3.png" id="14_4umkq"]
+[ext_resource type="Texture2D" uid="uid://cjfyosjundehu" path="res://assets/art/tree.png" id="15_vds8m"]
 [ext_resource type="Texture2D" uid="uid://b16qt6puhg0gp" path="res://assets/art/white_circle.png" id="16_3iehw"]
 
 [sub_resource type="Gradient" id="Gradient_3iehw"]
@@ -163,8 +164,8 @@ ray_cast = NodePath("RayCast2D")
 animation_player = NodePath("AnimationPlayer")
 timer = NodePath("Timer")
 sprite = NodePath("Sprite2D")
-empty_texture = ExtResource("4_ryjlh")
-texture_array = Array[Array]([[ExtResource("3_c7i00"), ExtResource("4_0e85a"), ExtResource("5_0e85a")], [ExtResource("6_rd1ev"), ExtResource("7_2cd3u"), ExtResource("5_3iehw")], [ExtResource("8_7sqlv"), ExtResource("9_joji3"), ExtResource("10_j82x5")], [ExtResource("3_72cjw"), ExtResource("4_xg80o"), ExtResource("5_h8l8k")], [ExtResource("6_h8l8k")]])
+empty_texture = ExtResource("2_rd1ev")
+texture_array = Array[Array]([[ExtResource("3_3iehw"), ExtResource("4_rd1ev"), ExtResource("5_2cd3u")], [ExtResource("6_7sqlv"), ExtResource("7_joji3"), ExtResource("8_j82x5")], [ExtResource("9_jfd5d"), ExtResource("10_7clfi"), ExtResource("11_5bm8e")], [ExtResource("12_ml60d"), ExtResource("13_ii5v7"), ExtResource("14_4umkq")], [ExtResource("15_vds8m")]])
 
 [node name="WaterParticles" type="CPUParticles2D" parent="."]
 position = Vector2(0, 50.51)

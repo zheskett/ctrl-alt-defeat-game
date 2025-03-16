@@ -152,6 +152,8 @@ func plant_grown() -> void:
 		# Dialogue?
 	
 	self.is_harvesting = true
+	mouse_crop_sprite.texture = mouse_crop_sprite.harvest_texture
+	mouse_crop_sprite.show()
 
 func plant_harvested() -> void:
 	score_label.text = "Score: " + str(Global.score)
@@ -160,6 +162,7 @@ func plant_harvested() -> void:
 			return
 	
 	# All plants harvested
+	mouse_crop_sprite.hide()
 	self.is_harvesting = false
 	Global.year += 1
 	if Global.year >= 4:

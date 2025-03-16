@@ -1,18 +1,24 @@
-[gd_scene load_steps=40 format=4 uid="uid://bml3xjpomcarx"]
+[gd_scene load_steps=48 format=4 uid="uid://bml3xjpomcarx"]
 
 [ext_resource type="TileSet" uid="uid://cdv0oqiuilhcd" path="res://resources/temp_tile_set.tres" id="1_cbg4r"]
 [ext_resource type="Script" path="res://scripts/farming.gd" id="1_uibo2"]
-[ext_resource type="Texture2D" uid="uid://dr4mm3mg2krm2" path="res://assets/temp_art/grey_farm/GreyscaleFarm.png" id="2_1n404"]
 [ext_resource type="Script" uid="uid://dlikl1quq4xru" path="res://scripts/mouse_crop_sprite.gd" id="2_2gb4t"]
+[ext_resource type="Texture2D" uid="uid://tasxe7jgno2r" path="res://assets/art/farmbg.png" id="2_7nuxp"]
 [ext_resource type="Script" path="res://scripts/farm_tile_map.gd" id="3_no2rj"]
+[ext_resource type="Texture2D" uid="uid://djwd7wdkr4vkj" path="res://assets/art/beansicon.png" id="4_ntnvr"]
+[ext_resource type="Texture2D" uid="uid://ckysxak0j5r8q" path="res://assets/art/cornicon.png" id="5_7nuxp"]
 [ext_resource type="Texture2D" uid="uid://u8klv7h8ivgf" path="res://assets/Wood Plant Holders.png" id="5_g8kfs"]
+[ext_resource type="Texture2D" uid="uid://b5b1cpgfv4v2s" path="res://assets/art/cassavaicon.png" id="6_hnvcl"]
 [ext_resource type="Texture2D" uid="uid://bfeom1tfsalxg" path="res://assets/temp_art/grey_farm/greyyamtoolbar.png" id="6_qrgrl"]
 [ext_resource type="Texture2D" uid="uid://c8s74n4ob5xsr" path="res://assets/temp_art/grey_farm/greybeanstoolbar.png" id="7_0dotm"]
 [ext_resource type="Texture2D" uid="uid://cy8bc7ruo60s1" path="res://assets/temp_art/grey_farm/greycassavatoolbar.png" id="7_6p8kx"]
 [ext_resource type="FontFile" uid="uid://bkp4u3hvwimtp" path="res://assets/font/VCR_OSD_MONO_1.001.ttf" id="7_g8kfs"]
-[ext_resource type="Texture2D" uid="uid://crn1bg3k8y2yt" path="res://assets/temp_art/grey_farm/greywateringcan.png" id="8_0dotm"]
+[ext_resource type="Texture2D" uid="uid://bs0aytgpcruj2" path="res://assets/art/yamicon.png" id="7_s4rf0"]
+[ext_resource type="Texture2D" uid="uid://bdiqonqk71ke5" path="res://assets/art/wateringcan1.png" id="8_dvoac"]
 [ext_resource type="Texture2D" uid="uid://cpqjbfw817khs" path="res://assets/temp_art/grey_farm/greycorntoolbar.png" id="8_x6prt"]
 [ext_resource type="Texture2D" uid="uid://dh4kaccldsc2b" path="res://assets/temp_art/grey_farm/greywateringpour.png" id="9_6p8kx"]
+[ext_resource type="Texture2D" uid="uid://b4qt6ufmuno7y" path="res://assets/art/wateringcan2.png" id="9_op3ve"]
+[ext_resource type="Texture2D" uid="uid://w0yr8pj8unhe" path="res://assets/art/scythe.png" id="11_7nuxp"]
 [ext_resource type="AudioStream" uid="uid://bgf6oh0cvrb2e" path="res://assets/sound/watering-with-a-watering-can-39121.mp3" id="11_po4j7"]
 [ext_resource type="Texture2D" uid="uid://b16qt6puhg0gp" path="res://assets/art/white_circle.png" id="11_tluq4"]
 [ext_resource type="Texture2D" uid="uid://dqbacmku4yca2" path="res://assets/art/ash.png" id="12_4rli0"]
@@ -60,8 +66,41 @@ tracks/0/keys = {
 }
 tracks/0/use_blend = false
 
+[sub_resource type="Animation" id="Animation_7nuxp"]
+resource_name = "harvest"
+length = 0.1018
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.1017),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, -2.94088, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_hnvcl"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_nmop0"]
 _data = {
+&"RESET": SubResource("Animation_hnvcl"),
+&"harvest": SubResource("Animation_7nuxp"),
 &"water": SubResource("Animation_xeuic")
 }
 
@@ -353,7 +392,7 @@ year_label = NodePath("TopBar/YearLabel")
 
 [node name="Background" type="Sprite2D" parent="."]
 z_index = -1
-texture = ExtResource("2_1n404")
+texture = ExtResource("2_7nuxp")
 
 [node name="Flood" type="Sprite2D" parent="."]
 visible = false
@@ -371,17 +410,20 @@ scale = Vector2(3.83594, 2.15039)
 texture = SubResource("NoiseTexture2D_1fyyh")
 
 [node name="MouseCropSprite" type="Sprite2D" parent="." node_paths=PackedStringArray("farming_node")]
+visible = false
 z_index = 20
 scale = Vector2(0.3, 0.3)
+texture = ExtResource("11_7nuxp")
 script = ExtResource("2_2gb4t")
 farming_node = NodePath("..")
-bean_texture = ExtResource("7_0dotm")
-corn_texture = ExtResource("8_x6prt")
-casava_texture = ExtResource("7_6p8kx")
-yam_texture = ExtResource("6_qrgrl")
-water_texture = ExtResource("8_0dotm")
-watering_texture = ExtResource("9_6p8kx")
+bean_texture = ExtResource("4_ntnvr")
+corn_texture = ExtResource("5_7nuxp")
+casava_texture = ExtResource("6_hnvcl")
+yam_texture = ExtResource("7_s4rf0")
+water_texture = ExtResource("8_dvoac")
+watering_texture = ExtResource("9_op3ve")
 ash_texture = ExtResource("12_4rli0")
+harvest_texture = ExtResource("11_7nuxp")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="MouseCropSprite"]
 libraries = {
@@ -442,11 +484,11 @@ offset_bottom = 333.0
 scale = Vector2(0.43, 0.43)
 tooltip_text = "Beans"
 mouse_default_cursor_shape = 2
-texture_normal = ExtResource("7_0dotm")
-texture_pressed = ExtResource("7_0dotm")
-texture_hover = ExtResource("7_0dotm")
+texture_normal = ExtResource("4_ntnvr")
+texture_pressed = ExtResource("4_ntnvr")
+texture_hover = ExtResource("4_ntnvr")
 texture_disabled = ExtResource("7_0dotm")
-texture_focused = ExtResource("7_0dotm")
+texture_focused = ExtResource("4_ntnvr")
 stretch_mode = 3
 
 [node name="CornButton" type="TextureButton" parent="TopBar"]
@@ -458,11 +500,11 @@ offset_bottom = 331.0
 scale = Vector2(0.42, 0.42)
 tooltip_text = "Corn"
 mouse_default_cursor_shape = 2
-texture_normal = ExtResource("8_x6prt")
-texture_pressed = ExtResource("8_x6prt")
-texture_hover = ExtResource("8_x6prt")
+texture_normal = ExtResource("5_7nuxp")
+texture_pressed = ExtResource("5_7nuxp")
+texture_hover = ExtResource("5_7nuxp")
 texture_disabled = ExtResource("8_x6prt")
-texture_focused = ExtResource("8_x6prt")
+texture_focused = ExtResource("5_7nuxp")
 stretch_mode = 3
 
 [node name="CasavaButton" type="TextureButton" parent="TopBar"]
@@ -474,11 +516,11 @@ offset_bottom = 332.0
 scale = Vector2(0.42, 0.42)
 tooltip_text = "Cassava"
 mouse_default_cursor_shape = 2
-texture_normal = ExtResource("7_6p8kx")
-texture_pressed = ExtResource("7_6p8kx")
-texture_hover = ExtResource("7_6p8kx")
+texture_normal = ExtResource("6_hnvcl")
+texture_pressed = ExtResource("6_hnvcl")
+texture_hover = ExtResource("6_hnvcl")
 texture_disabled = ExtResource("7_6p8kx")
-texture_focused = ExtResource("7_6p8kx")
+texture_focused = ExtResource("6_hnvcl")
 stretch_mode = 3
 
 [node name="YamButton" type="TextureButton" parent="TopBar"]
@@ -490,11 +532,11 @@ offset_bottom = 359.0
 scale = Vector2(0.4, 0.4)
 tooltip_text = "Yam"
 mouse_default_cursor_shape = 2
-texture_normal = ExtResource("6_qrgrl")
-texture_pressed = ExtResource("6_qrgrl")
-texture_hover = ExtResource("6_qrgrl")
+texture_normal = ExtResource("7_s4rf0")
+texture_pressed = ExtResource("7_s4rf0")
+texture_hover = ExtResource("7_s4rf0")
 texture_disabled = ExtResource("6_qrgrl")
-texture_focused = ExtResource("6_qrgrl")
+texture_focused = ExtResource("7_s4rf0")
 stretch_mode = 3
 
 [node name="ClearButton" type="Button" parent="TopBar"]
@@ -527,7 +569,7 @@ offset_top = 29.0
 offset_right = 83.0
 offset_bottom = 136.0
 theme = SubResource("Theme_g8kfs")
-text = "Score: 100"
+text = "Score: 0"
 label_settings = SubResource("LabelSettings_qrgrl")
 
 [node name="WaterButton" type="TextureButton" parent="TopBar"]
@@ -538,11 +580,11 @@ offset_right = 998.0
 offset_bottom = 353.0
 scale = Vector2(0.4, 0.4)
 mouse_default_cursor_shape = 2
-texture_normal = ExtResource("9_6p8kx")
-texture_pressed = ExtResource("9_6p8kx")
-texture_hover = ExtResource("9_6p8kx")
+texture_normal = ExtResource("9_op3ve")
+texture_pressed = ExtResource("9_op3ve")
+texture_hover = ExtResource("9_op3ve")
 texture_disabled = ExtResource("9_6p8kx")
-texture_focused = ExtResource("9_6p8kx")
+texture_focused = ExtResource("9_op3ve")
 stretch_mode = 3
 
 [node name="AshButton" type="TextureButton" parent="TopBar"]
@@ -586,7 +628,7 @@ offset_top = 933.0
 offset_right = -85.0
 offset_bottom = 1065.0
 theme = SubResource("Theme_0dotm")
-text = "Year: 3"
+text = "Year: 1"
 label_settings = SubResource("LabelSettings_x6prt")
 vertical_alignment = 1
 
