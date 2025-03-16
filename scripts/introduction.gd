@@ -10,5 +10,4 @@ func _ready():
 
 func _on_play_button_pressed() -> void:
 	get_tree().get_root().add_child(animation_scene)
-	animation_scene.play_animation()
-	animation_scene
+	await animation_scene.play_animation()

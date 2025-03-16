@@ -32,7 +32,7 @@ func _ready():
 	animation_player.play("fadeOut")
 	await animation_player.animation_finished
 	
-	self.queue_free()
+	self.hide()
 	get_tree().change_scene_to_file("res://scenes/farming.tscn")
 
 
