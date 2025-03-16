@@ -155,11 +155,16 @@ func plant_grown() -> void:
 			await $DialogBox.show_dialog($DialogBox.genRandomPerson(), "Looks like a flood is coming! To bad there is no protection from the river.")
 		$AnimationPlayer.play("flood")
 		await $AnimationPlayer.animation_finished
-		# Dialogue?
+		
 	
 	self.is_harvesting = true
 	mouse_crop_sprite.texture = mouse_crop_sprite.harvest_texture
 	mouse_crop_sprite.show()
+
+func flood_plants():
+	for plot in farm_tile_map.plot_coords.values():
+		if (plot as Plot).crop != Global.Crops.EMPTY and (plot as Plot).crop != Global.Crops.TREE:
+			(plot as Plot).flood_plant()
 
 func plant_harvested() -> void:
 	score_label.text = "Score: " + str(Global.score)

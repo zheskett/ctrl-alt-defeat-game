@@ -141,6 +141,12 @@ func grow_plant() -> void:
 		if stage == 2:
 			farming_node.plant_grown()
 
+func flood_plant() -> void:
+	if not (self.crop != Global.Crops.EMPTY and self.crop != Global.Crops.TREE and self.harvested == false and self.stage >= 2):
+		return
+	
+	# TODO change texture
+
 func _harvest_plant() -> void:
 	$WaterParticles.emitting = false
 	$AshParticles.emitting = false
