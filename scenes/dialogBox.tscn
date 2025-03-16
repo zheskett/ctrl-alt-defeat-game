@@ -1,56 +1,61 @@
-[gd_scene load_steps=4 format=3 uid="uid://dluk8fwudk6bv"]
+[gd_scene load_steps=5 format=3 uid="uid://dluk8fwudk6bv"]
 
 [ext_resource type="Script" uid="uid://c1cym3vgkrhum" path="res://scripts/dialog_box.gd" id="1_ideoa"]
-
-[ext_resource type="Texture2D" uid="uid://bn6blr8a1vafj" path="res://assets/temp_art/GreyscaleTalanoa.png" id="2_odxxp"]
+[ext_resource type="Texture2D" uid="uid://b8mcygdp6mwl7" path="res://assets/art/Text_box.png" id="2_odxxp"]
 [ext_resource type="FontFile" uid="uid://bkp4u3hvwimtp" path="res://assets/font/VCR_OSD_MONO_1.001.ttf" id="2_rwprb"]
-[ext_resource type="Texture2D" uid="uid://c88ysos8a7shu" path="res://assets/temp_art/sketchana.png" id="3_odxxp"]
+[ext_resource type="Texture2D" uid="uid://dg2g8tyffeyqm" path="res://assets/sketchana.png" id="4_guheb"]
 
 [node name="DialogBox" type="Control"]
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_ideoa")
 
-[node name="ColorRect" type="ColorRect" parent="."]
-layout_mode = 0
-offset_left = 265.0
-offset_top = 658.0
-offset_right = 1591.0
-offset_bottom = 1045.0
+[node name="TextBox" type="Sprite2D" parent="."]
+position = Vector2(943, 832)
+scale = Vector2(1.75644, 1.3558)
+texture = ExtResource("2_odxxp")
 
-[node name="Dialog Box" type="NinePatchRect" parent="ColorRect"]
-layout_mode = 0
-offset_left = 39.0
-offset_top = 23.0
-offset_right = 875.0
-offset_bottom = 355.0
+[node name="Dialog Box" type="NinePatchRect" parent="TextBox"]
+anchors_preset = -1
+anchor_left = -0.0292398
+anchor_right = 0.0394737
+offset_left = -320.0
+offset_top = -143.0
+offset_right = 313.0
+offset_bottom = 146.0
+metadata/_edit_use_anchors_ = true
 
-[node name="Name" type="RichTextLabel" parent="ColorRect/Dialog Box"]
-layout_mode = 0
-offset_left = 974.0
-offset_top = 295.0
-offset_right = 1263.0
-offset_bottom = 354.0
+[node name="Name" type="RichTextLabel" parent="TextBox/Dialog Box"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0361108
+anchor_top = 0.0138816
+anchor_right = 0.0905226
+anchor_bottom = 0.0138816
+offset_left = 438.445
+offset_top = 227.988
+offset_right = 618.445
+offset_bottom = 290.988
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_fonts/normal_font = ExtResource("2_rwprb")
-theme_override_font_sizes/normal_font_size = 56
+theme_override_font_sizes/normal_font_size = 46
 text = "John"
 horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
 
-[node name="Text" type="RichTextLabel" parent="ColorRect/Dialog Box"]
+[node name="Text" type="RichTextLabel" parent="TextBox/Dialog Box"]
 layout_mode = 0
-offset_left = -3.0
-offset_top = -3.0
-offset_right = 914.0
-offset_bottom = 315.0
-theme_override_colors/default_color = Color(0, 0, 0, 1)
+offset_left = 20.0
+offset_top = 27.0
+offset_right = 413.0
+offset_bottom = 246.0
+theme_override_colors/default_color = Color(1, 1, 1, 1)
 theme_override_fonts/normal_font = ExtResource("2_rwprb")
-theme_override_font_sizes/normal_font_size = 42
+theme_override_font_sizes/normal_font_size = 24
 text = "I am saying hello!"
+metadata/_edit_use_anchors_ = true
 
-[node name="Face" type="Sprite2D" parent="ColorRect/Dialog Box"]
-position = Vector2(1120, 145)
-scale = Vector2(0.769444, 0.783333)
-texture = ExtResource("3_odxxp")
-
-[node name="Timer" type="Timer" parent="ColorRect/Dialog Box"]
+[node name="Face" type="Sprite2D" parent="TextBox/Dialog Box"]
+position = Vector2(575.704, 120.504)
+scale = Vector2(0.461794, 0.563421)
+texture = ExtResource("4_guheb")

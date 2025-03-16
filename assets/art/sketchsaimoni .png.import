@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://7x6xtt46s6ss"
-path="res://.godot/imported/GreyscaleTalanoa.png-05001e56dd155ed70e2d4e09f22d1250.ctex"
+uid="uid://06d8hp3j0t2t"
+path="res://.godot/imported/sketchsaimoni .png-1af5318e982a7926d891d08e73e5ee47.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/GreyscaleTalanoa.png"
-dest_files=["res://.godot/imported/GreyscaleTalanoa.png-05001e56dd155ed70e2d4e09f22d1250.ctex"]
+source_file="res://assets/art/sketchsaimoni .png"
+dest_files=["res://.godot/imported/sketchsaimoni .png-1af5318e982a7926d891d08e73e5ee47.ctex"]
 
 [params]
 

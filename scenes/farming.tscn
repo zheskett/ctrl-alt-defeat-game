@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://scripts/farming.gd" id="1_uibo2"]
 [ext_resource type="Texture2D" uid="uid://dr4mm3mg2krm2" path="res://assets/temp_art/grey_farm/GreyscaleFarm.png" id="2_1n404"]
 [ext_resource type="Script" uid="uid://dlikl1quq4xru" path="res://scripts/mouse_crop_sprite.gd" id="2_2gb4t"]
-[ext_resource type="Script" path="res://scripts/farm_tile_map.gd" id="3_no2rj"]
+[ext_resource type="Script" uid="uid://dge8vu18ci8d4" path="res://scripts/farm_tile_map.gd" id="3_no2rj"]
 [ext_resource type="Texture2D" uid="uid://u8klv7h8ivgf" path="res://assets/Wood Plant Holders.png" id="5_g8kfs"]
 [ext_resource type="Texture2D" uid="uid://bfeom1tfsalxg" path="res://assets/temp_art/grey_farm/greyyamtoolbar.png" id="6_qrgrl"]
 [ext_resource type="Texture2D" uid="uid://c8s74n4ob5xsr" path="res://assets/temp_art/grey_farm/greybeanstoolbar.png" id="7_0dotm"]

@@ -2,9 +2,9 @@ extends Control
 
 #Used a tutorial by scriptblocks on YouTube to create dialog boxes
 
-@onready var Name = $"ColorRect/Dialog Box/Name"
-@onready var Text = $"ColorRect/Dialog Box/Text"
-@onready var face = $"ColorRect/Dialog Box/Face"
+@onready var Name = $"TextBox/Dialog Box/Name"
+@onready var Text = $"TextBox/Dialog Box/Text"
+@onready var face = $"TextBox/Dialog Box/Face"
 
 var dialogSpeed = 0.03125
 var dialog
@@ -23,12 +23,12 @@ enum CHAR {
 }
 
 #Used ChatGPT to create dictionary for each character
-var characters = { #TODO: fix the image paths !!!
-	CHAR.JOHN: { "name": "John", "image": "res://assets/temp_art/sketchana.png" },
-	CHAR.MEM1: { "name": "Litia", "image": "res://assets/temp_art/sketchana.png" }, 
-	CHAR.MEM2: { "name": "Saimoni", "image": "res://assets/temp_art/sketchana.png" },
-	CHAR.MEM3: { "name": "Ana", "image": "res://assets/temp_art/sketchana.png" },
-	CHAR.Thompson: { "name" : "Thompson", "image": "res://assets/temp_art/sketchana.png"}
+var characters = {
+	CHAR.JOHN: { "name": "John", "image": "res://assets/art/sketchjohn.png" },
+	CHAR.MEM1: { "name": "Litia", "image": "res://assets/art/sketchlitia.png" }, 
+	CHAR.MEM2: { "name": "Saimoni", "image": "res://assets/art/sketchsaimoni .png" },
+	CHAR.MEM3: { "name": "Ana", "image": "res://assets/art/sketchana.png" },
+	CHAR.Thompson: { "name" : "Thompson", "image": "res://assets/temp_art/sketchthompson.png"}
 }
 
 var Message = ""
