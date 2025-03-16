@@ -803,3 +803,4 @@ position = Vector2(-960, -540)
 [connection signal="input_event" from="FarmTileMap/@Area2D@26047" to="FarmTileMap/@Area2D@26047" method="_on_input_event"]
 [connection signal="input_event" from="FarmTileMap/@Area2D@26048" to="FarmTileMap/@Area2D@26048" method="_on_input_event"]
 [connection signal="input_event" from="FarmTileMap/@Area2D@26049" to="FarmTileMap/@Area2D@26049" method="_on_input_event"]
+
