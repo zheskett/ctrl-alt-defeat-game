@@ -256,6 +256,5 @@ func _on_ash_button_pressed() -> void:
 	mouse_crop_sprite.texture = mouse_crop_sprite.ash_texture
 	mouse_crop_sprite.show()
 
-#for crop info button
-func _on_button_pressed() -> void:
+func _on_cropinfobutton_pressed() -> void:
 	$InformationTiles.show_info()
