@@ -165,6 +165,7 @@ func plant_harvested() -> void:
 
 	if Global.year == 2:
 		if (Global.score <= 100):
+
 			await $DialogBox.show_dialog(0, "Hi there! I see your first season was a little rough. Try planting alternating rows of crops and be sure to water them!")
 		else:
 			await $DialogBox.show_dialog(0, "Hi there! I see the progress you're making. Very impressive!")
@@ -177,6 +178,7 @@ func plant_harvested() -> void:
 	
 	if Global.year == 3:
 		if (Global.score > 220):
+
 			await $DialogBox.show_dialog(2, "Hey neighbor! Seems like you're learning more and more each year. Good job!")
 		else:
 			await $DialogBox.show_dialog(2, "Hey neighbor! Pro tip: planting intermixed crops, watering and fertilizing before harvest really improves yield!")
