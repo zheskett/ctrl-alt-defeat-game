@@ -5,6 +5,21 @@
 [ext_resource type="FontFile" uid="uid://bkp4u3hvwimtp" path="res://assets/font/VCR_OSD_MONO_1.001.ttf" id="3_xofpe"]
 [ext_resource type="Texture2D" uid="uid://cfi7y3munen0k" path="res://assets/art/Title Screen.png" id="4_nvvsg"]
 
+[sub_resource type="Animation" id="Animation_xofpe"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.0588235, 0.396078, 0.596078, 0)]
+}
+
 [sub_resource type="Animation" id="Animation_nvvsg"]
 resource_name = "fadeOut"
 length = 2.0
@@ -19,21 +34,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(0.0588235, 0.396078, 0.596078, 0), Color(0.0588235, 0.396078, 0.596078, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_xofpe"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("ColorRect:color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(0.0588235, 0.396078, 0.596078, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_e7oap"]

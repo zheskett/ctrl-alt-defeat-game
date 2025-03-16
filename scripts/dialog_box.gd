@@ -30,7 +30,7 @@ enum CHAR {
 var characters = {
 	CHAR.JOHN: { "name": "John", "image": "res://assets/art/sketchjohn.png" },
 	CHAR.MEM1: { "name": "Litia", "image": "res://assets/art/sketchlitia.png" }, 
-	CHAR.MEM2: { "name": "Saimoni", "image": "res://assets/art/sketchsaimoni .png" },
+	CHAR.MEM2: { "name": "Saimoni", "image": "res://assets/art/saimoni.png" },
 	CHAR.MEM3: { "name": "Ana", "image": "res://assets/art/sketchana.png" },
 	CHAR.Thompson: { "name" : "Thompson", "image": "res://assets/art/sketchthompson.png"}
 }
