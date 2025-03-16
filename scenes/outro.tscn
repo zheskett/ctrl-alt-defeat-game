@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://dh3ycqrv0iu6d"]
+[gd_scene load_steps=9 format=3 uid="uid://dh3ycqrv0iu6d"]
 
 [ext_resource type="Script" uid="uid://cpa87mssmds2f" path="res://scenes/outro.gd" id="1_a6ogt"]
 [ext_resource type="Texture2D" uid="uid://baqe5colmfkm5" path="res://assets/GreyscaleOpeningScreen.png" id="2_vmn6f"]
 [ext_resource type="FontFile" uid="uid://bkp4u3hvwimtp" path="res://assets/font/VCR_OSD_MONO_1.001.ttf" id="3_ydlee"]
+[ext_resource type="AudioStream" uid="uid://wri3k1xx8ary" path="res://assets/sound/GameJam_Background_FINAL .mp3" id="4_vmn6f"]
 
 [sub_resource type="Animation" id="Animation_611wi"]
 length = 0.001
@@ -29,7 +30,7 @@ tracks/0/path = NodePath("ColorRect:color")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 2.03333),
+"times": PackedFloat32Array(0, 1.56667),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(0.360784, 0.360784, 0.360784, 1), Color(0.360784, 0.360784, 0.360784, 0)]
@@ -93,3 +94,6 @@ color = Color(0.360784, 0.360784, 0.360784, 1)
 libraries = {
 &"": SubResource("AnimationLibrary_7nwcv")
 }
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_vmn6f")

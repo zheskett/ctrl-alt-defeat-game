@@ -5,6 +5,7 @@ extends Control
 var animation_scene
 
 func _ready():
+	$AudioStreamPlayer2D.play()
 	var scene_resource = load("res://scenes/orientation.tscn")
 	animation_scene = scene_resource.instantiate()
 

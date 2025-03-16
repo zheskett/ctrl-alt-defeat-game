@@ -4,6 +4,7 @@ extends Control
 
 
 func _ready():
+	$AudioStreamPlayer2D.play()
 	#get_tree().get_root().add_child.call_deferred(dialog_box)
 	
 	#NOTE: 4 - Thompson
