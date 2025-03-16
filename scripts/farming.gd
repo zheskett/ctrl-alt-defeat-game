@@ -47,6 +47,7 @@ func _ready() -> void:
 	#Global.year = 1
 	#Global.score = 0
 	$InformationTiles.hide()
+	$ColorRect.hide()
 	await $DialogBox.show_dialog(3, "Hi! I see you're getting started planting crops. I recommend that you plant at least two, and try to intermix where you plant them to help the soil.")
 	await $DialogBox.show_dialog(3, "I would also take advantage of the water and ash provided to hydrate and fertilize your crops. Oh, and only two crops can be planted in a field! Good luck!")
 
@@ -174,6 +175,10 @@ func plant_harvested() -> void:
 	if Global.year >= 4:
 		$Timer.start()
 		await $Timer.timeout
+		$ColorRect.show()
+		$AnimationPlayer2.play("fadeOut")
+		await $AnimationPlayer2.animation_finished
+		
 		get_tree().change_scene_to_file("res://scenes/transitionToEnd.tscn")
 
 
