@@ -7,6 +7,10 @@ extends Node2D
 @onready var animation_player = $AnimationPlayer
 var fadeOut_ready = false
 
+func _ready():
+	animation_player.play("fadeIn")
+	await animation_player.animation_finished
+
 func play_animation():
 	animation_player.play("fadeIn")
 	await animation_player.animation_finished
