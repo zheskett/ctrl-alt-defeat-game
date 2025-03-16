@@ -28,7 +28,7 @@ var characters = {
 	CHAR.MEM1: { "name": "Litia", "image": "res://assets/art/sketchlitia.png" }, 
 	CHAR.MEM2: { "name": "Saimoni", "image": "res://assets/art/sketchsaimoni .png" },
 	CHAR.MEM3: { "name": "Ana", "image": "res://assets/art/sketchana.png" },
-	CHAR.Thompson: { "name" : "Thompson", "image": "res://assets/temp_art/sketchthompson.png"}
+	CHAR.Thompson: { "name" : "Thompson", "image": "res://assets/art/sketchthompson.png"}
 }
 
 var Message = ""

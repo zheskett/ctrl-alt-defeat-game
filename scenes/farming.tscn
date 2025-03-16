@@ -280,3 +280,4 @@ offset_bottom = -540.0
 [connection signal="input_event" from="FarmTileMap/@Area2D@59095" to="FarmTileMap/@Area2D@59095" method="_on_input_event"]
 [connection signal="input_event" from="FarmTileMap/@Area2D@59096" to="FarmTileMap/@Area2D@59096" method="_on_input_event"]
 [connection signal="input_event" from="FarmTileMap/@Area2D@59097" to="FarmTileMap/@Area2D@59097" method="_on_input_event"]
+

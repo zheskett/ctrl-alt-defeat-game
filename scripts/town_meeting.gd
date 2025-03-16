@@ -22,7 +22,7 @@ func _ready():
 	#await dialog_box.show_dialog(2, "This helps the land recover, and it prevents erosion. It's something we can do to protect our crops and ensure a good harvest.")
 	
 	#Ana
-	await dialog_box.show_dialog(3, "I think we need to diversify our farming. A mixed farming approach – backyard gardening, livestock farming– can help spread the risks.")
+	await dialog_box.show_dialog(3, "I think we need to diversify our farming. A mixed farming approach –backyard gardening, livestock farming– can help spread the risks.")
 	
 	#John
 	await dialog_box.show_dialog(0, "These are great ideas, everyone. What if we combine all of these suggestions into a single plan?")
@@ -32,6 +32,7 @@ func _ready():
 	animation_player.play("fadeOut")
 	await animation_player.animation_finished
 	
+	self.queue_free()
 	get_tree().change_scene_to_file("res://scenes/farming.tscn")
 
 
