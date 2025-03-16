@@ -1,5 +1,6 @@
 [gd_scene load_steps=48 format=4 uid="uid://bml3xjpomcarx"]
 
+
 [ext_resource type="TileSet" uid="uid://cdv0oqiuilhcd" path="res://resources/temp_tile_set.tres" id="1_cbg4r"]
 [ext_resource type="Script" path="res://scripts/farming.gd" id="1_uibo2"]
 [ext_resource type="Script" uid="uid://dlikl1quq4xru" path="res://scripts/mouse_crop_sprite.gd" id="2_2gb4t"]
@@ -24,6 +25,7 @@
 [ext_resource type="Texture2D" uid="uid://dqbacmku4yca2" path="res://assets/art/ash.png" id="12_4rli0"]
 [ext_resource type="PackedScene" uid="uid://dhacemow2f4tp" path="res://scenes/treeDecision.tscn" id="14_x6prt"]
 [ext_resource type="PackedScene" uid="uid://dluk8fwudk6bv" path="res://scenes/dialogBox.tscn" id="17_mjk4b"]
+[ext_resource type="PackedScene" uid="uid://dceqhfjpkmcyp" path="res://scenes/InformationTiles.tscn" id="19_xeuic"]
 
 [sub_resource type="Gradient" id="Gradient_po4j7"]
 interpolation_mode = 2
@@ -632,6 +634,17 @@ text = "Year: 1"
 label_settings = SubResource("LabelSettings_x6prt")
 vertical_alignment = 1
 
+[node name="Button" type="Button" parent="TopBar"]
+layout_mode = 0
+offset_left = 1343.0
+offset_top = 944.0
+offset_right = 1482.0
+offset_bottom = 1052.0
+theme_override_fonts/font = ExtResource("7_g8kfs")
+theme_override_font_sizes/font_size = 36
+text = "Crop
+Info"
+
 [node name="FarmTileMap" type="TileMapLayer" parent="." node_paths=PackedStringArray("farming_node")]
 position = Vector2(-66.17, 0)
 tile_map_data = PackedByteArray("AAD7/wIAAQAAAAAAAQD7/wAAAQAAAAAAAQD9/wAAAQAAAAAAAQD9/wIAAQAAAAAAAQD//wIAAQAAAAAAAQD//wAAAQAAAAAAAQABAAAAAQAAAAAAAQABAAIAAQAAAAAAAQADAAIAAQAAAAAAAQADAAAAAQAAAAAAAQADAP7/AQAAAAAAAQABAP7/AQAAAAAAAQD///7/AQAAAAAAAQAFAP7/AQAAAAAAAQAFAAAAAQAAAAAAAQAFAAIAAQAAAAAAAQA=")
@@ -664,6 +677,10 @@ libraries = {
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
 
+[node name="InformationTiles" parent="." instance=ExtResource("19_xeuic")]
+z_index = 10
+position = Vector2(-953, -531)
+
 [connection signal="pressed" from="TopBar/BeanButton" to="." method="_on_bean_button_pressed"]
 [connection signal="pressed" from="TopBar/CornButton" to="." method="_on_corn_button_pressed"]
 [connection signal="pressed" from="TopBar/CasavaButton" to="." method="_on_casava_button_pressed"]
@@ -672,3 +689,20 @@ one_shot = true
 [connection signal="pressed" from="TopBar/NextButton" to="." method="_on_next_button_pressed"]
 [connection signal="pressed" from="TopBar/WaterButton" to="." method="_on_water_button_pressed"]
 [connection signal="pressed" from="TopBar/AshButton" to="." method="_on_ash_button_pressed"]
+[connection signal="pressed" from="TopBar/Button" to="." method="_on_button_pressed"]
+[connection signal="input_event" from="FarmTileMap/Plot" to="FarmTileMap/Plot" method="_on_input_event"]
+[connection signal="input_event" from="FarmTileMap/@Area2D@73763" to="FarmTileMap/@Area2D@73763" method="_on_input_event"]
+[connection signal="input_event" from="FarmTileMap/@Area2D@73764" to="FarmTileMap/@Area2D@73764" method="_on_input_event"]
+[connection signal="input_event" from="FarmTileMap/@Area2D@73765" to="FarmTileMap/@Area2D@73765" method="_on_input_event"]
+[connection signal="input_event" from="FarmTileMap/@Area2D@73766" to="FarmTileMap/@Area2D@73766" method="_on_input_event"]
+[connection signal="input_event" from="FarmTileMap/@Area2D@73767" to="FarmTileMap/@Area2D@73767" method="_on_input_event"]
+[connection signal="input_event" from="FarmTileMap/@Area2D@73768" to="FarmTileMap/@Area2D@73768" method="_on_input_event"]
+[connection signal="input_event" from="FarmTileMap/@Area2D@73769" to="FarmTileMap/@Area2D@73769" method="_on_input_event"]
+[connection signal="input_event" from="FarmTileMap/@Area2D@73770" to="FarmTileMap/@Area2D@73770" method="_on_input_event"]
+[connection signal="input_event" from="FarmTileMap/@Area2D@73771" to="FarmTileMap/@Area2D@73771" method="_on_input_event"]
+[connection signal="input_event" from="FarmTileMap/@Area2D@73772" to="FarmTileMap/@Area2D@73772" method="_on_input_event"]
+[connection signal="input_event" from="FarmTileMap/@Area2D@73773" to="FarmTileMap/@Area2D@73773" method="_on_input_event"]
+[connection signal="input_event" from="FarmTileMap/@Area2D@73774" to="FarmTileMap/@Area2D@73774" method="_on_input_event"]
+[connection signal="input_event" from="FarmTileMap/@Area2D@73775" to="FarmTileMap/@Area2D@73775" method="_on_input_event"]
+[connection signal="input_event" from="FarmTileMap/@Area2D@73776" to="FarmTileMap/@Area2D@73776" method="_on_input_event"]
+[connection signal="input_event" from="FarmTileMap/@Area2D@73777" to="FarmTileMap/@Area2D@73777" method="_on_input_event"]

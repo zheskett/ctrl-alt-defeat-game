@@ -38,7 +38,7 @@ func _ready():
 	await animation_player.animation_finished
 	
 	self.hide()
-	get_tree().change_scene_to_file("res://scenes/InformationTiles.tscn")
+	get_tree().change_scene_to_file("res://scenes/farming.tscn")
 
 
 	

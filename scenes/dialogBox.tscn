@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://dluk8fwudk6bv"]
 
 [ext_resource type="Script" uid="uid://c1cym3vgkrhum" path="res://scripts/dialog_box.gd" id="1_ideoa"]
-[ext_resource type="Texture2D" uid="uid://b8mcygdp6mwl7" path="res://assets/art/Text_box.png" id="2_odxxp"]
+[ext_resource type="Texture2D" uid="uid://ci4a5wqby1k8" path="res://assets/art/text_box_dark.png" id="2_odxxp"]
 [ext_resource type="FontFile" uid="uid://bkp4u3hvwimtp" path="res://assets/font/VCR_OSD_MONO_1.001.ttf" id="2_rwprb"]
 [ext_resource type="Texture2D" uid="uid://dg2g8tyffeyqm" path="res://assets/sketchana.png" id="4_guheb"]
 
@@ -44,7 +44,12 @@ horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="Text" type="RichTextLabel" parent="TextBox/Dialog Box"]
-layout_mode = 0
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0249924
+anchor_top = 0.00692042
+anchor_right = 0.0426341
+anchor_bottom = 0.0622837
 offset_left = 20.0
 offset_top = 27.0
 offset_right = 413.0
