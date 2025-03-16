@@ -1,9 +1,10 @@
-[gd_scene load_steps=56 format=4 uid="uid://bml3xjpomcarx"]
+[gd_scene load_steps=57 format=4 uid="uid://bml3xjpomcarx"]
 
 [ext_resource type="TileSet" uid="uid://cdv0oqiuilhcd" path="res://resources/temp_tile_set.tres" id="1_cbg4r"]
 [ext_resource type="Script" path="res://scripts/farming.gd" id="1_uibo2"]
 [ext_resource type="Script" uid="uid://dlikl1quq4xru" path="res://scripts/mouse_crop_sprite.gd" id="2_2gb4t"]
 [ext_resource type="Texture2D" uid="uid://tasxe7jgno2r" path="res://assets/art/farmbg.png" id="2_7nuxp"]
+[ext_resource type="PackedScene" uid="uid://dwovurtnm68f8" path="res://scenes/bug.tscn" id="3_4et1s"]
 [ext_resource type="Script" path="res://scripts/farm_tile_map.gd" id="3_no2rj"]
 [ext_resource type="Texture2D" uid="uid://djwd7wdkr4vkj" path="res://assets/art/beansicon.png" id="4_ntnvr"]
 [ext_resource type="Texture2D" uid="uid://ckysxak0j5r8q" path="res://assets/art/cornicon.png" id="5_7nuxp"]
@@ -486,6 +487,21 @@ _data = {
 &"flood": SubResource("Animation_nmop0")
 }
 
+[sub_resource type="Animation" id="Animation_06p1g"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.0588235, 0.396078, 0.596078, 0)]
+}
+
 [sub_resource type="Animation" id="Animation_4et1s"]
 resource_name = "fadeOut"
 length = 2.0
@@ -500,21 +516,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(0.0588235, 0.396078, 0.596078, 0), Color(0.0588235, 0.396078, 0.596078, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_06p1g"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("ColorRect:color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(0.0588235, 0.396078, 0.596078, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_g66ny"]
@@ -535,6 +536,10 @@ year_label = NodePath("TopBar/YearLabel")
 [node name="Background" type="Sprite2D" parent="."]
 z_index = -1
 texture = ExtResource("2_7nuxp")
+
+[node name="Bug" parent="." instance=ExtResource("3_4et1s")]
+z_index = -1
+scale = Vector2(0.15, 0.15)
 
 [node name="Flood" type="Sprite2D" parent="."]
 visible = false
@@ -799,6 +804,7 @@ script = ExtResource("3_no2rj")
 farming_node = NodePath("..")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.4, 0.4)
 
 [node name="TreeDecision" parent="." instance=ExtResource("14_x6prt")]
 visible = false
@@ -809,6 +815,7 @@ offset_right = -960.0
 offset_bottom = -540.0
 
 [node name="DialogBox" parent="." instance=ExtResource("17_mjk4b")]
+visible = false
 offset_left = -960.0
 offset_top = -540.0
 offset_right = -960.0
@@ -826,6 +833,7 @@ one_shot = true
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 
 [node name="InformationTiles" parent="." instance=ExtResource("28_op3ve")]
+visible = false
 z_index = 4090
 position = Vector2(-960, -540)
 
@@ -836,10 +844,10 @@ libraries = {
 
 [node name="ColorRect" type="ColorRect" parent="."]
 z_index = 100
-offset_left = -1175.0
-offset_top = -685.0
-offset_right = 1188.0
-offset_bottom = 636.0
+offset_left = -1264.0
+offset_top = -639.0
+offset_right = 1099.0
+offset_bottom = 682.0
 color = Color(0.0588235, 0.396078, 0.596078, 0)
 
 [connection signal="pressed" from="TopBar/BeanButton" to="." method="_on_bean_button_pressed"]
@@ -852,18 +860,18 @@ color = Color(0.0588235, 0.396078, 0.596078, 0)
 [connection signal="pressed" from="TopBar/AshButton" to="." method="_on_ash_button_pressed"]
 [connection signal="pressed" from="TopBar/Button" to="." method="_on_cropinfobutton_pressed"]
 [connection signal="input_event" from="FarmTileMap/Plot" to="FarmTileMap/Plot" method="_on_input_event"]
-[connection signal="input_event" from="FarmTileMap/@Area2D@40904" to="FarmTileMap/@Area2D@40904" method="_on_input_event"]
-[connection signal="input_event" from="FarmTileMap/@Area2D@40905" to="FarmTileMap/@Area2D@40905" method="_on_input_event"]
-[connection signal="input_event" from="FarmTileMap/@Area2D@40906" to="FarmTileMap/@Area2D@40906" method="_on_input_event"]
-[connection signal="input_event" from="FarmTileMap/@Area2D@40907" to="FarmTileMap/@Area2D@40907" method="_on_input_event"]
-[connection signal="input_event" from="FarmTileMap/@Area2D@40908" to="FarmTileMap/@Area2D@40908" method="_on_input_event"]
-[connection signal="input_event" from="FarmTileMap/@Area2D@40909" to="FarmTileMap/@Area2D@40909" method="_on_input_event"]
-[connection signal="input_event" from="FarmTileMap/@Area2D@40910" to="FarmTileMap/@Area2D@40910" method="_on_input_event"]
-[connection signal="input_event" from="FarmTileMap/@Area2D@40911" to="FarmTileMap/@Area2D@40911" method="_on_input_event"]
-[connection signal="input_event" from="FarmTileMap/@Area2D@40912" to="FarmTileMap/@Area2D@40912" method="_on_input_event"]
-[connection signal="input_event" from="FarmTileMap/@Area2D@40913" to="FarmTileMap/@Area2D@40913" method="_on_input_event"]
-[connection signal="input_event" from="FarmTileMap/@Area2D@40914" to="FarmTileMap/@Area2D@40914" method="_on_input_event"]
-[connection signal="input_event" from="FarmTileMap/@Area2D@40915" to="FarmTileMap/@Area2D@40915" method="_on_input_event"]
-[connection signal="input_event" from="FarmTileMap/@Area2D@40916" to="FarmTileMap/@Area2D@40916" method="_on_input_event"]
-[connection signal="input_event" from="FarmTileMap/@Area2D@40917" to="FarmTileMap/@Area2D@40917" method="_on_input_event"]
-[connection signal="input_event" from="FarmTileMap/@Area2D@40918" to="FarmTileMap/@Area2D@40918" method="_on_input_event"]
+[connection signal="input_event" from="FarmTileMap/@Area2D@44179" to="FarmTileMap/@Area2D@44179" method="_on_input_event"]
+[connection signal="input_event" from="FarmTileMap/@Area2D@44180" to="FarmTileMap/@Area2D@44180" method="_on_input_event"]
+[connection signal="input_event" from="FarmTileMap/@Area2D@44181" to="FarmTileMap/@Area2D@44181" method="_on_input_event"]
+[connection signal="input_event" from="FarmTileMap/@Area2D@44182" to="FarmTileMap/@Area2D@44182" method="_on_input_event"]
+[connection signal="input_event" from="FarmTileMap/@Area2D@44183" to="FarmTileMap/@Area2D@44183" method="_on_input_event"]
+[connection signal="input_event" from="FarmTileMap/@Area2D@44184" to="FarmTileMap/@Area2D@44184" method="_on_input_event"]
+[connection signal="input_event" from="FarmTileMap/@Area2D@44185" to="FarmTileMap/@Area2D@44185" method="_on_input_event"]
+[connection signal="input_event" from="FarmTileMap/@Area2D@44186" to="FarmTileMap/@Area2D@44186" method="_on_input_event"]
+[connection signal="input_event" from="FarmTileMap/@Area2D@44187" to="FarmTileMap/@Area2D@44187" method="_on_input_event"]
+[connection signal="input_event" from="FarmTileMap/@Area2D@44188" to="FarmTileMap/@Area2D@44188" method="_on_input_event"]
+[connection signal="input_event" from="FarmTileMap/@Area2D@44189" to="FarmTileMap/@Area2D@44189" method="_on_input_event"]
+[connection signal="input_event" from="FarmTileMap/@Area2D@44190" to="FarmTileMap/@Area2D@44190" method="_on_input_event"]
+[connection signal="input_event" from="FarmTileMap/@Area2D@44191" to="FarmTileMap/@Area2D@44191" method="_on_input_event"]
+[connection signal="input_event" from="FarmTileMap/@Area2D@44192" to="FarmTileMap/@Area2D@44192" method="_on_input_event"]
+[connection signal="input_event" from="FarmTileMap/@Area2D@44193" to="FarmTileMap/@Area2D@44193" method="_on_input_event"]
