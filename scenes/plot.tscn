@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://2gp1uqqrgsjn"]
+[gd_scene load_steps=33 format=3 uid="uid://2gp1uqqrgsjn"]
 
 [ext_resource type="Script" uid="uid://fyhmk3oyic1o" path="res://scripts/plot.gd" id="1_cyvgl"]
 [ext_resource type="Texture2D" uid="uid://btqimulsa0bys" path="res://assets/art/tileforplant.png" id="2_rd1ev"]
@@ -37,7 +37,12 @@ point_count = 3
 [sub_resource type="Gradient" id="Gradient_3iehw"]
 interpolation_mode = 2
 offsets = PackedFloat32Array(0, 0.991416)
-colors = PackedColorArray(0.12549, 0.129412, 0.129412, 1, 0.67069, 0.67069, 0.67069, 1)
+colors = PackedColorArray(0.282353, 0.278431, 0.282353, 1, 0.670588, 0.670588, 0.670588, 0.917647)
+
+[sub_resource type="Curve" id="Curve_joji3"]
+_limits = [-1.0, 1.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0e85a"]
 radius = 120.0
@@ -218,17 +223,21 @@ hue_variation_max = 0.01
 hue_variation_curve = SubResource("Curve_7sqlv")
 
 [node name="AshParticles" type="CPUParticles2D" parent="."]
-emitting = false
-amount = 50
+amount = 70
 texture = ExtResource("16_3iehw")
-lifetime_randomness = 0.47
+lifetime = 1.06
+explosiveness = 0.03
 emission_shape = 2
-emission_sphere_radius = 18.07
-spread = 86.71
-gravity = Vector2(0, 30)
+emission_sphere_radius = 51.78
+spread = 180.0
+gravity = Vector2(0, 80)
 radial_accel_max = 100.0
 scale_amount_min = 0.5
+color = Color(0.423529, 0.423529, 0.419608, 1)
 color_ramp = SubResource("Gradient_3iehw")
+hue_variation_min = -0.02
+hue_variation_max = 0.02
+hue_variation_curve = SubResource("Curve_joji3")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("4_ryjlh")
