@@ -1,8 +1,23 @@
 [gd_scene load_steps=8 format=3 uid="uid://847qttxgrvwi"]
 
 [ext_resource type="Texture2D" uid="uid://vxoxk0dosx4d" path="res://assets/temp_art/GreyscaleOpeningScreen.png" id="1_nsr7c"]
-[ext_resource type="Script" uid="uid://11amipv7gexu" path="res://scenes/transition_to_end.gd" id="1_vfl2d"]
+[ext_resource type="Script" uid="uid://11amipv7gexu" path="res://scripts/transition_to_end.gd" id="1_vfl2d"]
 [ext_resource type="FontFile" uid="uid://bkp4u3hvwimtp" path="res://assets/font/VCR_OSD_MONO_1.001.ttf" id="2_vfl2d"]
+
+[sub_resource type="Animation" id="Animation_qecik"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.360784, 0.360784, 0.360784, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_gh5wm"]
 resource_name = "fadeIn"
@@ -18,21 +33,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(0.360784, 0.360784, 0.360784, 1), Color(0.360784, 0.360784, 0.360784, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_qecik"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("ColorRect:color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(0.360784, 0.360784, 0.360784, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_6xcw8"]
@@ -67,6 +67,7 @@ position = Vector2(954, 539)
 texture = ExtResource("1_nsr7c")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
 offset_left = 62.0
 offset_top = 368.0
 offset_right = 1845.0
@@ -78,6 +79,7 @@ text = "Your efforts have been recognized by the Fiji government! You are now tr
 horizontal_alignment = 1
 
 [node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
 offset_left = -57.0
 offset_top = -33.0
 offset_right = 1984.0
