@@ -761,10 +761,10 @@ vertical_alignment = 1
 
 [node name="Button" type="Button" parent="TopBar"]
 layout_mode = 0
-offset_left = 1343.0
-offset_top = 944.0
-offset_right = 1482.0
-offset_bottom = 1052.0
+offset_left = 1290.0
+offset_top = 951.0
+offset_right = 1429.0
+offset_bottom = 1059.0
 theme_override_fonts/font = ExtResource("7_g8kfs")
 theme_override_font_sizes/font_size = 36
 text = "Crop
@@ -828,3 +828,4 @@ one_shot = true
 [connection signal="input_event" from="FarmTileMap/@Area2D@66325" to="FarmTileMap/@Area2D@66325" method="_on_input_event"]
 [connection signal="input_event" from="FarmTileMap/@Area2D@66326" to="FarmTileMap/@Area2D@66326" method="_on_input_event"]
 [connection signal="input_event" from="FarmTileMap/@Area2D@66327" to="FarmTileMap/@Area2D@66327" method="_on_input_event"]
+

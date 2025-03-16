@@ -62,6 +62,6 @@ text = "I am saying hello! line line line line line line line line line line lin
 metadata/_edit_use_anchors_ = true
 
 [node name="Face" type="Sprite2D" parent="TextBox/Dialog Box"]
-position = Vector2(575.704, 120.504)
-scale = Vector2(0.461794, 0.563421)
+position = Vector2(563.836, 123.086)
+scale = Vector2(0.468119, 0.577765)
 texture = ExtResource("4_guheb")
