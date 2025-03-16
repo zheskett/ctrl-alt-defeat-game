@@ -149,7 +149,10 @@ func plant_grown() -> void:
 		await $AnimationPlayer.animation_finished
 	
 	elif Global.weather == Global.Weathers.FLOOD:
-		await $DialogBox.show_dialog($DialogBox.genRandomPerson(), "Looks like a flood is coming! Hopefully you have some protection from the river.")
+		if Global.planted_trees:
+			await $DialogBox.show_dialog($DialogBox.genRandomPerson(), "Looks like a flood is coming! Good thing have some protection from the river.")
+		else:
+			await $DialogBox.show_dialog($DialogBox.genRandomPerson(), "Looks like a flood is coming! To bad there is no protection from the river.")
 		$AnimationPlayer.play("flood")
 		await $AnimationPlayer.animation_finished
 		# Dialogue?
