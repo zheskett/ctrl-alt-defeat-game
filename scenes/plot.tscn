@@ -17,15 +17,12 @@
 [ext_resource type="Texture2D" uid="uid://druka4p7jgvkn" path="res://assets/temp_art/grey_farm/greyseedcassava.png" id="8_7sqlv"]
 [ext_resource type="Texture2D" uid="uid://koxfhbkapbv8" path="res://assets/temp_art/grey_farm/greyintermediatecassava.png" id="9_joji3"]
 [ext_resource type="Texture2D" uid="uid://ciope44v1k7iv" path="res://assets/temp_art/grey_farm/greygrowncassava.png" id="10_j82x5"]
+[ext_resource type="Texture2D" uid="uid://b16qt6puhg0gp" path="res://assets/art/white_circle.png" id="16_3iehw"]
 
-[sub_resource type="Gradient" id="Gradient_72cjw"]
-offsets = PackedFloat32Array(0, 0.00414938)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_xg80o"]
-gradient = SubResource("Gradient_72cjw")
-width = 16
-height = 16
-fill_from = Vector2(0, 1)
+[sub_resource type="Gradient" id="Gradient_3iehw"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0, 0.991416)
+colors = PackedColorArray(0.12549, 0.129412, 0.129412, 1, 0.67069, 0.67069, 0.67069, 1)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0e85a"]
 radius = 120.0
@@ -170,17 +167,30 @@ empty_texture = ExtResource("4_ryjlh")
 texture_array = Array[Array]([[ExtResource("3_c7i00"), ExtResource("4_0e85a"), ExtResource("5_0e85a")], [ExtResource("6_rd1ev"), ExtResource("7_2cd3u"), ExtResource("5_3iehw")], [ExtResource("8_7sqlv"), ExtResource("9_joji3"), ExtResource("10_j82x5")], [ExtResource("3_72cjw"), ExtResource("4_xg80o"), ExtResource("5_h8l8k")], [ExtResource("6_h8l8k")]])
 
 [node name="WaterParticles" type="CPUParticles2D" parent="."]
+position = Vector2(0, 50.51)
 emitting = false
-texture = SubResource("GradientTexture2D_xg80o")
-lifetime = 0.3
-preprocess = 1.0
-emission_shape = 2
-emission_sphere_radius = 43.92
+amount = 100
+texture = ExtResource("16_3iehw")
+lifetime = 1.2
+explosiveness = 0.2
 spread = 180.0
-gravity = Vector2(0, 0)
-initial_velocity_min = 182.93
-initial_velocity_max = 219.51
+gravity = Vector2(0, 40)
+initial_velocity_min = 15.0
+initial_velocity_max = 35.0
 color = Color(0, 0, 1, 1)
+
+[node name="AshParticles" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 50
+texture = ExtResource("16_3iehw")
+lifetime_randomness = 0.47
+emission_shape = 2
+emission_sphere_radius = 18.07
+spread = 86.71
+gravity = Vector2(0, 30)
+radial_accel_max = 100.0
+scale_amount_min = 0.5
+color_ramp = SubResource("Gradient_3iehw")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("4_ryjlh")

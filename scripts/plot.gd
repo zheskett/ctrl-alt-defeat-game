@@ -24,6 +24,7 @@ const WATER_DICT : Dictionary[Global.Crops, int] = {
 }
 
 const ASH_COST = 10
+const ASH_RANGE = 2
 
 var can_be_tree := false
 var farming_node: Farming
@@ -51,6 +52,7 @@ func register_farm(farm: Farming) -> void:
 
 func reset_plot() -> void:
 	$WaterParticles.emitting = false
+	$AshParticles.emitting = false
 	if can_be_tree and Global.planted_trees:
 		self.crop = Global.Crops.TREE
 		harvested = false
@@ -77,6 +79,7 @@ func grow_plant() -> void:
 
 func _harvest_plant() -> void:
 	$WaterParticles.emitting = false
+	$AshParticles.emitting = false
 	var num_same := 0
 	var num_diff := 0
 	var score := 1
@@ -136,7 +139,7 @@ func plant_clicked() -> void:
 		self.water = 0
 		self.water_needed = WATER_DICT.get(self.crop, 1)
 		self.ash = 0
-		self.ash_needed = ASH_COST
+		self.ash_needed = ASH_COST + randi_range(-ASH_RANGE, ASH_RANGE)
 		
 		animation_player.play("plant_crop")
 		farming_node.plant_planted(self.crop)
@@ -154,4 +157,4 @@ func _physics_process(_delta: float) -> void:
 		ash += 1
 		farming_node.ash -= 1
 		if ash >= ash_needed:
-			pass
+			$AshParticles.emitting = true

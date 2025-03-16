@@ -34,7 +34,7 @@ var ash := 0 :
 	set(value):
 		ash = value
 		ash_label.text = str(ash_percent) + "%"
-		if water <= 0:
+		if ash <= 0:
 			is_ashing = false
 			mouse_crop_sprite.hide()
 var ash_percent : int :

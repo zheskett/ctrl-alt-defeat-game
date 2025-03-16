@@ -12,6 +12,8 @@ class_name MouseCropSprite
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
+	if not farming_node.is_ashing:
+		$CPUParticles2D.emitting = false
 	self.position = get_global_mouse_position()
 	if farming_node.is_watering:
 		if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
