@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://blqrih2ursv27"]
+[gd_scene load_steps=9 format=3 uid="uid://blqrih2ursv27"]
 
 [ext_resource type="Script" uid="uid://c3spwuymoo4n3" path="res://scripts/introduction.gd" id="1_e3kje"]
 [ext_resource type="Texture2D" uid="uid://bnd8l8jx22ffp" path="res://assets/art/titlebg.png" id="2_nvvsg"]
+[ext_resource type="FontFile" uid="uid://b84fpvkh5a3fn" path="res://assets/font/Pixellari.ttf" id="3_e7oap"]
 [ext_resource type="FontFile" uid="uid://bkp4u3hvwimtp" path="res://assets/font/VCR_OSD_MONO_1.001.ttf" id="3_xofpe"]
 [ext_resource type="Texture2D" uid="uid://cfi7y3munen0k" path="res://assets/art/Title Screen.png" id="4_nvvsg"]
 
@@ -64,8 +65,8 @@ offset_left = 830.0
 offset_top = 617.0
 offset_right = 1081.0
 offset_bottom = 751.0
-theme_override_fonts/font = ExtResource("3_xofpe")
-theme_override_font_sizes/font_size = 52
+theme_override_fonts/font = ExtResource("3_e7oap")
+theme_override_font_sizes/font_size = 68
 text = "Play"
 
 [node name="TitleScreen" type="Sprite2D" parent="."]
@@ -82,6 +83,7 @@ offset_bottom = 461.0
 theme_override_fonts/normal_font = ExtResource("3_xofpe")
 theme_override_font_sizes/normal_font_size = 200
 text = "Fiji Farms"
+horizontal_alignment = 1
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 0
