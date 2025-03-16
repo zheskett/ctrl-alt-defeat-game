@@ -66,6 +66,25 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0)
 }
 
+[sub_resource type="Animation" id="Animation_72cjw"]
+resource_name = "grow"
+length = 0.628
+tracks/0/type = "audio"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AudioStreamPlayer2D")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": [{
+"end_offset": 0.263172,
+"start_offset": 0.0598,
+"stream": ExtResource("6_xg80o")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/0/use_blend = true
+
 [sub_resource type="Animation" id="Animation_410i3"]
 resource_name = "harvest"
 length = 0.5
@@ -132,25 +151,6 @@ tracks/0/keys = {
 "clips": [{
 "end_offset": 0.249,
 "start_offset": 0.0548,
-"stream": ExtResource("6_xg80o")
-}],
-"times": PackedFloat32Array(0)
-}
-tracks/0/use_blend = true
-
-[sub_resource type="Animation" id="Animation_72cjw"]
-resource_name = "grow"
-length = 0.628
-tracks/0/type = "audio"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("AudioStreamPlayer2D")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"clips": [{
-"end_offset": 0.263172,
-"start_offset": 0.0598,
 "stream": ExtResource("6_xg80o")
 }],
 "times": PackedFloat32Array(0)
