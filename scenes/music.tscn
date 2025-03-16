@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://df8mrqr0sqka5"]
+
+[ext_resource type="AudioStream" uid="uid://wri3k1xx8ary" path="res://assets/sound/GameJam_Background_FINAL .mp3" id="1_05ggv"]
+
+[node name="Music" type="AudioStreamPlayer"]
+stream = ExtResource("1_05ggv")
+autoplay = true
+bus = &"Music"

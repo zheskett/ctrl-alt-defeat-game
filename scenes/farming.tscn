@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=4 uid="uid://bml3xjpomcarx"]
+[gd_scene load_steps=40 format=4 uid="uid://bml3xjpomcarx"]
 
 [ext_resource type="TileSet" uid="uid://cdv0oqiuilhcd" path="res://resources/temp_tile_set.tres" id="1_cbg4r"]
 [ext_resource type="Script" path="res://scripts/farming.gd" id="1_uibo2"]
@@ -13,10 +13,57 @@
 [ext_resource type="Texture2D" uid="uid://crn1bg3k8y2yt" path="res://assets/temp_art/grey_farm/greywateringcan.png" id="8_0dotm"]
 [ext_resource type="Texture2D" uid="uid://cpqjbfw817khs" path="res://assets/temp_art/grey_farm/greycorntoolbar.png" id="8_x6prt"]
 [ext_resource type="Texture2D" uid="uid://dh4kaccldsc2b" path="res://assets/temp_art/grey_farm/greywateringpour.png" id="9_6p8kx"]
+[ext_resource type="AudioStream" uid="uid://bgf6oh0cvrb2e" path="res://assets/sound/watering-with-a-watering-can-39121.mp3" id="11_po4j7"]
 [ext_resource type="Texture2D" uid="uid://b16qt6puhg0gp" path="res://assets/art/white_circle.png" id="11_tluq4"]
 [ext_resource type="Texture2D" uid="uid://dqbacmku4yca2" path="res://assets/art/ash.png" id="12_4rli0"]
 [ext_resource type="PackedScene" uid="uid://dhacemow2f4tp" path="res://scenes/treeDecision.tscn" id="14_x6prt"]
 [ext_resource type="PackedScene" uid="uid://dluk8fwudk6bv" path="res://scenes/dialogBox.tscn" id="17_mjk4b"]
+
+[sub_resource type="Gradient" id="Gradient_po4j7"]
+interpolation_mode = 2
+colors = PackedColorArray(0, 0.529412, 0.898039, 0.435294, 0, 0, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_xeuic"]
+gradient = SubResource("Gradient_po4j7")
+
+[sub_resource type="Gradient" id="Gradient_xeuic"]
+colors = PackedColorArray(0.745607, 0.524947, 0, 1, 1, 1, 1, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_nmop0"]
+noise_type = 2
+offset = Vector3(15, 15, 15)
+cellular_distance_function = 1
+cellular_jitter = 1.98
+domain_warp_enabled = true
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_1fyyh"]
+color_ramp = SubResource("Gradient_xeuic")
+noise = SubResource("FastNoiseLite_nmop0")
+
+[sub_resource type="Animation" id="Animation_xeuic"]
+resource_name = "water"
+length = 8.9
+loop_mode = 1
+tracks/0/type = "audio"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AudioStreamPlayer2D")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": [{
+"end_offset": 2.06765,
+"start_offset": 0.895,
+"stream": ExtResource("11_po4j7")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/0/use_blend = false
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nmop0"]
+_data = {
+&"water": SubResource("Animation_xeuic")
+}
 
 [sub_resource type="Gradient" id="Gradient_mjk4b"]
 colors = PackedColorArray(0.419608, 0.435294, 0.419608, 1, 1, 1, 1, 1)
@@ -67,6 +114,234 @@ font_size = 64
 shadow_size = 4
 shadow_color = Color(0, 0, 0, 1)
 
+[sub_resource type="Animation" id="Animation_nmop0"]
+resource_name = "flood"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Flood:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Flood:scale:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0.0951683, -0.25, 0, 0.8, 3.90483, 30.0656, -0.533333, -21.0656, 0.166667, 4.9344, 43.766, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1, 4)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Flood:scale:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(16.906, -0.25, 0, 0.25, 0, 16.906, -0.25, 0, 0.25, 0, 16.906, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1, 4)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Flood:modulate:a")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0.545098, -0.25, 0, 0.25, 0, 0.545098, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1.00009, 4)
+}
+
+[sub_resource type="Animation" id="Animation_1fyyh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Flood:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Flood:scale:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.0951683, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Flood:scale:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(16.906, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Flood:modulate:a")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.545098, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Drought:texture")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("NoiseTexture2D_1fyyh")]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Drought:texture:noise:offset")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(15, 15, 15)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Drought:texture:noise:cellular_jitter")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.98]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Drought:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Drought:modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.466667)]
+}
+
+[sub_resource type="Animation" id="Animation_mjk4b"]
+resource_name = "drought"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Drought:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("NoiseTexture2D_1fyyh")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Drought:texture:noise:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 4),
+"transitions": PackedFloat32Array(1, 2.14355),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(290.23, 360.45, 451.36)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Drought:texture:noise:cellular_jitter")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 1.98]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Drought:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Drought:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1.86667, 4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.0509804), Color(1, 1, 1, 0.466667), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5fhwr"]
+_data = {
+&"RESET": SubResource("Animation_1fyyh"),
+&"drought": SubResource("Animation_mjk4b"),
+&"flood": SubResource("Animation_nmop0")
+}
+
 [node name="Farming" type="Node2D" node_paths=PackedStringArray("farm_tile_map", "mouse_crop_sprite", "score_label", "water_label", "ash_label", "year_label")]
 script = ExtResource("1_uibo2")
 farm_tile_map = NodePath("FarmTileMap")
@@ -80,6 +355,21 @@ year_label = NodePath("TopBar/YearLabel")
 z_index = -1
 texture = ExtResource("2_1n404")
 
+[node name="Flood" type="Sprite2D" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0.545098)
+position = Vector2(960.297, -544)
+scale = Vector2(0.0951683, 16.906)
+texture = SubResource("GradientTexture2D_xeuic")
+centered = false
+offset = Vector2(-63.97, 0)
+
+[node name="Drought" type="Sprite2D" parent="."]
+visible = false
+modulate = Color(1, 1, 1, 0.466667)
+scale = Vector2(3.83594, 2.15039)
+texture = SubResource("NoiseTexture2D_1fyyh")
+
 [node name="MouseCropSprite" type="Sprite2D" parent="." node_paths=PackedStringArray("farming_node")]
 z_index = 20
 scale = Vector2(0.3, 0.3)
@@ -92,6 +382,13 @@ yam_texture = ExtResource("6_qrgrl")
 water_texture = ExtResource("8_0dotm")
 watering_texture = ExtResource("9_6p8kx")
 ash_texture = ExtResource("12_4rli0")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="MouseCropSprite"]
+libraries = {
+&"": SubResource("AnimationLibrary_nmop0")
+}
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="MouseCropSprite"]
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="MouseCropSprite"]
 emitting = false
@@ -212,6 +509,7 @@ theme = SubResource("Theme_qrgrl")
 text = "Clear"
 
 [node name="NextButton" type="Button" parent="TopBar"]
+visible = false
 layout_mode = 2
 offset_left = 1155.0
 offset_top = 20.0
@@ -277,7 +575,7 @@ offset_left = 841.0
 offset_top = 117.0
 offset_right = 949.0
 offset_bottom = 152.0
-text = "100%"
+text = "0%"
 label_settings = SubResource("LabelSettings_4rli0")
 horizontal_alignment = 1
 
@@ -293,6 +591,7 @@ label_settings = SubResource("LabelSettings_x6prt")
 vertical_alignment = 1
 
 [node name="FarmTileMap" type="TileMapLayer" parent="." node_paths=PackedStringArray("farming_node")]
+position = Vector2(-66.17, 0)
 tile_map_data = PackedByteArray("AAD7/wIAAQAAAAAAAQD7/wAAAQAAAAAAAQD9/wAAAQAAAAAAAQD9/wIAAQAAAAAAAQD//wIAAQAAAAAAAQD//wAAAQAAAAAAAQABAAAAAQAAAAAAAQABAAIAAQAAAAAAAQADAAIAAQAAAAAAAQADAAAAAQAAAAAAAQADAP7/AQAAAAAAAQABAP7/AQAAAAAAAQD///7/AQAAAAAAAQAFAP7/AQAAAAAAAQAFAAAAAQAAAAAAAQAFAAIAAQAAAAAAAQA=")
 tile_set = ExtResource("1_cbg4r")
 script = ExtResource("3_no2rj")
@@ -309,10 +608,16 @@ offset_right = -960.0
 offset_bottom = -540.0
 
 [node name="DialogBox" parent="." instance=ExtResource("17_mjk4b")]
-offset_left = -940.0
-offset_top = -516.0
-offset_right = -940.0
-offset_bottom = -516.0
+offset_left = -960.0
+offset_top = -540.0
+offset_right = -960.0
+offset_bottom = -540.0
+size_flags_horizontal = 0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_5fhwr")
+}
 
 [connection signal="pressed" from="TopBar/BeanButton" to="." method="_on_bean_button_pressed"]
 [connection signal="pressed" from="TopBar/CornButton" to="." method="_on_corn_button_pressed"]
@@ -322,3 +627,19 @@ offset_bottom = -516.0
 [connection signal="pressed" from="TopBar/NextButton" to="." method="_on_next_button_pressed"]
 [connection signal="pressed" from="TopBar/WaterButton" to="." method="_on_water_button_pressed"]
 [connection signal="pressed" from="TopBar/AshButton" to="." method="_on_ash_button_pressed"]
+[connection signal="input_event" from="FarmTileMap/Plot" to="FarmTileMap/Plot" method="_on_input_event"]
+[connection signal="input_event" from="FarmTileMap/@Area2D@147327" to="FarmTileMap/@Area2D@147327" method="_on_input_event"]
+[connection signal="input_event" from="FarmTileMap/@Area2D@147328" to="FarmTileMap/@Area2D@147328" method="_on_input_event"]
+[connection signal="input_event" from="FarmTileMap/@Area2D@147329" to="FarmTileMap/@Area2D@147329" method="_on_input_event"]
+[connection signal="input_event" from="FarmTileMap/@Area2D@147330" to="FarmTileMap/@Area2D@147330" method="_on_input_event"]
+[connection signal="input_event" from="FarmTileMap/@Area2D@147331" to="FarmTileMap/@Area2D@147331" method="_on_input_event"]
+[connection signal="input_event" from="FarmTileMap/@Area2D@147332" to="FarmTileMap/@Area2D@147332" method="_on_input_event"]
+[connection signal="input_event" from="FarmTileMap/@Area2D@147333" to="FarmTileMap/@Area2D@147333" method="_on_input_event"]
+[connection signal="input_event" from="FarmTileMap/@Area2D@147334" to="FarmTileMap/@Area2D@147334" method="_on_input_event"]
+[connection signal="input_event" from="FarmTileMap/@Area2D@147335" to="FarmTileMap/@Area2D@147335" method="_on_input_event"]
+[connection signal="input_event" from="FarmTileMap/@Area2D@147336" to="FarmTileMap/@Area2D@147336" method="_on_input_event"]
+[connection signal="input_event" from="FarmTileMap/@Area2D@147337" to="FarmTileMap/@Area2D@147337" method="_on_input_event"]
+[connection signal="input_event" from="FarmTileMap/@Area2D@147338" to="FarmTileMap/@Area2D@147338" method="_on_input_event"]
+[connection signal="input_event" from="FarmTileMap/@Area2D@147339" to="FarmTileMap/@Area2D@147339" method="_on_input_event"]
+[connection signal="input_event" from="FarmTileMap/@Area2D@147340" to="FarmTileMap/@Area2D@147340" method="_on_input_event"]
+[connection signal="input_event" from="FarmTileMap/@Area2D@147341" to="FarmTileMap/@Area2D@147341" method="_on_input_event"]

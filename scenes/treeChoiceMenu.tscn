@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://cbk50qcfrkmpj"]
 
-[ext_resource type="Script" uid="uid://c76ftwvgg0gh8" path="res://scenes/tree_choice_menu.gd" id="1_jsehu"]
+[ext_resource type="Script" uid="uid://c76ftwvgg0gh8" path="res://scripts/tree_choice_menu.gd" id="1_jsehu"]
 [ext_resource type="FontFile" uid="uid://bkp4u3hvwimtp" path="res://assets/font/VCR_OSD_MONO_1.001.ttf" id="2_k2xwl"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pjvux"]

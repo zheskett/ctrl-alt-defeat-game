@@ -7,6 +7,7 @@ extends Control
 
 #Used Google Gemini to set up script for the timer and audio
 func _ready():
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Music"), linear_to_db(0.1))
 	#first play sound
 	#timer.connect("timeout", _stop_audio)
 	audio.play()

@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://dh3ycqrv0iu6d"]
 
-[ext_resource type="Script" uid="uid://cpa87mssmds2f" path="res://scenes/outro.gd" id="1_a6ogt"]
+[ext_resource type="Script" uid="uid://cpa87mssmds2f" path="res://scripts/outro.gd" id="1_a6ogt"]
 [ext_resource type="Texture2D" uid="uid://baqe5colmfkm5" path="res://assets/GreyscaleOpeningScreen.png" id="2_vmn6f"]
 [ext_resource type="FontFile" uid="uid://bkp4u3hvwimtp" path="res://assets/font/VCR_OSD_MONO_1.001.ttf" id="3_ydlee"]
 [ext_resource type="AudioStream" uid="uid://wri3k1xx8ary" path="res://assets/sound/GameJam_Background_FINAL .mp3" id="4_vmn6f"]

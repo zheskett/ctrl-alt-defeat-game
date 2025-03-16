@@ -16,11 +16,74 @@ class_name Plot
 const GROW_TIME = 2.0
 const GROW_VARIATION = 0.7
 
-const WATER_DICT : Dictionary[Global.Crops, int] = {
+const WATER_DICT: Dictionary[Global.Crops, int] = {
 	Global.Crops.BEAN: 13,
 	Global.Crops.CORN: 13,
 	Global.Crops.CASAVA: 5,
 	Global.Crops.YAM: 8
+}
+
+const MILD_VALUE_DICT: Dictionary[Global.Crops, int] = {
+	Global.Crops.BEAN: 4,
+	Global.Crops.CORN: 5,
+	Global.Crops.CASAVA: 2,
+	Global.Crops.YAM: 3
+}
+
+const FLOOD_VALUE_DICT: Dictionary[Global.Crops, int] = {
+	Global.Crops.BEAN: 5,
+	Global.Crops.CORN: 3,
+	Global.Crops.CASAVA: 5,
+	Global.Crops.YAM: 3
+}
+
+const DROUGHT_VALUE_DICT: Dictionary[Global.Crops, int] = {
+	Global.Crops.BEAN: 3,
+	Global.Crops.CORN: 0,
+	Global.Crops.CASAVA: 5,
+	Global.Crops.YAM: 4
+}
+
+const ASH_MILD_VALUE_DICT: Dictionary[Global.Crops, int] = {
+	Global.Crops.BEAN: 0,
+	Global.Crops.CORN: 2,
+	Global.Crops.CASAVA: 2,
+	Global.Crops.YAM: 2,
+}
+
+const ASH_FLOOD_VALUE_DICT: Dictionary[Global.Crops, int] = {
+	Global.Crops.BEAN: 0,
+	Global.Crops.CORN: 0,
+	Global.Crops.CASAVA: 0,
+	Global.Crops.YAM: 0,
+}
+
+const ASH_DROUGHT_VALUE_DICT: Dictionary[Global.Crops, int] = {
+	Global.Crops.BEAN: 2,
+	Global.Crops.CORN: 1,
+	Global.Crops.CASAVA: 1,
+	Global.Crops.YAM: 2,
+}
+
+const TREE_MILD_VALUE_DICT: Dictionary[Global.Crops, int] = {
+	Global.Crops.BEAN: 0,
+	Global.Crops.CORN: 0,
+	Global.Crops.CASAVA: 0,
+	Global.Crops.YAM: 0,
+}
+
+const TREE_FLOOD_VALUE_DICT: Dictionary[Global.Crops, int] = {
+	Global.Crops.BEAN: 1,
+	Global.Crops.CORN: 1,
+	Global.Crops.CASAVA: 1,
+	Global.Crops.YAM: 2,
+}
+
+const TREE_DROUGHT_VALUE_DICT: Dictionary[Global.Crops, int] = {
+	Global.Crops.BEAN: 0,
+	Global.Crops.CORN: 0,
+	Global.Crops.CASAVA: 0,
+	Global.Crops.YAM: 0,
 }
 
 const ASH_COST = 10
@@ -74,6 +137,7 @@ func grow_plant() -> void:
 		await timer.timeout
 		stage += 1
 		sprite.texture = texture_array[self.crop - 1][stage]
+		animation_player.play("plant_crop")
 		if stage == 2:
 			farming_node.plant_grown()
 
@@ -97,18 +161,28 @@ func _harvest_plant() -> void:
 		ray_cast.rotate(deg_to_rad(90.0))
 
 	# Multicrop score calculation
-	print(str(score) + ", " + str(num_diff) + ", " + str(num_same))
 	score += mini(2, num_diff) - maxi(0, num_diff - 2)
 	score += mini(2, num_same) - maxi(0, num_same - 2)
 	
 	# Check if watered
-	score += 1 if water >= water_needed else -2
+	score += 2 if water >= water_needed else -1
 	
 	# TODO Check weather
-	
+	if Global.weather == Global.Weathers.TEMPERATE:
+		score += MILD_VALUE_DICT.get(crop, 0)
+		score += ASH_MILD_VALUE_DICT.get(crop, 0) if ash >= ash_needed else 0
+		score += TREE_MILD_VALUE_DICT.get(crop, 0) if Global.planted_trees else 0
+	elif Global.weather == Global.Weathers.FLOOD:
+		score += FLOOD_VALUE_DICT.get(crop, 0)
+		score += ASH_FLOOD_VALUE_DICT.get(crop, 0) if ash >= ash_needed else 0
+		score += TREE_FLOOD_VALUE_DICT.get(crop, 0) if Global.planted_trees else -2
+	elif Global.weather == Global.Weathers.DROUGHT:
+		score += DROUGHT_VALUE_DICT.get(crop, 0)
+		score += ASH_DROUGHT_VALUE_DICT.get(crop, 0) if ash >= ash_needed else 0
+		score += TREE_DROUGHT_VALUE_DICT.get(crop, 0) if Global.planted_trees else 0
 	
 	# Random score change
-	score += randi_range(-1, 1)
+	# score += randi_range(-1, 1)
 	score = maxi(0, score)
 	
 	# Play harvest animation
@@ -124,7 +198,7 @@ func _harvest_plant() -> void:
 	farming_node.plant_harvested()
 
 func plant_clicked() -> void:
-	if farming_node.is_harvesting and self.crop != Global.Crops.EMPTY and self.crop != Global.Crops.TREE:
+	if farming_node.is_harvesting and self.crop != Global.Crops.EMPTY and self.crop != Global.Crops.TREE and not self.harvested:
 		_harvest_plant()
 
 

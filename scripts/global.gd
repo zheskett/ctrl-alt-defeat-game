@@ -1,9 +1,9 @@
 extends Node
 
 enum Crops {EMPTY = 0, BEAN, CORN, CASAVA, YAM, TREE}
-enum Weather {TEMPERATE, DROUGHT, FLOOD}
+enum Weathers {TEMPERATE, DROUGHT, FLOOD}
 
-static var weather := Weather.TEMPERATE
+static var weather := Weathers.TEMPERATE
 static var planted_trees := false
 static var year := 1
 static var score := 0

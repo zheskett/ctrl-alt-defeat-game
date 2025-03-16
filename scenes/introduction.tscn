@@ -1,10 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://blqrih2ursv27"]
+[gd_scene load_steps=5 format=3 uid="uid://blqrih2ursv27"]
 
 [ext_resource type="Script" uid="uid://c3spwuymoo4n3" path="res://scripts/introduction.gd" id="1_e3kje"]
 [ext_resource type="Texture2D" uid="uid://vxoxk0dosx4d" path="res://assets/temp_art/GreyscaleOpeningScreen.png" id="2_nvvsg"]
 [ext_resource type="FontFile" uid="uid://bkp4u3hvwimtp" path="res://assets/font/VCR_OSD_MONO_1.001.ttf" id="3_xofpe"]
 [ext_resource type="Texture2D" uid="uid://cfi7y3munen0k" path="res://assets/art/Title Screen.png" id="4_nvvsg"]
-[ext_resource type="AudioStream" uid="uid://wri3k1xx8ary" path="res://assets/sound/GameJam_Background_FINAL .mp3" id="5_xofpe"]
 
 [node name="titleScreen" type="Control"]
 layout_mode = 3
@@ -46,8 +45,5 @@ offset_bottom = 503.0
 theme_override_fonts/normal_font = ExtResource("3_xofpe")
 theme_override_font_sizes/normal_font_size = 200
 text = "Fiji Farms"
-
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("5_xofpe")
 
 [connection signal="pressed" from="PlayButton" to="." method="_on_play_button_pressed"]

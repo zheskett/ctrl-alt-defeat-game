@@ -17,8 +17,8 @@ var is_watering := false
 var is_ashing := false
 var planted_crops: Dictionary[Global.Crops, int] = {}
 
-const MAX_WATER := 300
-const MAX_ASH := 100
+const MAX_WATER := 200
+const MAX_ASH := 90
 var water := 0 :
 	set(value):
 		water = value
@@ -65,6 +65,14 @@ func plant_planted(crop: Global.Crops) -> void:
 		current_crop = Global.Crops.EMPTY
 		mouse_crop_sprite.hide()
 		self.is_growing = true
+	
+	$TopBar/NextButton.visible = true
+	$TopBar/WaterButton.disabled = false
+	$TopBar/AshButton.disabled = false
+	$TopBar/BeanButton.disabled = true
+	$TopBar/CornButton.disabled = true
+	$TopBar/CasavaButton.disabled = true
+	$TopBar/YamButton.disabled = true
 
 
 func reset_farming() -> void:
@@ -72,6 +80,8 @@ func reset_farming() -> void:
 	$TopBar/CornButton.disabled = false
 	$TopBar/CasavaButton.disabled = false
 	$TopBar/YamButton.disabled = false
+	$TopBar/WaterButton.disabled = true
+	$TopBar/AshButton.disabled = true
 	planted_crops.clear()
 	score_label.text = "Score: " + str(Global.score)
 	year_label.text = "Year: " + str(Global.year)
@@ -79,18 +89,22 @@ func reset_farming() -> void:
 		(plot as Plot).reset_plot()
 
 	if Global.year == 1:
+		Global.weather = Global.Weathers.TEMPERATE
 		water = MAX_WATER
 		ash = 0
 	else:
+		Global.weather = randi_range(Global.Weathers.DROUGHT, Global.Weathers.FLOOD) as Global.Weathers
 		ash = MAX_ASH
 		@warning_ignore("integer_division")
-		water = MAX_WATER / 2
+		water = 2 * MAX_WATER / (Global.year + 1)
 
 	is_harvesting = false
 	is_watering = false
 	is_growing = false
 	is_ashing = false
 	is_planting = true
+	
+	$TopBar/NextButton.visible = false
 
 
 func _on_clear_button_pressed() -> void:
@@ -106,6 +120,9 @@ func _on_next_button_pressed() -> void:
 		self.is_watering = false
 		self.is_ashing = false
 		mouse_crop_sprite.hide()
+		$TopBar/NextButton.visible = false
+		$TopBar/WaterButton.disabled = true
+		$TopBar/AshButton.disabled = true
 		for plot in farm_tile_map.plot_coords.values():
 			(plot as Plot).grow_plant()
 
@@ -117,6 +134,20 @@ func plant_grown() -> void:
 				return
 	
 	# All plants grown
+	
+	# Weather Event
+	if Global.weather == Global.Weathers.TEMPERATE:
+		pass
+	
+	elif Global.weather == Global.Weathers.DROUGHT:
+		$AnimationPlayer.play("drought")
+		await $AnimationPlayer.animation_finished
+	
+	elif Global.weather == Global.Weathers.FLOOD:
+		$AnimationPlayer.play("flood")
+		await $AnimationPlayer.animation_finished
+		# Dialogue?
+	
 	self.is_harvesting = true
 
 func plant_harvested() -> void:
@@ -129,31 +160,26 @@ func plant_harvested() -> void:
 	self.is_harvesting = false
 	Global.year += 1
 	if Global.year >= 4:
-		return
-		#TODO end-scene
 		get_tree().change_scene_to_file("res://scenes/ending.tscn")
 
 
 	if Global.year == 2:
-		if (Global.score <= 20):
+		if (Global.score <= 100):
 			await $DialogBox.show_dialog(0, "Hi there! I see your first season was a little rough. Try planting alternating rows of crops and be sure to water them!")
 		else:
 			await $DialogBox.show_dialog(0, "Hi there! I see the progress you're making. Very impressive!")
 		$TreeDecision.start()
 		
 		await Global.tree_choice
-		print(Global.planted_trees)
 		$TreeDecision.queue_free()
 		reset_farming()
 		return
 	
 	if Global.year == 3:
-		if (Global.score > 50):
+		if (Global.score > 220):
 			await $DialogBox.show_dialog(2, "Hey neighbor! Seems like you're learning more and more each year. Good job!")
 		else:
 			await $DialogBox.show_dialog(2, "Hey neighbor! Pro tip: planting intermixed crops, watering and fertilizing before harvest really improves yield!")
-
-		pass
 
 	reset_farming()
 

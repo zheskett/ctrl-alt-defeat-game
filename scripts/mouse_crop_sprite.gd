@@ -14,12 +14,16 @@ class_name MouseCropSprite
 func _process(_delta: float) -> void:
 	if not farming_node.is_ashing:
 		$CPUParticles2D.emitting = false
+	if not farming_node.is_watering:
+		$AnimationPlayer.stop()
 	self.position = get_global_mouse_position()
 	if farming_node.is_watering:
 		if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
 			self.texture = watering_texture
+			$AnimationPlayer.play("water")
 		else:
 			self.texture = water_texture
+			$AnimationPlayer.pause()
 	if farming_node.is_ashing:
 		if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
 			$CPUParticles2D.emitting = true
