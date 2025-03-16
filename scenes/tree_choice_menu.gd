@@ -1,12 +1,13 @@
 extends Control
 
-static var plantedTrees = false
-
 
 func _on_yes_pressed() -> void:
-	plantedTrees = true
-	self.hide()
+	Global.planted_trees = true
+	Global.make_tree_choice()
+	self.queue_free()
 
 
 func _on_no_pressed() -> void:
-	self.hide()
+	Global.planted_trees = false
+	Global.make_tree_choice()
+	self.queue_free()

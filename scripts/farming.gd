@@ -6,14 +6,9 @@ class_name Farming
 @export var mouse_crop_sprite: MouseCropSprite
 @export var score_label: Label
 @export var water_label: Label
+@export var year_label: Label
 @export var current_crop: Global.Crops = Global.Crops.EMPTY
 
-var score: int = 0:
-	set(value):
-		score = value
-		score_label.text = "Score: " + str(score)
-
-var year = 1
 var is_planting := true
 var is_growing := false
 var is_harvesting := false
@@ -25,20 +20,17 @@ var water := 0 :
 	set(value):
 		water = value
 		water_label.text = str(water_percent) + "%"
+		if water <= 0:
+			is_watering = false
+			mouse_crop_sprite.hide()
 var water_percent : int :
 	get:
 		return int((water as float) / (MAX_WATER as float) * 100.0)
 
-func _physics_process(_delta: float) -> void:
-	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and is_watering:
-		water -= 1
-		if water <= 0:
-			is_watering = false
-			mouse_crop_sprite.hide()
 
 func _ready() -> void:
-	year = 1
-	score = 0
+	#Global.year = 1
+	#Global.score = 0
 	reset_farming()
 
 
@@ -64,10 +56,13 @@ func reset_farming() -> void:
 	$TopBar/CornButton.disabled = false
 	$TopBar/CasavaButton.disabled = false
 	$TopBar/YamButton.disabled = false
+	planted_crops.clear()
+	score_label.text = "Score: " + str(Global.score)
+	year_label.text = "Year: " + str(Global.year)
 	for plot in farm_tile_map.plot_coords.values():
 		(plot as Plot).reset_plot()
 
-	if year == 1:
+	if Global.year == 1:
 		water = MAX_WATER
 	else:
 		@warning_ignore("integer_division")
@@ -104,12 +99,32 @@ func plant_grown() -> void:
 	self.is_harvesting = true
 
 func plant_harvested() -> void:
+	score_label.text = "Score: " + str(Global.score)
 	for plot in farm_tile_map.plot_coords.values():
 		if (plot as Plot).crop != Global.Crops.TREE and (plot as Plot).harvested == false:
 			return
 	
 	# All plants harvested
+	self.is_harvesting = false
+	Global.year += 1
+	if Global.year >= 4:
+		return
+		#TODO end-scene
 	
+	print("hi")
+	if Global.year == 2:
+		$TreeDecision.start()
+		
+		await Global.tree_choice
+		print(Global.planted_trees)
+		$TreeDecision.queue_free()
+		reset_farming()
+		return
+	
+	if Global.year == 3:
+		pass
+
+	reset_farming()
 
 func _on_water_button_pressed() -> void:
 	if not self.is_growing or water <= 0:

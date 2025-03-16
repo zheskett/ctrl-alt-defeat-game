@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://cbk50qcfrkmpj"]
 
 [ext_resource type="Script" uid="uid://c76ftwvgg0gh8" path="res://scenes/tree_choice_menu.gd" id="1_jsehu"]
-[ext_resource type="FontFile" uid="uid://cov3s4mmno0e1" path="res://assets/font/VCR_OSD_MONO_1.001.ttf" id="2_k2xwl"]
+[ext_resource type="FontFile" uid="uid://bkp4u3hvwimtp" path="res://assets/font/VCR_OSD_MONO_1.001.ttf" id="2_k2xwl"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pjvux"]
 bg_color = Color(0.389918, 0.306282, 0.248243, 1)
@@ -29,6 +29,7 @@ offset_bottom = 771.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_pjvux")
 
 [node name="No" type="Button" parent="Panel"]
+layout_mode = 0
 offset_left = 762.0
 offset_top = 359.0
 offset_right = 1077.0

@@ -18,6 +18,8 @@ func _register_child(child: Node) -> void:
 	plot_coords[coords] = child
 	child.set_meta("tile_coords", coords)
 	child.register_farm(farming_node)
+	if coords.x == 5:
+		child.can_be_tree = true
 
 func _unregister_child(child: Node) -> void:
 	if child is not Plot:

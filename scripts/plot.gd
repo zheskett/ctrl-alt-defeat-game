@@ -23,6 +23,7 @@ const WATER_DICT : Dictionary[Global.Crops, int] = {
 	Global.Crops.YAM: 8
 }
 
+var can_be_tree := false
 var farming_node: Farming
 var harvested := true
 var stage := 0
@@ -45,10 +46,16 @@ func register_farm(farm: Farming) -> void:
 	farming_node = farm
 
 func reset_plot() -> void:
-	harvested = true
-	self.crop = Global.Crops.EMPTY
-	sprite.texture = empty_texture
 	$WaterParticles.emitting = false
+	if can_be_tree and Global.planted_trees:
+		self.crop = Global.Crops.TREE
+		harvested = false
+		sprite.texture = texture_array[Global.Crops.TREE - 1][0]
+	else:
+		harvested = true
+		self.crop = Global.Crops.EMPTY
+		sprite.texture = empty_texture
+
 
 func grow_plant() -> void:
 	if not (self.crop != Global.Crops.EMPTY and self.crop != Global.Crops.TREE and self.harvested == false):
@@ -100,7 +107,7 @@ func _harvest_plant() -> void:
 	# Play harvest animation
 	self.harvested = true
 	sprite.texture = empty_texture
-	farming_node.score += score
+	Global.score += score
 	$ScoreLabel.text = "+" + str(score)
 	water = 0
 	water_needed = 0
@@ -108,7 +115,7 @@ func _harvest_plant() -> void:
 	farming_node.plant_harvested()
 
 func plant_clicked() -> void:
-	if farming_node.is_harvesting and self.crop != Global.Crops.EMPTY:
+	if farming_node.is_harvesting and self.crop != Global.Crops.EMPTY and self.crop != Global.Crops.TREE:
 		_harvest_plant()
 
 
@@ -131,8 +138,6 @@ func _physics_process(_delta: float) -> void:
 		return
 	if farming_node.is_watering and self.water < self.water_needed and self.crop != Global.Crops.EMPTY:
 		water += 1
+		farming_node.water -= 1
 		if water >= water_needed:
 			$WaterParticles.emitting = true
-			pass
-	
-	
