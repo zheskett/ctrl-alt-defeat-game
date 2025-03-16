@@ -136,7 +136,7 @@ func plant_clicked() -> void:
 func _physics_process(_delta: float) -> void:
 	if not self.mouse_in or not Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
 		return
-	if farming_node.is_watering and self.water < self.water_needed and self.crop != Global.Crops.EMPTY:
+	if farming_node.is_watering and self.water < self.water_needed and self.crop != Global.Crops.EMPTY and self.crop != Global.Crops.TREE:
 		water += 1
 		farming_node.water -= 1
 		if water >= water_needed:
