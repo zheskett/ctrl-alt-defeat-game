@@ -10,13 +10,13 @@ config_version=5
 
 [application]
 
-config/name="Ctrl Alt Defeat Game"
+config/name="Fiji Farms"
 run/main_scene="uid://g1nglj2tpqnh"
 config/features=PackedStringArray("4.4", "Forward Plus")
 boot_splash/bg_color=Color(0.0804992, 0.254833, 0.346811, 1)
 boot_splash/fullsize=false
 boot_splash/image="uid://b4qt6ufmuno7y"
-config/icon="res://icon.svg"
+config/icon="uid://tedyidjiwvpo"
 boot_splash/minimum_display_time=800
 
 [audio]
