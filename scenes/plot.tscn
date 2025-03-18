@@ -1,11 +1,10 @@
-[gd_scene load_steps=33 format=3 uid="uid://2gp1uqqrgsjn"]
+[gd_scene load_steps=32 format=3 uid="uid://2gp1uqqrgsjn"]
 
 [ext_resource type="Script" uid="uid://fyhmk3oyic1o" path="res://scripts/plot.gd" id="1_cyvgl"]
 [ext_resource type="Texture2D" uid="uid://btqimulsa0bys" path="res://assets/art/tileforplant.png" id="2_rd1ev"]
 [ext_resource type="Texture2D" uid="uid://k0eqvhwcu2q1" path="res://assets/art/beans1.png" id="3_3iehw"]
 [ext_resource type="FontFile" uid="uid://bkp4u3hvwimtp" path="res://assets/font/VCR_OSD_MONO_1.001.ttf" id="4_76l7f"]
 [ext_resource type="Texture2D" uid="uid://nfrnoe3nvwct" path="res://assets/art/beans2.png" id="4_rd1ev"]
-[ext_resource type="Texture2D" uid="uid://80yqpi25trel" path="res://assets/temp_art/grey_farm/GreyscaleTile.png" id="4_ryjlh"]
 [ext_resource type="Texture2D" uid="uid://rlgkiwcwik6w" path="res://assets/art/beans3.png" id="5_2cd3u"]
 [ext_resource type="Texture2D" uid="uid://pnmikw50lcxk" path="res://assets/art/corn1.png" id="6_7sqlv"]
 [ext_resource type="AudioStream" uid="uid://j2labn6qwrj7" path="res://assets/sound/hit-plant-02-266291.mp3" id="6_xg80o"]
@@ -241,7 +240,7 @@ hue_variation_max = 0.02
 hue_variation_curve = SubResource("Curve_joji3")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("4_ryjlh")
+texture = ExtResource("2_rd1ev")
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
 target_position = Vector2(0, 256)

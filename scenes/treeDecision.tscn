@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://dhacemow2f4tp"]
 
-[ext_resource type="Script" uid="uid://c524511nmqqui" path="res://tree_decision.gd" id="1_nrcbm"]
+[ext_resource type="Script" uid="uid://c524511nmqqui" path="res://scripts/tree_decision.gd" id="1_nrcbm"]
 [ext_resource type="PackedScene" uid="uid://dluk8fwudk6bv" path="res://scenes/dialogBox.tscn" id="2_bwm20"]
 [ext_resource type="PackedScene" uid="uid://cbk50qcfrkmpj" path="res://scenes/treeChoiceMenu.tscn" id="3_bwm20"]
 

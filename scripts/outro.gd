@@ -1,14 +1,15 @@
 extends Control
 
 @onready var animation_player = $AnimationPlayer
+@onready var timer = $Timer
 var fadeOut_ready = false
 
 func _ready():
-	$AudioStreamPlayer2D.play()
+	fadeOut_ready = false
 	animation_player.play("theEndFadein")
 	await animation_player.animation_finished
-	$Timer.start()
-	await $Timer.timeout
+	timer.start()
+	await timer.timeout
 	animation_player.play("fadeIn")
 	await animation_player.animation_finished
 	fadeOut_ready = true

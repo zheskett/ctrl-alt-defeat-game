@@ -4,7 +4,6 @@ extends Control
 
 
 func _ready():
-	$AudioStreamPlayer2D.play()
 	#get_tree().get_root().add_child.call_deferred(dialog_box)
 	
 	await dialog_box.show_dialog(0, "Hello, Director Thompson. These past few seasons our farming community has been working on a strategy to combat climate change.")
