@@ -48,9 +48,7 @@ colors = PackedColorArray(0.745607, 0.524947, 0, 1, 1, 1, 1, 1)
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_nmop0"]
 noise_type = 2
-offset = Vector3(15, 15, 15)
 cellular_distance_function = 1
-cellular_jitter = 1.98
 domain_warp_enabled = true
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_1fyyh"]
@@ -235,74 +233,50 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Drought:texture")
+tracks/4/path = NodePath("Drought:visible")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [SubResource("NoiseTexture2D_1fyyh")]
+"values": [false]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("Drought:texture:noise:offset")
+tracks/5/path = NodePath("Drought:modulate")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(15, 15, 15)]
+"values": [Color(1, 1, 1, 0.466667)]
 }
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("Drought:texture:noise:cellular_jitter")
+tracks/6/path = NodePath("AudioStreamPlayer2D:volume_db")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [1.98]
+"values": [0.0]
 }
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("Drought:visible")
+tracks/7/path = NodePath("Drought:position")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/8/type = "value"
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/path = NodePath("Drought:modulate")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(1, 1, 1, 0.466667)]
-}
-tracks/9/type = "value"
-tracks/9/imported = false
-tracks/9/enabled = true
-tracks/9/path = NodePath("AudioStreamPlayer2D:volume_db")
-tracks/9/interp = 1
-tracks/9/loop_wrap = true
-tracks/9/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
+"values": [Vector2(948, 521)]
 }
 
 [sub_resource type="Animation" id="Animation_mjk4b"]
@@ -311,70 +285,34 @@ length = 4.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Drought:texture")
+tracks/0/path = NodePath("Drought:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 4),
+"transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [SubResource("NoiseTexture2D_1fyyh")]
+"values": [true, false]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Drought:texture:noise:offset")
+tracks/1/path = NodePath("Drought:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 4),
-"transitions": PackedFloat32Array(1, 2.14355),
-"update": 0,
-"values": [Vector3(0, 0, 0), Vector3(290.23, 360.45, 451.36)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Drought:texture:noise:cellular_jitter")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 4),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [1.0, 1.98]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Drought:visible")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 4),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, true]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Drought:modulate")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
 "times": PackedFloat32Array(0, 1.86667, 4),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0.0509804), Color(1, 1, 1, 0.466667), Color(1, 1, 1, 0)]
 }
-tracks/5/type = "audio"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("AudioStreamPlayer2D")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
+tracks/2/type = "audio"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AudioStreamPlayer2D")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
 "clips": [{
 "end_offset": 32.5569,
 "start_offset": 0.0432215,
@@ -382,18 +320,30 @@ tracks/5/keys = {
 }],
 "times": PackedFloat32Array(0)
 }
-tracks/5/use_blend = true
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("AudioStreamPlayer2D:volume_db")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
+tracks/2/use_blend = true
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AudioStreamPlayer2D:volume_db")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
 "times": PackedFloat32Array(0, 1.26667, 2.16667, 3.86667, 4),
 "transitions": PackedFloat32Array(1, 1.86606, 1.86606, 7.46426, 1),
 "update": 0,
 "values": [0.0, 0.0, 0.0, -44.808, 0.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Drought:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(948, 521), Vector2(-955, -529)]
 }
 
 [sub_resource type="Animation" id="Animation_nmop0"]
@@ -550,6 +500,7 @@ scale = Vector2(0.15, 0.15)
 [node name="Flood" type="Sprite2D" parent="."]
 visible = false
 modulate = Color(1, 1, 1, 0.545098)
+z_index = 1
 position = Vector2(960.297, -544)
 scale = Vector2(0.0951683, 16.906)
 texture = SubResource("GradientTexture2D_xeuic")
@@ -559,7 +510,9 @@ offset = Vector2(-63.97, 0)
 [node name="Drought" type="Sprite2D" parent="."]
 visible = false
 modulate = Color(1, 1, 1, 0.466667)
-scale = Vector2(3.83594, 2.15039)
+z_index = 1
+position = Vector2(948, 521)
+scale = Vector2(7.50684, 4.2102)
 texture = SubResource("NoiseTexture2D_1fyyh")
 
 [node name="MouseCropSprite" type="Sprite2D" parent="." node_paths=PackedStringArray("farming_node")]
@@ -849,10 +802,10 @@ libraries = {
 
 [node name="ColorRect" type="ColorRect" parent="."]
 z_index = 4096
-offset_left = -1175.0
-offset_top = -685.0
-offset_right = 1188.0
-offset_bottom = 636.0
+offset_left = -1403.0
+offset_top = -778.0
+offset_right = 960.0
+offset_bottom = 543.0
 color = Color(0.0588235, 0.396078, 0.596078, 0)
 
 [connection signal="pressed" from="TopBar/BeanButton" to="." method="_on_bean_button_pressed"]
@@ -864,3 +817,19 @@ color = Color(0.0588235, 0.396078, 0.596078, 0)
 [connection signal="pressed" from="TopBar/WaterButton" to="." method="_on_water_button_pressed"]
 [connection signal="pressed" from="TopBar/AshButton" to="." method="_on_ash_button_pressed"]
 [connection signal="pressed" from="TopBar/Button" to="." method="_on_cropinfobutton_pressed"]
+[connection signal="input_event" from="FarmTileMap/Plot" to="FarmTileMap/Plot" method="_on_input_event"]
+[connection signal="input_event" from="FarmTileMap/@Area2D@22796" to="FarmTileMap/@Area2D@22796" method="_on_input_event"]
+[connection signal="input_event" from="FarmTileMap/@Area2D@22797" to="FarmTileMap/@Area2D@22797" method="_on_input_event"]
+[connection signal="input_event" from="FarmTileMap/@Area2D@22798" to="FarmTileMap/@Area2D@22798" method="_on_input_event"]
+[connection signal="input_event" from="FarmTileMap/@Area2D@22799" to="FarmTileMap/@Area2D@22799" method="_on_input_event"]
+[connection signal="input_event" from="FarmTileMap/@Area2D@22800" to="FarmTileMap/@Area2D@22800" method="_on_input_event"]
+[connection signal="input_event" from="FarmTileMap/@Area2D@22801" to="FarmTileMap/@Area2D@22801" method="_on_input_event"]
+[connection signal="input_event" from="FarmTileMap/@Area2D@22802" to="FarmTileMap/@Area2D@22802" method="_on_input_event"]
+[connection signal="input_event" from="FarmTileMap/@Area2D@22803" to="FarmTileMap/@Area2D@22803" method="_on_input_event"]
+[connection signal="input_event" from="FarmTileMap/@Area2D@22804" to="FarmTileMap/@Area2D@22804" method="_on_input_event"]
+[connection signal="input_event" from="FarmTileMap/@Area2D@22805" to="FarmTileMap/@Area2D@22805" method="_on_input_event"]
+[connection signal="input_event" from="FarmTileMap/@Area2D@22806" to="FarmTileMap/@Area2D@22806" method="_on_input_event"]
+[connection signal="input_event" from="FarmTileMap/@Area2D@22807" to="FarmTileMap/@Area2D@22807" method="_on_input_event"]
+[connection signal="input_event" from="FarmTileMap/@Area2D@22808" to="FarmTileMap/@Area2D@22808" method="_on_input_event"]
+[connection signal="input_event" from="FarmTileMap/@Area2D@22809" to="FarmTileMap/@Area2D@22809" method="_on_input_event"]
+[connection signal="input_event" from="FarmTileMap/@Area2D@22810" to="FarmTileMap/@Area2D@22810" method="_on_input_event"]

@@ -116,6 +116,9 @@ func _on_clear_button_pressed() -> void:
 	mouse_crop_sprite.hide()
 	self.is_watering = false
 	self.is_ashing = false
+	#$AnimationPlayer.play("drought")
+	#await $AnimationPlayer.animation_finished
+	#$AnimationPlayer.play("flood")
 
 
 func _on_next_button_pressed() -> void:
