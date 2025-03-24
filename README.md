@@ -1,2 +1,3 @@
-# ctrl-alt-defeat-game
-The Game Files for team Ctrl-Alt-Delete
+# Fiji Farms
+### A game by CTRL-ALT-DEFEAT Studios
+Play our game using this link: https://heskett.itch.io/fiji-farms
